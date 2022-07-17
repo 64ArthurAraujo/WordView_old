@@ -1,12 +1,14 @@
 <script lang="ts">
+import PlusButton from "./components/PlusButton.svelte";
 import Sidebar from "./components/Sidebar.svelte";
 </script>
 
 
-<body class="bg-back-black">
+<body class="bg-black-light">
     
     <main>
         <Sidebar />
+        <PlusButton />
     </main>
 
 </body>
