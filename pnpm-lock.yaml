@@ -5,6 +5,7 @@ specifiers:
   '@rollup/plugin-node-resolve': ^11.0.0
   '@rollup/plugin-typescript': ^8.0.0
   '@tsconfig/svelte': ^2.0.0
+  '@types/node': ^18.0.5
   autoprefixer: ^10.4.7
   cross-env: ^7.0.3
   electron: ^19.0.8
@@ -35,6 +36,7 @@ devDependencies:
   '@rollup/plugin-node-resolve': 11.2.1_rollup@2.77.0
   '@rollup/plugin-typescript': 8.3.3_sbpikdwgo7pbmeew3vug7t5zyu
   '@tsconfig/svelte': 2.0.1
+  '@types/node': 18.0.5
   autoprefixer: 10.4.7_postcss@8.4.14
   cross-env: 7.0.3
   electron: 19.0.8

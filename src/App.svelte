@@ -1,8 +1,13 @@
 <script lang="ts">
-    import PlusButton from "./components/PlusButton.svelte";
-    import Sidebar from "./components/Sidebar.svelte";
-</script>
+import PlusButton from "./components/PlusButton.svelte";
+import Sidebar from "./components/Sidebar.svelte";
+import { onMount } from "svelte";
+import { fetchWordmaps } from "./actions";
 
+onMount(() => {
+    fetchWordmaps();
+});
+</script>
 
 <body class="bg-black-light">
     
