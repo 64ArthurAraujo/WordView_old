@@ -9,8 +9,15 @@ module.exports = {
 
         'white': '#ffffff',
 
-        'focus-black': '#0B0B0B',
-        'back-black': '#1B1A1A',
+        'black': {
+            'light': "#1B1A1A",
+            'focus': '#0B0B0B',
+        },
+        
+        'accent':  {
+            "regular": "#8951FF",
+            "darker": "#6d40c9",
+        },
     },
   },
   plugins: [],
