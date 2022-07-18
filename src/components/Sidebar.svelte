@@ -1,5 +1,7 @@
-<div class="bg-black-focus h-full w-1/5 fixed float-left">
-    <div class="w-full flex items-center justify-center mt-5">
-        <h2 class="text-white text-2xl"><b>WordView</b></h2>
-    </div>
+<script lang="ts">
+    export let direction: string = "left";
+</script>
+
+<div class={`bg-black-focus h-full w-1/5 fixed ${direction}-0`}>
+    <slot/>
 </div>

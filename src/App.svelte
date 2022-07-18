@@ -1,8 +1,11 @@
 <script lang="ts">
-import PlusButton from "./components/PlusButton.svelte";
-import Sidebar from "./components/Sidebar.svelte";
+import Editor from "./routes/Editor.svelte";
+import Home from "./routes/Home.svelte";
 import { onMount } from "svelte";
 import { fetchWordmaps } from "./actions";
+import { specifiedState, State } from "./actions/state";
+
+export let state: State = specifiedState() ?? State.home;
 
 onMount(() => {
     fetchWordmaps();
@@ -10,12 +13,15 @@ onMount(() => {
 </script>
 
 <body class="bg-black-light">
-    
     <main>
-        <Sidebar />
-        <PlusButton />
-    </main>
 
+        {#if state == State.home}
+            <Home />
+        {:else if state == State.editor}
+            <Editor />
+        {/if}
+
+    </main>
 </body>
 
 <style lang="postcss" global>

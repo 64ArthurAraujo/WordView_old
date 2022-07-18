@@ -1,11 +1,3 @@
-const { ipcRenderer } = require('electron');
-
 export function fetchWordmaps() {
-
-    ipcRenderer.send('request', 'host-data-folder');
-
-    ipcRenderer.on('response', (event, arg) => {
-        console.log(arg);
-    });
-    
+    console.log(process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + '/Library/Preferences' : process.env.HOME + "/.local/share"));
 }
