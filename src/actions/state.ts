@@ -26,7 +26,6 @@ function parseState(state: string) {
 }
 
 export function navigate(state: string) {
-    window.location.href = window.location.href += `?state=${state}`;
-
-    console.log(window.location.href);
+    // weird but that worked, nice ig
+    window.location.replace(window.location.href.split("?")[0] += `?state=${state}`)
 }

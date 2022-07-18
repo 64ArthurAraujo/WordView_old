@@ -10,6 +10,8 @@ module.exports = {
         'white': '#ffffff',
 
         'black': {
+            'lightest': "#262626",
+            'lighter': "#121212",
             'light': "#1B1A1A",
             'focus': '#0B0B0B',
         },
