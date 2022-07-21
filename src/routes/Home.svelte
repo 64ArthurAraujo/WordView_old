@@ -1,12 +1,15 @@
 <script lang="ts">
-    import PlusButton from "../components/PlusButton.svelte";
-    import Sidebar from "../components/Sidebar.svelte";
+import PlusButton from "../components/PlusButton.svelte";
+import Topbar from "../components/Topbar.svelte";
+import WordmapContainer from "../components/WordmapContainer.svelte";
 </script>
 
-<Sidebar>
-    <div class="w-full flex items-center justify-center mt-5">
-        <h2 class="text-white text-2xl select-none"><b>WordView</b></h2>
+<Topbar>
+    <div class="h-full flex items-center justify-centers pl-4">
+        <h2 class="text-white text-xl select-none"><b>WordView</b></h2>
     </div>
-</Sidebar>
+</Topbar>
+
+<WordmapContainer />
 
 <PlusButton />

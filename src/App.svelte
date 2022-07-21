@@ -1,28 +1,20 @@
 <script lang="ts">
 import Editor from "./routes/Editor.svelte";
 import Home from "./routes/Home.svelte";
-import { onMount } from "svelte";
-import { fetchWordmaps } from "./actions";
 import { specifiedState, State } from "./actions/state";
 
 export let state: State = specifiedState() ?? State.home;
-
-onMount(() => {
-    fetchWordmaps();
-});
 </script>
 
-<body class="bg-black-light">
-    <main>
+<main>
 
-        {#if state == State.home}
-            <Home />
-        {:else if state == State.editor}
-            <Editor />
-        {/if}
+    {#if state == State.home}
+        <Home />
+    {:else if state == State.editor}
+        <Editor />
+    {/if}
 
-    </main>
-</body>
+</main>
 
 <style lang="postcss" global>
 	@tailwind base;
@@ -30,4 +22,11 @@ onMount(() => {
 	@tailwind utilities;
 
 	html, body { margin: 0; padding: 0 }
+    body { 
+        background-color: #1B1A1A; 
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 </style>
