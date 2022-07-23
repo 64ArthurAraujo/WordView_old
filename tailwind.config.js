@@ -7,9 +7,13 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
 
-        'white': '#ffffff',
+        'white': {
+            'regular': '#ffffff',
+            'darker': '#b5b5b5',
+        },
 
         'black': {
+            'select': '#404040',
             'lightest': "#262626",
             'lighter': "#121212",
             'light': "#1B1A1A",
