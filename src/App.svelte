@@ -1,14 +1,13 @@
 <script lang="ts">
-import Editor from "./routes/Editor.svelte";
+import Editor from "./contexts/Editor.svelte";
 import WordmapCreator from "./components/creator/WordmapCreator.svelte";
-import PlusButton from "./components/PlusButton.svelte";
 import Topbar from "./components/Topbar.svelte";
 import WordmapContainer from "./components/WordmapContainer.svelte";
 import { isWordmapCreatorOpen, isEditorOpen } from "./stores/overlay";
+import PlusButton from "./components/PlusButton.svelte";
 </script>
 
 <main>
-
     <Topbar>
         <div class="h-full flex items-center justify-centers pl-4">
             <h2 class="text-white-regular text-xl select-none"><b>WordView</b></h2>
@@ -16,9 +15,9 @@ import { isWordmapCreatorOpen, isEditorOpen } from "./stores/overlay";
     </Topbar>
     
     <WordmapContainer />
-    
+
     <PlusButton />
-    
+
     {#if $isWordmapCreatorOpen }
         <WordmapCreator />
     {/if}
