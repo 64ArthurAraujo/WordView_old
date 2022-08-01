@@ -3,6 +3,7 @@ import { isWordmapCreatorOpen } from "../../stores/overlay";
 import { ArrowLeftIcon } from "svelte-feather-icons";
 import OverlayContainer from "../OverlayContainer.svelte";
 import Input from "./Input.svelte";
+import AudioButton from "./AudioButton.svelte";
 </script>
 
 <OverlayContainer>
@@ -16,9 +17,13 @@ import Input from "./Input.svelte";
             <h2 class="flex text-white-regular mt-4">New Wordmap</h2>
         </div>
 
-        <div class="flex mt-8 items-center justify-center">
+        <div class="flex mt-8 flex-col items-center">
             <Input placeholder="Title" />
-            <Input placeholder="Description" />
+            <Input placeholder="Description" class="mt-4"/>
+        </div>
+
+        <div class="flex mt-8 flex-col items-center">
+            <AudioButton />
         </div>
     </div>
 </OverlayContainer>
