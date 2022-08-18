@@ -1,12 +1,23 @@
-export function openFilePrompt() {
-    let fileInput: HTMLInputElement = document.createElement("input");
-    
-    fileInput.type = "file";
-    fileInput.setAttribute("visibility", "hidden");
+export function openFilePrompt(): Promise<File> {
+    return new Promise((resolve, reject) => {
+        let fileInput: HTMLInputElement = document.createElement("input");
+        let selectedFile: FileList;
 
-    fileInput.click();
+        fileInput.type = "file";
+        fileInput.setAttribute("visibility", "hidden");
 
-    fileInput.addEventListener("change", () => {
-        document.body.removeChild(fileInput);
+        fileInput.click();
+
+        fileInput.addEventListener("change", () => {
+            const files = fileInput.files;
+
+            if (!files.length) clear();
+
+            resolve(files[0]);
+        });
+
+        function clear() {
+            document.body.removeChild(fileInput);
+        }
     });
 }

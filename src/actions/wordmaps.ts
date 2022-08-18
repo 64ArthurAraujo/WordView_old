@@ -1,12 +1,9 @@
+import { randomUUID } from "crypto";
+import { wordmapsFolder } from "../util/constants";
 import type { WordMap } from "./types/wordmap";
+
 const fs = require("fs");
 
-const dataFolder = process.env.APPDATA || (
-    process.platform == 'darwin' ? process.env.HOME + '/Library/Preferences' :
-    process.env.HOME + "/.local/share"
-)
-
-const wordmapsFolder = dataFolder + "/wordview/wordmaps/";
 
 export function fetchWordmaps(): WordMap[] {
     if (!fs.existsSync(wordmapsFolder)) {
@@ -15,10 +12,10 @@ export function fetchWordmaps(): WordMap[] {
 
     const files = fs.readdirSync(wordmapsFolder) as string[];
 
-    if (files.length === 0) 
+    if (files.length === 0)
         return new Array<WordMap>();
-    
-    const wordmaps = parseWordmaps(files); 
+
+    const wordmaps = parseWordmaps(files);
 
     return wordmaps;
 }
@@ -26,11 +23,9 @@ export function fetchWordmaps(): WordMap[] {
 
 
 function parseWordmaps(files: string[]): WordMap[] {
-    console.log("parsing wordmaps...")
-
     const wordmapsFiles = wordmapsInFiles(files);
 
-    if (wordmapsFiles.length === 0) 
+    if (wordmapsFiles.length === 0)
         return new Array<WordMap>();
 
     return processWordmaps(wordmapsFiles) as WordMap[];
@@ -60,3 +55,26 @@ function wordmapsInFiles(files: string[]) {
     return wordmaps;
 }
 
+// Wordmap Creation //
+
+export function createWordmap(audioPath: string, title: string, description: string) {
+    let wordmapId = randomUUID();
+
+    if (!fs.existsSync(wordmapsFolder + "/audio")) {
+        fs.mkdirSync(wordmapsFolder + "/audio", { recursive: true });
+    }
+
+    fs.copyFileSync(audioPath, wordmapsFolder + `audio/${wordmapId}`);
+
+    const wordmap: WordMap = {
+        id: wordmapId,
+        title: title,
+        description: description,
+        durationInMiliseconds: 0,
+        thumb: "",
+        audioPath: `${wordmapsFolder}audio/${wordmapId}`,
+        points: []
+    }
+
+    fs.writeFileSync(wordmapsFolder + `${wordmapId}.wordmap.json`, JSON.stringify(wordmap));
+}

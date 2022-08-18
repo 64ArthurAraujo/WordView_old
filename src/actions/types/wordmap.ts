@@ -4,7 +4,7 @@ export interface WordMap {
     description: string;
     durationInMiliseconds: number;
     thumb: string;
-    audio: HTMLAudioElement;
+    audioPath: string;
     points: ImagePoint[];
 }
 
