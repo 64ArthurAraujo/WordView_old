@@ -1,11 +1,13 @@
 import { randomUUID } from "crypto";
 import { wordmapsFolder } from "../util/constants";
+import { isWordmapCreatorOpen } from "../stores/overlay";
+import { wordmaps } from "../stores/overlay";
 import type { WordMap } from "./types/wordmap";
 
 const fs = require("fs");
 
 
-export function fetchWordmaps(): WordMap[] {
+export function fetchWordmaps() {
     if (!fs.existsSync(wordmapsFolder)) {
         fs.mkdirSync(wordmapsFolder, { recursive: true });
     }
@@ -15,9 +17,9 @@ export function fetchWordmaps(): WordMap[] {
     if (files.length === 0)
         return new Array<WordMap>();
 
-    const wordmaps = parseWordmaps(files);
+    const wordMaps = parseWordmaps(files);
 
-    return wordmaps;
+    wordmaps.set(wordMaps);
 }
 
 
@@ -77,4 +79,7 @@ export function createWordmap(audioPath: string, title: string, description: str
     }
 
     fs.writeFileSync(wordmapsFolder + `${wordmapId}.wordmap.json`, JSON.stringify(wordmap));
+    isWordmapCreatorOpen.set(false);
+
+    fetchWordmaps();
 }

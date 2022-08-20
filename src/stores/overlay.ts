@@ -1,5 +1,8 @@
 import { writable } from "svelte/store";
+import type { WordMap } from "../actions/types/wordmap";
 
+
+export const wordmaps = writable([] as WordMap[]);
 
 export const isWordmapCreatorOpen = writable(false);
 
