@@ -1,10 +1,16 @@
 <script lang="ts">
-    import { slide } from "svelte/transition";
+    import { fade } from "svelte/transition";
 </script>
 
 <div
-    transition:slide
-    class="z-10 h-screen w-screen fixed top-0 left-0 flex justify-center items-center"
+    transition:fade={{ duration: 250 }}
+    class="z-10 h-full w-full fixed top-0 left-0 justify-center flex select-none"
 >
-    <slot />
+    <div
+        class="h-12 w-1/4 bg-accent-darker rounded-xl flex mt-4 text-center justify-center items-center"
+    >
+        <p class="text-white-regular">
+            <b><slot /></b>
+        </p>
+    </div>
 </div>

@@ -1,11 +1,7 @@
 <script lang="ts">
     import { createWordmap } from "../../actions";
     import { openFilePrompt } from "../../actions/open-file-prompt";
-    import OverlayContainer from "../OverlayContainer.svelte";
-    import {
-        isNotificationShown,
-        showNotification,
-    } from "../../stores/overlay";
+    import { showNotification } from "../../stores/overlay";
 
     function checkInfoComplete() {
         const title = document.getElementById(
@@ -22,7 +18,7 @@
             !title.value ||
             !description.value
         ) {
-            showNotification(1000);
+            showNotification(2000, "Please fill all the inputs!");
 
             return false;
         }
@@ -49,6 +45,11 @@
 
         const audio = await openFilePrompt();
 
+        if (audio.type !== "audio/mpeg") {
+            showNotification(1000, "Invalid audio type!");
+            return;
+        }
+
         createWordmap(audio.path, title, description);
     }
 </script>
@@ -59,13 +60,3 @@
 >
     <h4 class="text-white-darker">Open Audio File...</h4>
 </div>
-
-{#if $isNotificationShown}
-    <OverlayContainer>
-        <div
-            class="h-1/6 w-1/4 bg-accent-darker rounded-xl top-0 flex text-center justify-center items-center"
-        >
-            <p class="text-white-regular">Please fill all the inputs!</p>
-        </div>
-    </OverlayContainer>
-{/if}
