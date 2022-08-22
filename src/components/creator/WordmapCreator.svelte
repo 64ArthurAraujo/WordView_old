@@ -7,7 +7,7 @@
 </script>
 
 <OverlayContainer>
-    <div class="h-3/4 w-3/4 bg-black-lighter rounded-md relative">
+    <div class="z-30 h-3/4 w-3/4 bg-black-lighter rounded-md relative">
         <div class="flex w-full h-fit top-4 items-center justify-center">
             <div
                 on:click={() => isWordmapCreatorOpen.set(false)}

@@ -18,7 +18,7 @@
             !title.value ||
             !description.value
         ) {
-            showNotification(2000, "Please fill all the inputs!");
+            showNotification(1250, "Please fill all the inputs!");
 
             return false;
         }

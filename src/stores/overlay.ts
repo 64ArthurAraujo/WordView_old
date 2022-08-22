@@ -4,6 +4,18 @@ import type { WordMap } from "../actions/types/wordmap";
 
 export const wordmaps = writable([] as WordMap[]);
 
+export const currentWordmap = writable({} as WordMap)
+
+export function setCurrentWordmap(uuid: string) {
+    wordmaps.subscribe(wordmaps => {
+        for (const wordmap of wordmaps) {
+            if (wordmap.id === uuid) {
+                currentWordmap.set(wordmap);
+            }
+        }
+    })
+}
+
 export const isWordmapCreatorOpen = writable(false);
 
 
@@ -21,5 +33,5 @@ export function showNotification(time: number, message: string) {
 
 
 export const isEditorOpen = writable(false);
-export const editingId = writable("null");
+
 
