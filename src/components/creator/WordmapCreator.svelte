@@ -1,13 +1,18 @@
 <script lang="ts">
     import { isWordmapCreatorOpen } from "../../stores/overlay";
     import { ArrowLeftIcon } from "svelte-feather-icons";
+    import { scale } from "svelte/transition";
     import OverlayContainer from "../OverlayContainer.svelte";
     import Input from "./Input.svelte";
     import AudioButton from "./AudioButton.svelte";
+    import ImageButton from "./ImageButton.svelte";
 </script>
 
 <OverlayContainer>
-    <div class="z-30 h-3/4 w-3/4 bg-black-lighter rounded-md relative">
+    <div
+        transition:scale={{ duration: 500 }}
+        class="z-30 h-3/4 w-3/4 bg-black-lighter rounded-md relative"
+    >
         <div class="flex w-full h-fit top-4 items-center justify-center">
             <div
                 on:click={() => isWordmapCreatorOpen.set(false)}
@@ -19,8 +24,12 @@
             <h2 class="flex text-white-regular mt-4">New Wordmap</h2>
         </div>
 
-        <form>
-            <div class="flex mt-8 flex-col items-center">
+        <div
+            class="flex flex-row items-center content-center justify-center w-full mt-8"
+        >
+            <ImageButton />
+
+            <div class="flex flex-col items-center">
                 <Input id="wordmap-title" placeholder="Title" />
                 <Input
                     id="wordmap-description"
@@ -28,7 +37,7 @@
                     class="mt-4"
                 />
             </div>
-        </form>
+        </div>
 
         <div class="flex mt-8 flex-col items-center">
             <AudioButton />

@@ -3,7 +3,7 @@ export interface WordMap {
     title: string;
     description: string;
     durationInMiliseconds: number;
-    thumb: string;
+    thumbPath: string;
     audioPath: string;
     points: ImagePoint[];
 }

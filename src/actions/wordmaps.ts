@@ -3,6 +3,7 @@ import { wordmapsFolder } from "../util/constants";
 import { isWordmapCreatorOpen } from "../stores/overlay";
 import { wordmaps } from "../stores/overlay";
 import type { WordMap } from "./types/wordmap";
+import { fileExists } from "../util/file";
 
 const fs = require("fs");
 
@@ -59,7 +60,7 @@ function wordmapsInFiles(files: string[]) {
 
 // Wordmap Creation //
 
-export function createWordmap(audioPath: string, title: string, description: string) {
+export function createWordmap(audioPath: string, title: string, description: string, thumbPath?: string) {
     let wordmapId = randomUUID();
 
     if (!fs.existsSync(wordmapsFolder + "/audio")) {
@@ -68,12 +69,23 @@ export function createWordmap(audioPath: string, title: string, description: str
 
     fs.copyFileSync(audioPath, wordmapsFolder + `audio/${wordmapId}`);
 
+    console.log(thumbPath);
+    console.log(thumbPath.length);
+
+    if (thumbPath.length > 0) {
+        if (!fs.existsSync(wordmapsFolder + "/thumb")) {
+            fs.mkdirSync(wordmapsFolder + "/thumb", { recursive: true });
+        }
+
+        fs.copyFileSync(thumbPath.replace("file://", ""), `${wordmapsFolder}thumb/${wordmapId}`);
+    }
+
     const wordmap: WordMap = {
         id: wordmapId,
         title: title,
         description: description,
         durationInMiliseconds: 0,
-        thumb: "",
+        thumbPath: `${wordmapsFolder}thumb/${wordmapId}` ?? "",
         audioPath: `${wordmapsFolder}audio/${wordmapId}`,
         points: []
     }

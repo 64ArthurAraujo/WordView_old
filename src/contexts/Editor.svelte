@@ -9,6 +9,13 @@
     import ProgressBar from "../components/editor/ProgressBar.svelte";
     import SkipBackButton from "../components/editor/SkipBackButton.svelte";
     import SkipForwardButton from "../components/editor/SkipForwardButton.svelte";
+    import { fileExists } from "../util/file";
+
+    let fileDoExist;
+
+    if ($currentWordmap.thumbPath != "") {
+        fileDoExist = fileExists($currentWordmap.thumbPath);
+    } else fileDoExist = false;
 </script>
 
 <OverlayContainer>
@@ -36,7 +43,17 @@
         <div
             class="bottom-0 h-full w-full flex items-center content-center justify-start flex-row"
         >
-            <div class=" h-20 w-20 bg-black-lightest mx-3 rounded" />
+            <div
+                class=" h-20 w-20 bg-black-lightest mx-3 rounded overflow-hidden"
+            >
+                {#if fileDoExist}
+                    <!-- svelte-ignore a11y-missing-attribute -->
+                    <img
+                        src={$currentWordmap.thumbPath}
+                        class="h-full w-full select-none"
+                    />
+                {/if}
+            </div>
 
             <div
                 class="h-20 items-center content-center justify-start flex-col"

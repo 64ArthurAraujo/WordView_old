@@ -12,7 +12,7 @@
     {id}
     {type}
     {placeholder}
-    class={`border-none rounded-md text-white-regular outline-none px-4 h-12 w-1/3 select-none bg-black-lightest hover:bg-black-select transition-colors ${
+    class={`border-none rounded-md text-white-regular outline-none px-4 h-12 w-56 select-none bg-black-lightest hover:bg-black-select transition-colors ${
         clazz || ""
     }`}
 />

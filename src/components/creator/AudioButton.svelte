@@ -50,7 +50,15 @@
             return;
         }
 
-        createWordmap(audio.path, title, description);
+        const thumbInput = document.getElementById(
+            "preview"
+        ) as HTMLImageElement;
+
+        if (thumbInput.src != undefined || thumbInput.src != "") {
+            createWordmap(audio.path, title, description, thumbInput.src);
+        } else {
+            createWordmap(audio.path, title, description);
+        }
     }
 </script>
 
