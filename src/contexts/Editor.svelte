@@ -29,7 +29,7 @@
     <Sidebar>
         <div
             on:click={() => isEditorOpen.set(false)}
-            class="bg-black-lightest hover:bg-accent-regular transition-colors hover:cursor-pointer mt-2 ml-2 px-2 py-2 border-none fixed rounded-full"
+            class="absolute top-4 left-4 border-2 bg-black-light hover:bg-accent-regular transition-colors rounded-full px-2 py-2 hover:cursor-pointer"
         >
             <ArrowLeftIcon size="14" class="invert" />
         </div>
@@ -44,7 +44,7 @@
             class="bottom-0 h-full w-full flex items-center content-center justify-start flex-row"
         >
             <div
-                class=" h-20 w-20 bg-black-lightest mx-3 rounded overflow-hidden"
+                class=" h-20 w-20 border-2 bg-black-light mx-3 rounded overflow-hidden"
             >
                 {#if fileDoExist}
                     <!-- svelte-ignore a11y-missing-attribute -->

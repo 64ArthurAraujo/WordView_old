@@ -17,7 +17,7 @@
 
 <div
     on:click={() => play()}
-    class="h-10 w-10 bg-black-lightest rounded-full hover:cursor-pointer hover:bg-accent-regular transition-colors flex items-center content-center justify-center mx-4"
+    class="h-10 w-10 border-2 bg-black-light rounded-full hover:cursor-pointer hover:bg-accent-regular transition-colors flex items-center content-center justify-center mx-4"
 >
     {#if !audio}
         <PlayIcon size="14" class="invert" />

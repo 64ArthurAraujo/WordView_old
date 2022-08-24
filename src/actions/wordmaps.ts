@@ -95,3 +95,18 @@ export function createWordmap(audioPath: string, title: string, description: str
 
     fetchWordmaps();
 }
+
+
+export function deleteWordmap(uuid: string) {
+    const filesToDelete = [
+        wordmapsFolder + uuid + ".wordmap.json",
+        wordmapsFolder + "/audio/" + uuid,
+        wordmapsFolder + "/thumb/" + uuid
+    ]
+
+    for (const file of filesToDelete) {
+        try {
+            fs.unlinkSync(file);
+        } catch (err) { }
+    }
+}

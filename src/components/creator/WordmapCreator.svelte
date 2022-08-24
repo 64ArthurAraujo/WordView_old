@@ -16,7 +16,7 @@
         <div class="flex w-full h-fit top-4 items-center justify-center">
             <div
                 on:click={() => isWordmapCreatorOpen.set(false)}
-                class="absolute top-4 left-4 bg-black-lightest hover:bg-accent-regular transition-colors rounded-full px-2 py-2 hover:cursor-pointer"
+                class="absolute top-4 left-4 border-2 bg-black-light hover:bg-accent-regular transition-colors rounded-full px-2 py-2 hover:cursor-pointer"
             >
                 <ArrowLeftIcon size="14" class="invert" />
             </div>
