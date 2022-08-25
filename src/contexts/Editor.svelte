@@ -3,13 +3,14 @@
     import BottomBar from "../components/editor/BottomBar.svelte";
     import OverlayContainer from "../components/OverlayContainer.svelte";
     import { isEditorOpen } from "../stores/overlay";
-    import { ArrowLeftIcon } from "svelte-feather-icons";
+    import { ArrowLeftIcon, Volume2Icon } from "svelte-feather-icons";
     import { currentWordmap } from "../stores/overlay";
     import PauseButton from "../components/editor/PauseButton.svelte";
     import ProgressBar from "../components/editor/ProgressBar.svelte";
     import SkipBackButton from "../components/editor/SkipBackButton.svelte";
     import SkipForwardButton from "../components/editor/SkipForwardButton.svelte";
     import { fileExists } from "../util/file";
+    import VolumeBar from "../components/editor/VolumeBar.svelte";
 
     let fileDoExist;
 
@@ -73,6 +74,13 @@
                 <SkipBackButton />
                 <PauseButton />
                 <SkipForwardButton />
+            </div>
+
+            <div
+                class="h-full w-1/6 fixed flex items-center content-center right-0 justify-center flex-row mr-4"
+            >
+                <Volume2Icon size="20" class="invert mr-4" />
+                <VolumeBar />
             </div>
         </div>
     </BottomBar>
