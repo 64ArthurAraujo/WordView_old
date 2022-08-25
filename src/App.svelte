@@ -1,62 +1,62 @@
 <script lang="ts">
-    import Editor from "./contexts/Editor.svelte";
-    import WordmapCreator from "./components/creator/WordmapCreator.svelte";
-    import Topbar from "./components/Topbar.svelte";
-    import WordmapContainer from "./components/WordmapContainer.svelte";
-    import {
-        isWordmapCreatorOpen,
-        isEditorOpen,
-        isNotificationShown,
-        notificationMessage,
-    } from "./stores/overlay";
-    import PlusButton from "./components/PlusButton.svelte";
-    import NotificationContainer from "./components/util/NotificationContainer.svelte";
+  import Editor from "./contexts/Editor.svelte";
+  import WordmapCreator from "./components/creator/WordmapCreator.svelte";
+  import Topbar from "./components/Topbar.svelte";
+  import WordmapContainer from "./components/WordmapContainer.svelte";
+  import {
+    isWordmapCreatorOpen,
+    isEditorOpen,
+    isNotificationShown,
+    notificationMessage,
+  } from "./stores/overlay";
+  import PlusButton from "./components/PlusButton.svelte";
+  import NotificationContainer from "./components/util/NotificationContainer.svelte";
 </script>
 
 <main>
-    <Topbar>
-        <div class="h-full flex items-center justify-centers pl-4">
-            <h2 class="text-white-regular text-xl select-none">
-                <b>WordView</b>
-            </h2>
-        </div>
-    </Topbar>
+  <Topbar>
+    <div class="h-full flex items-center justify-centers pl-4">
+      <h2 class="text-white-regular text-xl select-none">
+        <b>WordView</b>
+      </h2>
+    </div>
+  </Topbar>
 
-    <WordmapContainer />
+  <WordmapContainer />
 
-    <PlusButton />
+  <PlusButton />
 
-    {#if $isWordmapCreatorOpen}
-        <WordmapCreator />
-    {/if}
+  {#if $isWordmapCreatorOpen}
+    <WordmapCreator />
+  {/if}
 
-    {#if $isEditorOpen}
-        <Editor />
-    {/if}
+  {#if $isEditorOpen}
+    <Editor />
+  {/if}
 
-    {#if $isNotificationShown}
-        <NotificationContainer>
-            {$notificationMessage}
-        </NotificationContainer>
-    {/if}
+  {#if $isNotificationShown}
+    <NotificationContainer>
+      {$notificationMessage}
+    </NotificationContainer>
+  {/if}
 </main>
 
 <style lang="postcss" global>
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-    }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-    body {
-        background-color: #1b1a1a;
-    }
+  body {
+    background-color: #1b1a1a;
+  }
 
-    ::-webkit-scrollbar {
-        display: none;
-    }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 </style>

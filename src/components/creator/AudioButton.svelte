@@ -1,70 +1,64 @@
 <script lang="ts">
-    import { createWordmap } from "../../actions";
-    import { openFilePrompt } from "../../actions/open-file-prompt";
-    import { showNotification } from "../../stores/overlay";
+  import { createWordmap } from "../../actions";
+  import { openFilePrompt } from "../../actions/open-file-prompt";
+  import { showNotification } from "../../stores/overlay";
 
-    function checkInfoComplete() {
-        const title = document.getElementById(
-            "wordmap-title"
-        ) as HTMLInputElement;
+  function checkInfoComplete() {
+    const title = document.getElementById("wordmap-title") as HTMLInputElement;
 
-        const description = document.getElementById(
-            "wordmap-description"
-        ) as HTMLInputElement;
+    const description = document.getElementById(
+      "wordmap-description"
+    ) as HTMLInputElement;
 
-        if (
-            title.value == "" ||
-            description.value == "" ||
-            !title.value ||
-            !description.value
-        ) {
-            showNotification(1250, "Please fill all the inputs!");
+    if (
+      title.value == "" ||
+      description.value == "" ||
+      !title.value ||
+      !description.value
+    ) {
+      showNotification(1250, "Please fill all the inputs!");
 
-            return false;
-        }
-
-        return true;
+      return false;
     }
 
-    function wordmapInfo() {
-        const title = document.getElementById(
-            "wordmap-title"
-        ) as HTMLInputElement;
+    return true;
+  }
 
-        const description = document.getElementById(
-            "wordmap-description"
-        ) as HTMLInputElement;
+  function wordmapInfo() {
+    const title = document.getElementById("wordmap-title") as HTMLInputElement;
 
-        return { title: title.value, description: description.value };
+    const description = document.getElementById(
+      "wordmap-description"
+    ) as HTMLInputElement;
+
+    return { title: title.value, description: description.value };
+  }
+
+  async function setAudio() {
+    if (!checkInfoComplete()) return;
+
+    const { title, description } = wordmapInfo();
+
+    const audio = await openFilePrompt();
+
+    if (audio.type !== "audio/mpeg") {
+      showNotification(1000, "Invalid audio type!");
+      return;
     }
 
-    async function setAudio() {
-        if (!checkInfoComplete()) return;
+    const thumbInput = document.getElementById("preview") as HTMLImageElement;
 
-        const { title, description } = wordmapInfo();
-
-        const audio = await openFilePrompt();
-
-        if (audio.type !== "audio/mpeg") {
-            showNotification(1000, "Invalid audio type!");
-            return;
-        }
-
-        const thumbInput = document.getElementById(
-            "preview"
-        ) as HTMLImageElement;
-
-        if (thumbInput.src != undefined || thumbInput.src != "") {
-            createWordmap(audio.path, title, description, thumbInput.src);
-        } else {
-            createWordmap(audio.path, title, description);
-        }
+    if (thumbInput.src != undefined || thumbInput.src != "") {
+      createWordmap(audio.path, title, description, thumbInput.src);
+    } else {
+      createWordmap(audio.path, title, description);
     }
+  }
 </script>
 
 <div
-    on:click={() => setAudio()}
-    class="border-2 bg-black-light text-center justify-center items-center flex rounded-md outline-none px-4 h-12 w-1/2 select-none hover:bg-accent-darker hover:cursor-pointer transition-colors"
+  on:click={() => setAudio()}
+  class="border-2 bg-black-light text-center justify-center items-center flex rounded-md outline-none px-4 h-12 w-1/2 select-none hover:bg-accent-darker hover:cursor-pointer transition-colors"
 >
-    <h4 class="text-white-darker">Open Audio File...</h4>
+  <h4 class="text-white-darker">Open Audio File...</h4>
 </div>
