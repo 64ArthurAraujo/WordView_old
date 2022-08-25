@@ -1,5 +1,6 @@
 <script lang="ts">
   import { SkipForwardIcon } from "svelte-feather-icons";
+  import CircleButton from "../../util/CircleButton.svelte";
 
   let audio: HTMLAudioElement;
 
@@ -10,9 +11,11 @@
   }
 </script>
 
-<div
-  on:click={() => forward()}
-  class="h-9 w-9 border-2 bg-black-light rounded-full hover:cursor-pointer hover:bg-accent-regular transition-colors flex items-center content-center justify-center"
+<CircleButton
+  action={forward}
+  height="9"
+  width="9"
+  class="flex content-center items-center justify-center"
 >
   <SkipForwardIcon size="13" class="invert" />
-</div>
+</CircleButton>

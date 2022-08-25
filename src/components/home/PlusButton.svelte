@@ -1,6 +1,6 @@
 <script lang="ts">
   import { PlusIcon } from "svelte-feather-icons";
-  import { isWordmapCreatorOpen } from "../stores/overlay";
+  import { isWordmapCreatorOpen } from "../../stores/overlay";
 </script>
 
 <div

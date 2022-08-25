@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { openFilePrompt } from "../../actions/open-file-prompt";
-  import { showNotification } from "../../stores/overlay";
+  import { openFilePrompt } from "../../../actions/open-file-prompt";
+  import { showNotification } from "../../../stores/overlay";
 
   let isImageSelected = false;
   let displayImage = "none";

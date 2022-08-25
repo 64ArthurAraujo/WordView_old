@@ -1,15 +1,10 @@
 <script lang="ts">
-  import Editor from "./contexts/Editor.svelte";
-  import WordmapCreator from "./components/creator/WordmapCreator.svelte";
-  import Topbar from "./components/Topbar.svelte";
-  import WordmapContainer from "./components/WordmapContainer.svelte";
-  import {
-    isWordmapCreatorOpen,
-    isEditorOpen,
-    isNotificationShown,
-    notificationMessage,
-  } from "./stores/overlay";
-  import PlusButton from "./components/PlusButton.svelte";
+  import Editor from "./components/editor/Editor.svelte";
+  import WordmapCreator from "./components/home/WordmapCreator.svelte";
+  import Topbar from "./components/home/Topbar.svelte";
+  import WordmapContainer from "./components/home/WordmapContainer.svelte";
+  import { notificationMessage } from "./stores/overlay";
+  import PlusButton from "./components/home/PlusButton.svelte";
   import NotificationContainer from "./components/util/NotificationContainer.svelte";
 </script>
 
@@ -23,22 +18,12 @@
   </Topbar>
 
   <WordmapContainer />
-
   <PlusButton />
-
-  {#if $isWordmapCreatorOpen}
-    <WordmapCreator />
-  {/if}
-
-  {#if $isEditorOpen}
-    <Editor />
-  {/if}
-
-  {#if $isNotificationShown}
-    <NotificationContainer>
-      {$notificationMessage}
-    </NotificationContainer>
-  {/if}
+  <WordmapCreator />
+  <Editor />
+  <NotificationContainer>
+    {$notificationMessage}
+  </NotificationContainer>
 </main>
 
 <style lang="postcss" global>

@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { createWordmap } from "../../actions";
-  import { openFilePrompt } from "../../actions/open-file-prompt";
-  import { showNotification } from "../../stores/overlay";
+  import { createWordmap } from "../../../actions";
+  import { openFilePrompt } from "../../../actions/open-file-prompt";
+  import { showNotification } from "../../../stores/overlay";
+  import LayoutButton from "../../util/LayoutButton.svelte";
 
   function checkInfoComplete() {
     const title = document.getElementById("wordmap-title") as HTMLInputElement;
@@ -56,9 +57,11 @@
   }
 </script>
 
-<div
-  on:click={() => setAudio()}
-  class="border-2 bg-black-light text-center justify-center items-center flex rounded-md outline-none px-4 h-12 w-1/2 select-none hover:bg-accent-darker hover:cursor-pointer transition-colors"
+<LayoutButton
+  height="12"
+  width="1/2"
+  action={setAudio}
+  class="hover:bg-accent-regular"
 >
   <h4 class="text-white-darker">Open Audio File...</h4>
-</div>
+</LayoutButton>

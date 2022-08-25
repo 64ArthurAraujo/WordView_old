@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { FrownIcon } from "svelte-feather-icons";
-  import { fetchWordmaps } from "../actions";
-  import { wordmaps } from "../stores/overlay";
-  import Wordmap from "./home/Wordmap.svelte";
+  import { wordmaps } from "../../stores/overlay";
+  import { fetchWordmaps } from "../../actions";
+  import Wordmap from "./Wordmap.svelte";
 
   onMount(() => {
     fetchWordmaps();
