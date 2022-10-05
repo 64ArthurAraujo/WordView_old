@@ -5,7 +5,7 @@
 
   let audio: HTMLAudioElement;
 
-  function play() {
+  export function play() {
     audio = document.getElementById("editing-audio") as HTMLAudioElement;
 
     if (!audio.paused) {
@@ -24,7 +24,7 @@
 >
   {#if !audio}
     <PlayIcon size="14" class="invert" />
-  {:else if audio?.paused}
+  {:else if audio.paused}
     <PlayIcon size="14" class="invert" />
   {:else}
     <PauseIcon size="14" class="invert" />

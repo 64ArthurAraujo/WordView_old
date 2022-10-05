@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { currentWordmap } from "../../stores/overlay";
+  import { currentWordmap } from "../../stores/wordmap";
   import WordmapImage from "../util/WordmapImage.svelte";
 </script>
 

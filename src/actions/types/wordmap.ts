@@ -1,3 +1,5 @@
+export type PointType = "image" | "draw"
+
 export interface WordMap {
   id: string;
   title: string;
@@ -5,11 +7,13 @@ export interface WordMap {
   durationInMiliseconds: number;
   thumbPath: string;
   audioPath: string;
-  points: ImagePoint[];
+  points: Point[];
 }
 
-export interface ImagePoint {
+export interface Point {
   timelineLocation: number;
   fadeIn: number;
   fadeOut: number;
+  type: PointType;
+  path: string;
 }

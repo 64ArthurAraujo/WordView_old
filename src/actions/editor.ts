@@ -1,4 +1,5 @@
-import { isEditorOpen, setCurrentWordmap } from "../stores/overlay";
+import { isEditorOpen } from "../stores/overlay";
+import { setCurrentWordmap } from "../stores/wordmap";
 
 export function openToEdit(uuid: string) {
   setCurrentWordmap(uuid);

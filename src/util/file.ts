@@ -5,3 +5,8 @@ export function fileExists(path: string) {
     return true;
   } else return false;
 }
+
+
+export function isFileImage(file: File) {
+  return file.type.split("/")[0] === "image";
+}

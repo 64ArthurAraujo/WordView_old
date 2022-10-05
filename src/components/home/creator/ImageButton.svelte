@@ -1,13 +1,10 @@
 <script lang="ts">
   import { openFilePrompt } from "../../../actions/open-file-prompt";
   import { showNotification } from "../../../stores/overlay";
+  import { isFileImage } from "../../../util/file";
 
   let isImageSelected = false;
   let displayImage = "none";
-
-  function isFileImage(file: File) {
-    return file.type.split("/")[0] === "image";
-  }
 
   async function loadImage() {
     const image = await openFilePrompt();

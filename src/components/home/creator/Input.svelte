@@ -1,6 +1,7 @@
 <script lang="ts">
   export let type: string = "text";
   export let placeholder: string;
+  export let value: string = "";
   export let id: string = "";
 
   let clazz = "";
@@ -12,6 +13,7 @@
   {id}
   {type}
   {placeholder}
+  {value}
   class={`rounded-md text-white-regular outline-none px-4 h-12 w-56 select-none border-2 bg-black-light border-black-divborder hover:bg-black-select transition-colors ${
     clazz || ""
   }`}

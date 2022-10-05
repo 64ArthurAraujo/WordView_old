@@ -1,8 +1,8 @@
 import { randomUUID } from "crypto";
 import { wordmapsFolder } from "../util/constants";
 import { isWordmapCreatorOpen } from "../stores/overlay";
-import { wordmaps } from "../stores/overlay";
-import type { WordMap } from "./types/wordmap";
+import { wordmaps } from "../stores/wordmap";
+import type { PointType, WordMap } from "./types/wordmap";
 
 const fs = require("fs");
 
@@ -67,9 +67,6 @@ export function createWordmap(audioPath: string, title: string, description: str
 
   fs.copyFileSync(audioPath, wordmapsFolder + `audio/${wordmapId}`);
 
-  console.log(thumbPath);
-  console.log(thumbPath.length);
-
   if (thumbPath.length > 0) {
     if (!fs.existsSync(wordmapsFolder + "/thumb")) {
       fs.mkdirSync(wordmapsFolder + "/thumb", { recursive: true });
@@ -108,3 +105,14 @@ export function deleteWordmap(uuid: string) {
     } catch (err) { }
   }
 }
+
+// Wordmap Manipulation //
+
+export function newPoint(type: PointType, path: string) {
+  
+}
+
+// Others //
+function wordmapOf(uuid: string) { }
+function audioOf(uuid: string) { }
+function thumbOf(uuid: string) { }

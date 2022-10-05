@@ -10,13 +10,19 @@
 
 <main>
   <Topbar>
-    <div class="h-full flex items-center justify-centers pl-4">
+    <div class="h-full flex items-center justify-centers pl-4 flex-row">
+      <!-- svelte-ignore a11y-missing-attribute -->
+      <img
+        src="../public/wv.png"
+        width="30"
+        height="30"
+        class="mr-2 select-none"
+      />
       <h2 class="text-white-regular text-xl select-none">
         <b>WordView</b>
       </h2>
     </div>
   </Topbar>
-
   <WordmapContainer />
   <PlusButton />
   <WordmapCreator />
