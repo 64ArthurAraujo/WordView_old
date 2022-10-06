@@ -1,6 +1,6 @@
 <script lang="ts">
   import { openFilePrompt } from "../../../actions/open-file-prompt";
-  import { showNotification } from "../../../stores/overlay";
+  import { notify } from "../../../stores/overlay";
   import { isFileImage } from "../../../util/file";
 
   let isImageSelected = false;
@@ -10,7 +10,7 @@
     const image = await openFilePrompt();
 
     if (!isFileImage(image)) {
-      showNotification(800, "Invalid image file!");
+      notify(1000, "Invalid image file!");
       return;
     }
 

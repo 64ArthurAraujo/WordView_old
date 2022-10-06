@@ -3,7 +3,7 @@
   import { ChevronDownIcon, ChevronUpIcon } from "svelte-feather-icons";
   import { slide } from "svelte/transition";
 
-  let expanded: boolean = false;
+  let expanded: boolean = true;
 
   function expand() {
     if (expanded) {

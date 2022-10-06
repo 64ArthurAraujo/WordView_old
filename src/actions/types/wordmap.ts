@@ -1,4 +1,4 @@
-export type PointType = "image" | "draw"
+export type PointType = "image" | "doodle"
 
 export interface WordMap {
   id: string;

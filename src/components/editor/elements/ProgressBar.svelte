@@ -14,8 +14,6 @@
     if (!audio || !audio.currentTime) return;
 
     progressPercentage = calcPercentageFor(audio.currentTime, audio.duration);
-
-    console.log(progressPercentage);
   }, 250);
 </script>
 

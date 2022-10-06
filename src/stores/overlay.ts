@@ -2,9 +2,11 @@ import { writable } from "svelte/store";
 
 export const isWordmapCreatorOpen = writable(false);
 export const isNotificationShown = writable(false);
+export const isPlayerOpen = writable(false);
+
 export const notificationMessage = writable("null");
 
-export function showNotification(time: number, message: string) {
+export function notify(time: number, message: string) {
   notificationMessage.set(message);
   isNotificationShown.set(true);
 

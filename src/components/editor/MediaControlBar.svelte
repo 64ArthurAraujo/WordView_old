@@ -4,13 +4,15 @@
   import SkipBackButton from "./elements/SkipBackButton.svelte";
   import SkipForwardButton from "./elements/SkipForwardButton.svelte";
   import VolumeBar from "./elements/VolumeBar.svelte";
+
+  export let onPlay: Function;
 </script>
 
 <div
   class="h-full w-full fixed flex items-center content-center justify-center flex-row"
 >
   <SkipBackButton />
-  <PauseButton />
+  <PauseButton {onPlay} />
   <SkipForwardButton />
 </div>
 

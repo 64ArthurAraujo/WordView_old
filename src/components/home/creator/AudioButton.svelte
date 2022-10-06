@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createWordmap } from "../../../actions";
   import { openFilePrompt } from "../../../actions/open-file-prompt";
-  import { showNotification } from "../../../stores/overlay";
+  import { notify } from "../../../stores/overlay";
   import LayoutButton from "../../util/LayoutButton.svelte";
 
   function checkInfoComplete() {
@@ -17,7 +17,7 @@
       !title.value ||
       !description.value
     ) {
-      showNotification(1250, "Please fill all the inputs!");
+      notify(1000, "Please fill all the inputs!");
 
       return false;
     }
@@ -43,7 +43,7 @@
     const audio = await openFilePrompt();
 
     if (audio.type !== "audio/mpeg") {
-      showNotification(1000, "Invalid audio type!");
+      notify(1000, "Invalid audio type!");
       return;
     }
 

@@ -6,20 +6,29 @@
   import BottomBar from "./BottomBar.svelte";
   import OverlayContainer from "../util/OverlayContainer.svelte";
   import { isEditorOpen } from "../../stores/overlay";
-  import { currentWordmap } from "../../stores/wordmap";
+  import {
+    audioPaused,
+    currentPoint,
+    currentWordmap,
+  } from "../../stores/wordmap";
   import ProgressBar from "./elements/ProgressBar.svelte";
   import LeaveButton from "../util/LeaveButton.svelte";
   import Playfield from "./Playfield.svelte";
   import Container from "./Container.svelte";
   import ContainerRow from "./elements/ContainerRow.svelte";
-  import { scale } from "svelte/transition";
+  import { fade, scale, slide } from "svelte/transition";
   import ImageButton from "../home/creator/ImageButton.svelte";
   import Input from "../home/creator/Input.svelte";
   import InsertDoodleButton from "./elements/InsertDoodleButton.svelte";
+  import InsertImageImportButton from "./elements/InsertImageImportButton.svelte";
+  import ImageShower from "./elements/ImageShower.svelte";
+  import type { Point, WordMap } from "../../actions/types/wordmap";
 
   let showingImportImage: boolean;
 
   function exit() {
+    currentPoint.set({} as Point);
+    currentWordmap.set({} as WordMap);
     isEditorOpen.set(false);
   }
 
@@ -30,6 +39,7 @@
 
     let audio = document.getElementById("editing-audio") as HTMLAudioElement;
     audio.pause();
+    audioPaused.set(true);
 
     currentAudioTime = audio.currentTime;
   }
@@ -49,7 +59,7 @@
     <div class="h-screen w-screen bg-black-light" />
 
     <Playfield>
-      <p class="text-white-regular select-none">Hello World!</p>
+      <ImageShower />
     </Playfield>
 
     <Sidebar>
@@ -68,7 +78,25 @@
 
     <Sidebar direction="right">
       <Container header="Properties" class="mt-1">
-        <ContainerRow />
+        {#if $currentPoint.timelineLocation != undefined}
+          <ContainerRow>
+            <p class="text-white-regular mr-2" transition:slide>
+              Timeline Location: {$currentPoint.timelineLocation}
+            </p>
+          </ContainerRow>
+
+          <ContainerRow>
+            <p class="text-white-regular mr-2" transition:slide>
+              Fade In: {$currentPoint.fadeIn}
+            </p>
+          </ContainerRow>
+
+          <ContainerRow>
+            <p class="text-white-regular mr-2" transition:slide>
+              Fade out: {$currentPoint.fadeOut}
+            </p>
+          </ContainerRow>
+        {/if}
       </Container>
     </Sidebar>
 
@@ -78,7 +106,7 @@
         class="bottom-0 h-full w-full flex items-center content-center justify-start flex-row"
       >
         <WordmapInformation />
-        <MediaControlBar />
+        <MediaControlBar onPlay={() => {}} />
       </div>
     </BottomBar>
   </OverlayContainer>
@@ -100,11 +128,19 @@
         class="flex flex-column items-center content-center justify-center w-full mt-8"
       >
         <ImageButton />
-        <Input
-          type="text"
-          placeholder="Location"
-          value={currentAudioTime.toString()}
-        />
+        <div>
+          <h2 class="text-white-regular mb-2">Location</h2>
+          <Input
+            type="text"
+            placeholder="Location..."
+            id="location"
+            value={currentAudioTime.toString()}
+          />
+        </div>
+      </div>
+
+      <div class="flex w-full h-fit bottom-2 items-center justify-center mt-4">
+        <InsertImageImportButton {hideImportImage} />
       </div>
     </div>
   </OverlayContainer>

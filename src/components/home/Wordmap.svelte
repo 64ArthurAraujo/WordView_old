@@ -5,6 +5,7 @@
   import WordmapImage from "../util/WordmapImage.svelte";
   import DeleteDialog from "./DeleteDialog.svelte";
   import LayoutButton from "../util/LayoutButton.svelte";
+  import { openToPlay } from "../../actions/player";
 
   export let mapdata: WordMap;
 
@@ -12,6 +13,7 @@
 </script>
 
 <div
+  on:click={() => openToPlay(mapdata.id)}
   class="h-20 rounded-md w-10/12 mt-4 bg-black-lightest hover:bg-black-select hover:cursor-pointer transition-colors justify-self-auto flex flex-row relative"
 >
   <div
@@ -28,7 +30,7 @@
   </div>
 
   <div class="w-full h-full">
-    <div class="float-right flex flex-row">
+    <div class="float-right flex flex-row" on:click|stopPropagation>
       <LayoutButton
         action={() => openToEdit(mapdata.id)}
         height="20"

@@ -2,8 +2,7 @@ import { randomUUID } from "crypto";
 import { wordmapsFolder } from "../util/constants";
 import { isWordmapCreatorOpen } from "../stores/overlay";
 import { wordmaps } from "../stores/wordmap";
-import type { PointType, WordMap } from "./types/wordmap";
-
+import type { WordMap } from "./types/wordmap";
 const fs = require("fs");
 
 export function fetchWordmaps() {
@@ -104,12 +103,6 @@ export function deleteWordmap(uuid: string) {
       fs.unlinkSync(file);
     } catch (err) { }
   }
-}
-
-// Wordmap Manipulation //
-
-export function newPoint(type: PointType, path: string) {
-  
 }
 
 // Others //

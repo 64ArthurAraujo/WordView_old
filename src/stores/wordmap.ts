@@ -1,9 +1,15 @@
 import { writable } from "svelte/store";
-import type { WordMap } from "../actions/types/wordmap";
+import type { Point, WordMap } from "../actions/types/wordmap";
+import { wordmapsFolder } from "../util/constants";
+const fs = require("fs");
 
 export const wordmaps = writable([] as WordMap[]);
 
 export const currentWordmap = writable({} as WordMap);
+
+export const currentPoint = writable({} as Point);
+
+export const audioPaused = writable(true);
 
 export function setCurrentWordmap(uuid: string) {
   wordmaps.subscribe(wordmaps => {
@@ -12,5 +18,11 @@ export function setCurrentWordmap(uuid: string) {
         currentWordmap.set(wordmap);
       }
     }
+  })
+}
+
+export function saveCurrentWordmap() {
+  currentWordmap.subscribe(async wordmap => {
+    await fs.writeFileSync(wordmapsFolder + `${wordmap.id}.wordmap.json`, JSON.stringify(wordmap));
   })
 }

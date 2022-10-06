@@ -6,6 +6,7 @@
   import { notificationMessage } from "./stores/overlay";
   import PlusButton from "./components/home/PlusButton.svelte";
   import NotificationContainer from "./components/util/NotificationContainer.svelte";
+  import WordmapPlayer from "./components/editor/WordmapPlayer.svelte";
 </script>
 
 <main>
@@ -26,6 +27,7 @@
   <WordmapContainer />
   <PlusButton />
   <WordmapCreator />
+  <WordmapPlayer />
   <Editor />
   <NotificationContainer>
     {$notificationMessage}

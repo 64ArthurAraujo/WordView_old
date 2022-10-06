@@ -1,13 +1,11 @@
-import { isEditorOpen } from "../stores/overlay";
+import { isPlayerOpen } from "../stores/overlay";
 import { currentPoint, setCurrentWordmap } from "../stores/wordmap";
 import type { Point } from "./types/wordmap";
 
 let audio: HTMLAudioElement;
 
-export function openToEdit(uuid: string) {
-  console.log("opening to edit");
-
+export function openToPlay(uuid: string) {
   setCurrentWordmap(uuid);
   currentPoint.set({} as Point);
-  isEditorOpen.set(true);
+  isPlayerOpen.set(true);
 }
