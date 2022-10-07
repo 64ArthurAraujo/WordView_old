@@ -1,13 +1,10 @@
 <script lang="ts">
   import { SkipBackIcon } from "svelte-feather-icons";
+  import { audio } from "../../../util/web";
   import CircleButton from "../../util/CircleButton.svelte";
 
-  let audio: HTMLAudioElement;
-
   function back() {
-    audio = document.getElementById("editing-audio") as HTMLAudioElement;
-
-    audio.currentTime -= 5;
+    audio("editing-audio").currentTime -= 5;
   }
 </script>
 

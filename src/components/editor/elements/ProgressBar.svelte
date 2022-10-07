@@ -1,19 +1,15 @@
 <script lang="ts">
+  import { percentage } from "../../../util/math";
+  import { audio } from "../../../util/web";
+
   let progressPercentage = 0;
 
-  function calcPercentageFor(
-    numberToGetPercentageOf: number,
-    wholeNumber: number
-  ) {
-    return (numberToGetPercentageOf / wholeNumber) * 100;
-  }
-
   setInterval(() => {
-    let audio = document.getElementById("editing-audio") as HTMLAudioElement;
+    let _audio = audio("editing-audio");
 
-    if (!audio || !audio.currentTime) return;
+    if (!_audio || !_audio.currentTime) return;
 
-    progressPercentage = calcPercentageFor(audio.currentTime, audio.duration);
+    progressPercentage = percentage(_audio.currentTime, _audio.duration);
   }, 250);
 </script>
 

@@ -2,19 +2,17 @@
   import WordmapInformation from "./WordmapInformation.svelte";
   import MediaControlBar from "./MediaControlBar.svelte";
   import BottomBar from "./BottomBar.svelte";
-  import OverlayContainer from "../util/OverlayContainer.svelte";
-  import { isPlayerOpen, notify } from "../../stores/overlay";
-  import { currentPoint, currentWordmap } from "../../stores/wordmap";
+  import { closePlayer, isPlayerOpen, notify } from "../../stores/overlay";
+  import { clearStores, currentWordmap } from "../../stores/wordmap";
   import ProgressBar from "./elements/ProgressBar.svelte";
   import LeaveButton from "../util/LeaveButton.svelte";
   import Playfield from "./Playfield.svelte";
   import ImageShower from "./elements/ImageShower.svelte";
-  import type { Point, WordMap } from "../../actions/types/wordmap";
+  import FullScreenOverlayContainer from "../util/FullScreenOverlayContainer.svelte";
 
   function exit() {
-    currentPoint.set({} as Point);
-    currentWordmap.set({} as WordMap);
-    isPlayerOpen.set(false);
+    closePlayer();
+    clearStores();
   }
 
   function checkImagePointsExist() {
@@ -28,7 +26,7 @@
 </script>
 
 {#if $isPlayerOpen}
-  <OverlayContainer>
+  <FullScreenOverlayContainer>
     <audio
       id="editing-audio"
       src={`${$currentWordmap.audioPath}`}
@@ -51,5 +49,5 @@
         <MediaControlBar onPlay={checkImagePointsExist} />
       </div>
     </BottomBar>
-  </OverlayContainer>
+  </FullScreenOverlayContainer>
 {/if}

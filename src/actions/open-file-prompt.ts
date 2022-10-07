@@ -1,7 +1,6 @@
 export function openFilePrompt(): Promise<File> {
   return new Promise((resolve, reject) => {
     let fileInput: HTMLInputElement = document.createElement("input");
-    let selectedFile: FileList;
 
     fileInput.type = "file";
     fileInput.setAttribute("visibility", "hidden");

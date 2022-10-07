@@ -5,9 +5,10 @@
   import Sidebar from "../util/Sidebar.svelte";
   import BottomBar from "./BottomBar.svelte";
   import OverlayContainer from "../util/OverlayContainer.svelte";
-  import { isEditorOpen } from "../../stores/overlay";
+  import { closeEditor, isEditorOpen } from "../../stores/overlay";
   import {
     audioPaused,
+    clearStores,
     currentPoint,
     currentWordmap,
   } from "../../stores/wordmap";
@@ -16,20 +17,22 @@
   import Playfield from "./Playfield.svelte";
   import Container from "./Container.svelte";
   import ContainerRow from "./elements/ContainerRow.svelte";
-  import { fade, scale, slide } from "svelte/transition";
+  import { scale } from "svelte/transition";
   import ImageButton from "../home/creator/ImageButton.svelte";
   import Input from "../home/creator/Input.svelte";
   import InsertDoodleButton from "./elements/InsertDoodleButton.svelte";
   import InsertImageImportButton from "./elements/InsertImageImportButton.svelte";
   import ImageShower from "./elements/ImageShower.svelte";
-  import type { Point, WordMap } from "../../actions/types/wordmap";
+  import FullScreenOverlayContainer from "../util/FullScreenOverlayContainer.svelte";
+  import PropertyRow from "./elements/PropertyRow.svelte";
+  import TimeIndicator from "./elements/TimeIndicator.svelte";
+  import { audio } from "../../util/web";
 
   let showingImportImage: boolean;
 
   function exit() {
-    currentPoint.set({} as Point);
-    currentWordmap.set({} as WordMap);
-    isEditorOpen.set(false);
+    closeEditor();
+    clearStores();
   }
 
   let currentAudioTime: number;
@@ -37,11 +40,10 @@
   function showImportImage() {
     showingImportImage = true;
 
-    let audio = document.getElementById("editing-audio") as HTMLAudioElement;
-    audio.pause();
+    audio("editing-audio").pause();
     audioPaused.set(true);
 
-    currentAudioTime = audio.currentTime;
+    currentAudioTime = audio("editing-audio").currentTime;
   }
 
   function hideImportImage() {
@@ -50,7 +52,8 @@
 </script>
 
 {#if $isEditorOpen}
-  <OverlayContainer>
+  <FullScreenOverlayContainer>
+    <!-- svelte-ignore component-name-lowercase -->
     <audio
       id="editing-audio"
       src={`${$currentWordmap.audioPath}`}
@@ -78,27 +81,31 @@
 
     <Sidebar direction="right">
       <Container header="Properties" class="mt-1">
-        {#if $currentPoint.timelineLocation != undefined}
-          <ContainerRow>
-            <p class="text-white-regular mr-2" transition:slide>
-              Timeline Location: {$currentPoint.timelineLocation}
-            </p>
-          </ContainerRow>
+        <ContainerRow>
+          {#if $currentPoint.timelineLocation != undefined}
+            <PropertyRow
+              title="Timeline Location"
+              inputValue={$currentPoint?.timelineLocation.toString()}
+              inputPlaceholder="Location..."
+              property="timelineLocation"
+            />
+          {/if}
+        </ContainerRow>
 
-          <ContainerRow>
-            <p class="text-white-regular mr-2" transition:slide>
-              Fade In: {$currentPoint.fadeIn}
-            </p>
-          </ContainerRow>
-
-          <ContainerRow>
-            <p class="text-white-regular mr-2" transition:slide>
-              Fade out: {$currentPoint.fadeOut}
-            </p>
-          </ContainerRow>
-        {/if}
+        <ContainerRow>
+          {#if $currentPoint.type != undefined}
+            <PropertyRow
+              title="Element Type"
+              inputValue={$currentPoint?.type}
+              inputPlaceholder="Type..."
+              property="type"
+            />
+          {/if}
+        </ContainerRow>
       </Container>
     </Sidebar>
+
+    <TimeIndicator class="top-0 mt-4" />
 
     <BottomBar>
       <ProgressBar />
@@ -109,7 +116,7 @@
         <MediaControlBar onPlay={() => {}} />
       </div>
     </BottomBar>
-  </OverlayContainer>
+  </FullScreenOverlayContainer>
 {/if}
 
 {#if showingImportImage}

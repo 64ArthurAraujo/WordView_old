@@ -6,6 +6,7 @@
   import DeleteDialog from "./DeleteDialog.svelte";
   import LayoutButton from "../util/LayoutButton.svelte";
   import { openToPlay } from "../../actions/player";
+  import { scale } from "svelte/transition";
 
   export let mapdata: WordMap;
 
@@ -14,6 +15,7 @@
 
 <div
   on:click={() => openToPlay(mapdata.id)}
+  transition:scale={{ duration: 750 }}
   class="h-20 rounded-md w-10/12 mt-4 bg-black-lightest hover:bg-black-select hover:cursor-pointer transition-colors justify-self-auto flex flex-row relative"
 >
   <div

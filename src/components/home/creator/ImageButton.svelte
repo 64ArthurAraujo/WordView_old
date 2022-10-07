@@ -2,22 +2,23 @@
   import { openFilePrompt } from "../../../actions/open-file-prompt";
   import { notify } from "../../../stores/overlay";
   import { isFileImage } from "../../../util/file";
+  import { image } from "../../../util/web";
 
   let isImageSelected = false;
   let displayImage = "none";
 
   async function loadImage() {
-    const image = await openFilePrompt();
+    const img = await openFilePrompt();
 
-    if (!isFileImage(image)) {
+    if (!isFileImage(img)) {
       notify(1000, "Invalid image file!");
       return;
     }
 
     isImageSelected = true;
 
-    const preview = document.getElementById("preview") as HTMLImageElement;
-    preview.src = image.path;
+    const preview = image("preview");
+    preview.src = img.path;
 
     displayImage = "block";
   }

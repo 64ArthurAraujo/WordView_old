@@ -7,25 +7,26 @@
   import PlusButton from "./components/home/PlusButton.svelte";
   import NotificationContainer from "./components/util/NotificationContainer.svelte";
   import WordmapPlayer from "./components/editor/WordmapPlayer.svelte";
+  import { wordmaps } from "./stores/wordmap";
+  import ShinyPlusButton from "./components/home/ShinyPlusButton.svelte";
 </script>
 
 <main>
   <Topbar>
     <div class="h-full flex items-center justify-centers pl-4 flex-row">
-      <!-- svelte-ignore a11y-missing-attribute -->
-      <img
-        src="../public/wv.png"
-        width="30"
-        height="30"
-        class="mr-2 select-none"
-      />
       <h2 class="text-white-regular text-xl select-none">
         <b>WordView</b>
       </h2>
     </div>
   </Topbar>
   <WordmapContainer />
-  <PlusButton />
+
+  {#if $wordmaps.length <= 0}
+    <ShinyPlusButton />
+  {:else}
+    <PlusButton />
+  {/if}
+
   <WordmapCreator />
   <WordmapPlayer />
   <Editor />

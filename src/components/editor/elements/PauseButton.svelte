@@ -3,19 +3,18 @@
   import { PauseIcon } from "svelte-feather-icons";
   import CircleButton from "../../util/CircleButton.svelte";
   import { audioPaused } from "../../../stores/wordmap";
-
-  let audio: HTMLAudioElement;
+  import { audio } from "../../../util/web";
 
   export let onPlay: Function;
 
   export function play() {
-    audio = document.getElementById("editing-audio") as HTMLAudioElement;
+    let _audio = audio("editing-audio");
 
-    if (!audio.paused) {
-      audio.pause();
+    if (!_audio.paused) {
       audioPaused.set(true);
+      _audio.pause();
     } else {
-      audio.play();
+      _audio.play();
       audioPaused.set(false);
       onPlay();
     }

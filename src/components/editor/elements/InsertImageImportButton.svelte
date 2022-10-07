@@ -1,8 +1,14 @@
 <script lang="ts">
-  import { fetchWordmaps } from "../../../actions";
-  import type { Point, WordMap } from "../../../actions/types/wordmap";
+  import type { WordMap } from "../../../actions/types/wordmap";
+  import { fetchWordmaps } from "../../../actions/wordmap";
   import { notify } from "../../../stores/overlay";
   import { currentWordmap, saveCurrentWordmap } from "../../../stores/wordmap";
+  import {
+    image,
+    imageHasNoSource,
+    input,
+    inputIsEmpty,
+  } from "../../../util/web";
   import LayoutButton from "../../util/LayoutButton.svelte";
 
   let wordmap: WordMap = $currentWordmap;
@@ -10,23 +16,21 @@
   export let hideImportImage: Function;
 
   function insertImage() {
-    let imageImport = document.getElementById("preview") as HTMLImageElement;
-    let locationInput = document.getElementById("location") as HTMLInputElement;
+    let imageImport = image("preview");
+    let locationInput = input("location");
 
-    if (imageImport.src == "" || locationInput.value == "") {
+    if (imageHasNoSource(imageImport) || inputIsEmpty(locationInput)) {
       notify(1000, "Please fill all the inputs!");
       return;
     }
 
-    let newPoint: Point = {
+    wordmap.points.push({
       timelineLocation: Number.parseFloat(locationInput.value),
       fadeIn: 100,
       fadeOut: 100,
       type: "image",
       path: imageImport.src,
-    };
-
-    wordmap.points.push(newPoint);
+    });
 
     saveCurrentWordmap();
     fetchWordmaps();

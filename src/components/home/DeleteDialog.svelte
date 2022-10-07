@@ -1,7 +1,7 @@
 <script lang="ts">
   import { scale } from "svelte/transition";
-  import { deleteWordmap, fetchWordmaps } from "../../actions";
   import type { WordMap } from "../../actions/types/wordmap";
+  import { deleteWordmap } from "../../actions/wordmap";
   import LayoutButton from "../util/LayoutButton.svelte";
   import OverlayContainer from "../util/OverlayContainer.svelte";
 
@@ -20,8 +20,6 @@
   function deleteConfirmed() {
     askDeleteShown = false;
     deleteWordmap(mapdata.id);
-
-    fetchWordmaps();
   }
 </script>
 

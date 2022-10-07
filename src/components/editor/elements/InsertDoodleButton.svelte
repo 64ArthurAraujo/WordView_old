@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ImageIcon, PenToolIcon } from "svelte-feather-icons";
+  import { PenToolIcon } from "svelte-feather-icons";
   import LayoutButton from "../../util/LayoutButton.svelte";
 
   export let action: Function;
