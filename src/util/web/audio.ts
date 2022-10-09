@@ -1,3 +1,5 @@
+import { element } from "./util";
+
 export function audio(id: string) {
-  return document.getElementById(id) as HTMLAudioElement;
+  return element(id) as HTMLAudioElement;
 }

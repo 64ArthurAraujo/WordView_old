@@ -1,14 +1,14 @@
 <script lang="ts">
-  import WordmapInformation from "./WordmapInformation.svelte";
-  import MediaControlBar from "./MediaControlBar.svelte";
-  import BottomBar from "./BottomBar.svelte";
+  import WordmapInformation from "./bottom-bar/WordmapInformation.svelte";
+  import MediaControlBar from "./bottom-bar/MediaControlBar.svelte";
+  import BottomBar from "./bottom-bar/BottomBar.svelte";
   import { closePlayer, isPlayerOpen, notify } from "../../stores/overlay";
   import { clearStores, currentWordmap } from "../../stores/wordmap";
-  import ProgressBar from "./elements/ProgressBar.svelte";
-  import LeaveButton from "../util/LeaveButton.svelte";
-  import Playfield from "./Playfield.svelte";
+  import ProgressBar from "./bottom-bar/elements/ProgressBar.svelte";
+  import LeaveButton from "../global/buttons/LeaveButton.svelte";
+  import Playfield from "./elements/Playfield.svelte";
   import ImageShower from "./elements/ImageShower.svelte";
-  import FullScreenOverlayContainer from "../util/FullScreenOverlayContainer.svelte";
+  import FullScreenOverlayContainer from "../global/overlay/FullScreenOverlayContainer.svelte";
 
   function exit() {
     closePlayer();

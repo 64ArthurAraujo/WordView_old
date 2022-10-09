@@ -1,5 +1,5 @@
 import { wordmapsFolder } from "../../util/constants";
-import type { WordMap } from "../types/wordmap";
+import type { WordMap } from "./types/wordmap";
 
 const fs = require("fs");
 

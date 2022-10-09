@@ -1,14 +1,15 @@
 <script lang="ts">
   import Editor from "./components/editor/Editor.svelte";
-  import WordmapCreator from "./components/home/WordmapCreator.svelte";
-  import Topbar from "./components/home/Topbar.svelte";
+  import WordmapCreator from "./components/home/overlays/WordmapCreator.svelte";
+  import Topbar from "./components/home/elements/Topbar.svelte";
   import WordmapContainer from "./components/home/WordmapContainer.svelte";
   import { notificationMessage } from "./stores/overlay";
-  import PlusButton from "./components/home/PlusButton.svelte";
-  import NotificationContainer from "./components/util/NotificationContainer.svelte";
+  import PlusButton from "./components/home/elements/PlusButton.svelte";
   import WordmapPlayer from "./components/editor/WordmapPlayer.svelte";
   import { wordmaps } from "./stores/wordmap";
-  import ShinyPlusButton from "./components/home/ShinyPlusButton.svelte";
+  import ShinyPlusButton from "./components/home/elements/ShinyPlusButton.svelte";
+  import RecentOpenedWordmaps from "./components/home/elements/RecentOpenedWordmaps.svelte";
+  import NotificationContainer from "./components/global/overlay/NotificationContainer.svelte";
 </script>
 
 <main>
@@ -19,6 +20,8 @@
       </h2>
     </div>
   </Topbar>
+
+  <RecentOpenedWordmaps />
   <WordmapContainer />
 
   {#if $wordmaps.length <= 0}

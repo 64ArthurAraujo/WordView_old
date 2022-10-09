@@ -1,5 +1,7 @@
+import { element } from "./util";
+
 export function image(id: string) {
-  return document.getElementById(id) as HTMLImageElement;
+  return element(id) as HTMLImageElement;
 }
 
 export function imageHasNoSource(image: HTMLImageElement) {

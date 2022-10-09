@@ -1,10 +1,11 @@
 <script lang="ts">
-  import InsertImageButton from "./elements/InsertImageButton.svelte";
-  import WordmapInformation from "./WordmapInformation.svelte";
-  import MediaControlBar from "./MediaControlBar.svelte";
-  import Sidebar from "../util/Sidebar.svelte";
-  import BottomBar from "./BottomBar.svelte";
-  import OverlayContainer from "../util/OverlayContainer.svelte";
+  import ImportImageOverlay from "./overlays/ImportImageOverlay.svelte";
+  import CreateDoodleOverlay from "./overlays/CreateDoodleOverlay.svelte";
+  import InsertImageButton from "./containers/elements/InsertImageButton.svelte";
+  import WordmapInformation from "./bottom-bar/WordmapInformation.svelte";
+  import MediaControlBar from "./bottom-bar/MediaControlBar.svelte";
+  import Sidebar from "../global/elements/Sidebar.svelte";
+  import BottomBar from "./bottom-bar/BottomBar.svelte";
   import { closeEditor, isEditorOpen } from "../../stores/overlay";
   import {
     audioPaused,
@@ -12,30 +13,25 @@
     currentPoint,
     currentWordmap,
   } from "../../stores/wordmap";
-  import ProgressBar from "./elements/ProgressBar.svelte";
-  import LeaveButton from "../util/LeaveButton.svelte";
-  import Playfield from "./Playfield.svelte";
-  import Container from "./Container.svelte";
-  import ContainerRow from "./elements/ContainerRow.svelte";
-  import { scale } from "svelte/transition";
-  import ImageButton from "../home/creator/ImageButton.svelte";
-  import Input from "../home/creator/Input.svelte";
-  import InsertDoodleButton from "./elements/InsertDoodleButton.svelte";
-  import InsertImageImportButton from "./elements/InsertImageImportButton.svelte";
+  import ProgressBar from "./bottom-bar/elements/ProgressBar.svelte";
+  import LeaveButton from "../global/buttons/LeaveButton.svelte";
+  import Playfield from "./elements/Playfield.svelte";
+  import Container from "./containers/Container.svelte";
+  import ContainerRow from "./containers/elements/ContainerRow.svelte";
   import ImageShower from "./elements/ImageShower.svelte";
-  import FullScreenOverlayContainer from "../util/FullScreenOverlayContainer.svelte";
-  import PropertyRow from "./elements/PropertyRow.svelte";
+  import FullScreenOverlayContainer from "../global/overlay/FullScreenOverlayContainer.svelte";
+  import PropertyRow from "./containers/elements/PropertyRow.svelte";
   import TimeIndicator from "./elements/TimeIndicator.svelte";
   import { audio } from "../../util/web";
 
   let showingImportImage: boolean;
+  let showingCreateDoodle: boolean;
+  let currentAudioTime: number;
 
   function exit() {
     closeEditor();
     clearStores();
   }
-
-  let currentAudioTime: number;
 
   function showImportImage() {
     showingImportImage = true;
@@ -49,6 +45,19 @@
   function hideImportImage() {
     showingImportImage = false;
   }
+
+  function showCreateDoodle() {
+    showingCreateDoodle = true;
+
+    audio("editing-audio").pause();
+    audioPaused.set(true);
+
+    currentAudioTime = audio("editing-audio").currentTime;
+  }
+
+  function hideCreateDoodle() {
+    showingCreateDoodle = false;
+  }
 </script>
 
 {#if $isEditorOpen}
@@ -60,7 +69,6 @@
       type="audio/mpeg"
     />
     <div class="h-screen w-screen bg-black-light" />
-
     <Playfield>
       <ImageShower />
     </Playfield>
@@ -73,9 +81,9 @@
           <InsertImageButton action={showImportImage} />
         </ContainerRow>
 
-        <ContainerRow>
-          <InsertDoodleButton action={() => console.log("doodle")} />
-        </ContainerRow>
+        <!-- <ContainerRow>
+          <InsertDoodleButton action={showCreateDoodle} />
+        </ContainerRow> -->
       </Container>
     </Sidebar>
 
@@ -119,36 +127,9 @@
   </FullScreenOverlayContainer>
 {/if}
 
-{#if showingImportImage}
-  <OverlayContainer class="z-50">
-    <div
-      transition:scale={{ duration: 500 }}
-      class="h-2/5 w-2/5 bg-black-lightest rounded-md absolute"
-    >
-      <div class="flex w-full h-fit top-4 items-center justify-center">
-        <LeaveButton action={hideImportImage} />
-
-        <h2 class="flex text-white-regular mt-4">New Image Point</h2>
-      </div>
-
-      <div
-        class="flex flex-column items-center content-center justify-center w-full mt-8"
-      >
-        <ImageButton />
-        <div>
-          <h2 class="text-white-regular mb-2">Location</h2>
-          <Input
-            type="text"
-            placeholder="Location..."
-            id="location"
-            value={currentAudioTime.toString()}
-          />
-        </div>
-      </div>
-
-      <div class="flex w-full h-fit bottom-2 items-center justify-center mt-4">
-        <InsertImageImportButton {hideImportImage} />
-      </div>
-    </div>
-  </OverlayContainer>
-{/if}
+<ImportImageOverlay {showingImportImage} {currentAudioTime} {hideImportImage} />
+<CreateDoodleOverlay
+  {showingCreateDoodle}
+  {currentAudioTime}
+  {hideCreateDoodle}
+/>

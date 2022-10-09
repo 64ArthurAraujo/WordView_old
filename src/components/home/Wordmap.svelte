@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { openToEdit } from "../../actions/editor";
+  import { openToEdit } from "../../actions/overlay/editor";
   import { Edit2Icon, Trash2Icon } from "svelte-feather-icons";
-  import type { WordMap } from "../../actions/types/wordmap";
-  import WordmapImage from "../util/WordmapImage.svelte";
-  import DeleteDialog from "./DeleteDialog.svelte";
-  import LayoutButton from "../util/LayoutButton.svelte";
-  import { openToPlay } from "../../actions/player";
+  import type { WordMap } from "../../actions/wordmap/types/wordmap";
+  import DeleteDialog from "./overlays/DeleteDialog.svelte";
+  import { openToPlay } from "../../actions/overlay/player";
   import { scale } from "svelte/transition";
+  import WordmapImage from "../global/elements/WordmapImage.svelte";
+  import LayoutButton from "../global/buttons/LayoutButton.svelte";
 
   export let mapdata: WordMap;
 
