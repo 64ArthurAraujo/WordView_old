@@ -2,6 +2,7 @@
   import ImportImageOverlay from "./overlays/ImportImageOverlay.svelte";
   import CreateDoodleOverlay from "./overlays/CreateDoodleOverlay.svelte";
   import InsertImageButton from "./containers/elements/InsertImageButton.svelte";
+  import InsertDoodleButton from "./containers/elements/InsertDoodleButton.svelte";
   import WordmapInformation from "./bottom-bar/WordmapInformation.svelte";
   import MediaControlBar from "./bottom-bar/MediaControlBar.svelte";
   import Sidebar from "../global/elements/Sidebar.svelte";
@@ -80,8 +81,8 @@
         <ContainerRow>
           <InsertImageButton action={showImportImage} />
         </ContainerRow>
-
-        <!-- <ContainerRow>
+        <!-- 
+        <ContainerRow>
           <InsertDoodleButton action={showCreateDoodle} />
         </ContainerRow> -->
       </Container>
