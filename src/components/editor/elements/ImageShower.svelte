@@ -1,9 +1,13 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
+  import type { Point } from "../../../actions/wordmap";
+  import {
+    currentPointImageSource,
+    setPointImageSource,
+  } from "../../../stores/overlay";
   import { currentPoint, currentWordmap } from "../../../stores/wordmap";
   import { audio } from "../../../util/web";
 
-  let currentImageSrc = "";
   let isShowing = false;
 
   setInterval(async () => {
@@ -15,12 +19,19 @@
 
     orderedPoints.reverse();
 
+    if (orderedPoints.length <= 0) {
+      currentPoint.set({} as Point);
+      setPointImageSource("");
+      isShowing = false;
+    }
+
     for (const point of orderedPoints) {
       if (!audio("editing-audio")) return;
+      if (point == null) return;
 
       if (audio("editing-audio").currentTime >= point.timelineLocation) {
         isShowing = true;
-        currentImageSrc = point.path;
+        setPointImageSource(point.path);
         currentPoint.set(point);
       }
     }
@@ -32,7 +43,7 @@
   <img
     id="img"
     class="h-full w-auto select-none transition-all"
-    src={currentImageSrc}
+    src={$currentPointImageSource}
     transition:slide
   />
 {/if}

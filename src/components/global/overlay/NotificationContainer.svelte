@@ -11,7 +11,7 @@
 {#if $isNotificationShown}
   <div
     transition:fade={{ duration: 250 }}
-    class=" z-20 h-full w-full fixed top-0 left-0 justify-center flex select-none"
+    class=" z-20 h-1/4 w-full fixed top-0 left-0 justify-center flex select-none"
     on:click={hide}
   >
     <div

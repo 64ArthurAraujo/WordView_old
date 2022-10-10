@@ -1,7 +1,6 @@
 import { writable } from "svelte/store";
 import type { Point, WordMap } from "../actions/wordmap/types/wordmap";
 import { wordmapsFolder } from "../util/constants";
-import { notify } from "./overlay";
 const fs = require("fs");
 
 export const wordmaps = writable([] as WordMap[]);
@@ -30,7 +29,6 @@ export function saveCurrentWordmap() {
     if (wordmap.id == undefined) return;
 
     await fs.writeFileSync(wordmapsFolder + `${wordmap.id}.wordmap.json`, JSON.stringify(wordmap));
-    notify(2000, "Wordmap saved!");
   })
 }
 
@@ -39,6 +37,8 @@ export function currentPointPosition() {
 
   currentWordmap.subscribe(wordmap => {
     currentPoint.subscribe(currentPoint => {
+      if (wordmap.points == undefined || wordmap.points.length <= 0) return;
+
       for (let i = 0; i < wordmap.points.length; i++) {
         let point = wordmap.points[i];
 

@@ -24,6 +24,7 @@
   import PropertyRow from "./containers/elements/PropertyRow.svelte";
   import TimeIndicator from "./elements/TimeIndicator.svelte";
   import { audio } from "../../util/web";
+  import PointDeleteButton from "./containers/elements/PointDeleteButton.svelte";
 
   let showingImportImage: boolean;
   let showingCreateDoodle: boolean;
@@ -109,6 +110,12 @@
               inputPlaceholder="Type..."
               property="type"
             />
+          {/if}
+        </ContainerRow>
+
+        <ContainerRow>
+          {#if $currentPoint.type != undefined}
+            <PointDeleteButton />
           {/if}
         </ContainerRow>
       </Container>

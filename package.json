@@ -6,7 +6,7 @@
     "name": "64ArthurAraujo"
   },
   "main": "./src/electron.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -18,14 +18,18 @@
     "start-electron": "electron ."
   },
   "build": {
-    "appId": "wordview.io",
+    "appId": "io.wordview",
     "mac": {
-      "category": "wordview.io"
+      "category": "io.wordview"
     },
     "win": {
       "target": [
         "portable"
       ]
+    },
+    "linux": {
+      "synopsis": "Learn by visualizing words in their rawest form!",
+      "target": "AppImage"
     }
   },
   "devDependencies": {

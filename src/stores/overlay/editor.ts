@@ -8,3 +8,9 @@ export function openEditor() {
 export function closeEditor() {
   isEditorOpen.set(false);
 }
+
+export const currentPointImageSource = writable("");
+
+export function setPointImageSource(source: string) {
+  currentPointImageSource.set(source);
+} 
