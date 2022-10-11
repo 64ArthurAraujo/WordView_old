@@ -14,7 +14,7 @@
   div {
     border-radius: 100%;
     position: absolute;
-    animation: bounce 0.5s ease-in infinite;
+    animation: glow 0.5s ease-in infinite;
     animation-fill-mode: both;
     animation-direction: alternate;
   }
@@ -24,7 +24,7 @@
     background-color: rgb(109 64 201 / var(--tw-bg-opacity));
   }
 
-  @keyframes bounce {
+  @keyframes glow {
     from {
       background-color: rgb(109 64 201 / var(--tw-bg-opacity));
     }
