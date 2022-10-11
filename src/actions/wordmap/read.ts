@@ -28,10 +28,10 @@ function readWordmaps(files: string[]) {
 function processWordmaps(files: string[]) {
   let wordmaps = [];
 
-  files.forEach(file => {
+  for (const file of files) {
     let wordmap = readFile(wordmapsFolder + file);
     wordmaps.push(JSON.parse(wordmap) as WordMap);
-  });
+  }
 
   return wordmaps as WordMap[];
 }
@@ -39,11 +39,11 @@ function processWordmaps(files: string[]) {
 function filterWordmapsFrom(files: string[]) {
   const wordmaps = [];
 
-  files.forEach(file => {
+  for (const file of files) {
     if (file.endsWith(".wordmap.json")) {
       wordmaps.push(file);
     }
-  });
+  }
 
   return wordmaps;
 }
