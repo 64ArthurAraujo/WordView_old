@@ -1,15 +1,12 @@
 <script lang="ts">
   import PropertyInput from "./PropertyInput.svelte";
+  import { currentPoint } from "../../../../stores/wordmap";
+  import type { WordMapProperty } from "./util/input";
 
   export let title: string;
   export let inputValue: string;
   export let inputPlaceholder: string;
-  export let property:
-    | "fadeIn"
-    | "fadeOut"
-    | "path"
-    | "timelineLocation"
-    | "type";
+  export let property: WordMapProperty;
 </script>
 
 <small class="text-white-darker px-4 py-2 select-none">{title}</small>
