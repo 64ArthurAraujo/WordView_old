@@ -31,7 +31,7 @@
     <h4 class="text-white-darker select-none">{mapdata.description}</h4>
   </div>
 
-  <div class="w-full h-full">
+  <div class="full">
     <div class="float-right flex flex-row" on:click|stopPropagation>
       <LayoutButton
         action={() => openToEdit(mapdata.id)}

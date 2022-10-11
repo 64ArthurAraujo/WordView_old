@@ -8,7 +8,7 @@
   export let onPlay: Function;
 </script>
 
-<div class="h-full w-full fixed center flex-row">
+<div class="full fixed center flex-row">
   <SkipBackButton />
   <PauseButton {onPlay} />
   <SkipForwardButton />

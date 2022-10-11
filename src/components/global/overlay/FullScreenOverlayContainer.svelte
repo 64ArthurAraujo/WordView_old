@@ -9,7 +9,7 @@
 <div
   in:fly={{ duration: 500, x: 1375 }}
   out:fly={{ duration: 500, x: -1375 }}
-  class={`z-10 h-screen w-screen fixed top-0 left-0 center bg-black-lighter bg-opacity-50 ${
+  class={`z-10 screen fixed top-0 left-0 center bg-black-lighter bg-opacity-50 ${
     clazz || ""
   }`}
 >

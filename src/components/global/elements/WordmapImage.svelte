@@ -13,5 +13,5 @@
 
 {#if fileDoExist}
   <!-- svelte-ignore a11y-missing-attribute -->
-  <img src={mapdata.thumbPath} class="h-full w-full select-none" />
+  <img src={mapdata.thumbPath} class="full select-none" />
 {/if}

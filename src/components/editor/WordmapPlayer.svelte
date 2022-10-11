@@ -32,7 +32,7 @@
       src={`${$currentWordmap.audioPath}`}
       type="audio/mpeg"
     />
-    <div class="h-screen w-screen bg-black-light" />
+    <div class="screen bg-black-light" />
 
     <Playfield>
       <ImageShower />
@@ -43,7 +43,7 @@
     <BottomBar>
       <ProgressBar />
       <div
-        class="bottom-0 h-full w-full flex items-center content-center justify-start flex-row"
+        class="bottom-0 full flex items-center content-center justify-start flex-row"
       >
         <WordmapInformation />
         <MediaControlBar onPlay={checkImagePointsExist} />

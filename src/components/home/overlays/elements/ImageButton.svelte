@@ -33,5 +33,5 @@
   {/if}
 
   <!-- svelte-ignore a11y-missing-attribute -->
-  <img id="preview" class="h-full w-full" style={`display: ${displayImage};`} />
+  <img id="preview" class="full" style={`display: ${displayImage};`} />
 </div>

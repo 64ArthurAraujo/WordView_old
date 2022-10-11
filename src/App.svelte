@@ -50,6 +50,16 @@
       @apply content-center;
       @apply items-center;
     }
+
+    .full {
+      @apply h-full;
+      @apply w-full;
+    }
+
+    .screen {
+      @apply h-screen;
+      @apply w-screen;
+    }
   }
 
   html,

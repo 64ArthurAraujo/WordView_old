@@ -10,7 +10,7 @@
   });
 </script>
 
-<div class="w-full h-full center static pt-12 pb-12">
+<div class="full center static pt-12 pb-12">
   {#if $wordmaps.length == 0}
     <div class="center text-center flex-col pt-72">
       <FrownIcon size="48" class="invert mb-2" />
