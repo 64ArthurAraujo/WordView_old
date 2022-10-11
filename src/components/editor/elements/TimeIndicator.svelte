@@ -34,5 +34,5 @@
     clazz ?? ""
   }`}
 >
-  <p class="text-white-regular select-none">{audioTime} | {audioPercentage}%</p>
+  <p class="ui-text">{audioTime} | {audioPercentage}%</p>
 </div>

@@ -13,7 +13,7 @@
 {#if showingCreateDoodle}
   <PromptDialog title="New Doodle" leaveAction={hideCreateDoodle}>
     <DoodleCanvas />
-    <h2 class="text-white-regular mb-2">Location</h2>
+    <h2 class="ui-text mb-2">Location</h2>
     <Input
       type="text"
       placeholder="Location..."

@@ -15,7 +15,7 @@
 <main>
   <Topbar>
     <div class="h-full items-center justify-centers pl-4 row">
-      <h2 class="text-white-regular text-xl select-none">
+      <h2 class="ui-text text-xl">
         <b>WordView</b>
       </h2>
     </div>
@@ -69,6 +69,16 @@
     .column {
       @apply flex;
       @apply flex-col;
+    }
+
+    .ui-text {
+      @apply text-white-regular;
+      @apply select-none;
+    }
+
+    .ui-text-darker {
+      @apply text-white-darker;
+      @apply select-none;
     }
   }
 

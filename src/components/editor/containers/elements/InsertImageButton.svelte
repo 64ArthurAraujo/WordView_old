@@ -12,5 +12,5 @@
   class="hover:bg-black-select center"
 >
   <ImageIcon size="15" class="invert mr-2" />
-  <p class="text-white-darker select-none">Image</p>
+  <p class="ui-text-darker">Image</p>
 </LayoutButton>

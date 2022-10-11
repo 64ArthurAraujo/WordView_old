@@ -47,5 +47,5 @@
   height="10"
   class="hover:bg-accent-regular w-72"
 >
-  <p class="text-white-darker select-none">Insert</p>
+  <p class="ui-text-darker">Insert</p>
 </LayoutButton>

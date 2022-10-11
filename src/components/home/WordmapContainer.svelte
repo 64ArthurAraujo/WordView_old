@@ -14,7 +14,7 @@
   {#if $wordmaps.length == 0}
     <div class="center text-center column pt-72">
       <FrownIcon size="48" class="invert mb-2" />
-      <h4 class="text-white-regular align-middle select-none">
+      <h4 class="ui-text align-middle">
         <b>You dont have any wordmaps yet...</b>
       </h4>
     </div>

@@ -14,7 +14,7 @@
   {type}
   {placeholder}
   {value}
-  class={`rounded-md text-white-regular outline-none px-4 h-12 w-56 select-none border-2 bg-black-light border-black-divborder hover:bg-black-select transition-colors ${
+  class={`rounded-md ui-text outline-none px-4 h-12 w-56 border-2 bg-black-light border-black-divborder hover:bg-black-select transition-colors ${
     clazz || ""
   }`}
 />

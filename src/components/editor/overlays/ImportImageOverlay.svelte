@@ -14,7 +14,7 @@
   <PromptDialog title="New Image Point" leaveAction={hideImportImage}>
     <ImageButton />
     <div>
-      <h2 class="text-white-regular mb-2">Location</h2>
+      <h2 class="ui-text mb-2">Location</h2>
       <Input
         type="text"
         placeholder="Location..."

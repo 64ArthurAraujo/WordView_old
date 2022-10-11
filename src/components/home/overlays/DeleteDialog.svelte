@@ -25,7 +25,7 @@
 {#if askDeleteShown}
   <GenericDialog class="h-44 w-1.5/4">
     <div class="center w-full mt-4 px-4">
-      <h1 class="text-white-regular select-none">
+      <h1 class="ui-text">
         <b>Do you want to delete "{mapdata.title}"?</b>
       </h1>
     </div>

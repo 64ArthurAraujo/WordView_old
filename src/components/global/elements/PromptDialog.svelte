@@ -10,7 +10,7 @@
   <div class="center w-full h-fit top-4">
     <LeaveButton action={leaveAction} />
 
-    <h2 class="flex text-white-regular mt-4">{title}</h2>
+    <h2 class="flex ui-text mt-4">{title}</h2>
   </div>
 
   <div class="center row w-full mt-8">

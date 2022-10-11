@@ -34,6 +34,6 @@
     class="hover:bg-red-regular center"
   >
     <Trash2Icon size="15" class="invert mr-2" />
-    <p class="text-white-darker select-none">Delete Point</p>
+    <p class="ui-text-darker">Delete Point</p>
   </LayoutButton>
 {/if}

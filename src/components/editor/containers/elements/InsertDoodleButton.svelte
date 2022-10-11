@@ -12,5 +12,5 @@
   class="hover:bg-black-select center"
 >
   <PenToolIcon size="15" class="invert mr-2" />
-  <p class="text-white-darker select-none">Doodle</p>
+  <p class="ui-text-darker">Doodle</p>
 </LayoutButton>

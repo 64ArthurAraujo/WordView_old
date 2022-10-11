@@ -9,7 +9,7 @@
   export let property: WordMapProperty;
 </script>
 
-<small class="text-white-darker px-4 py-2 select-none">{title}</small>
+<small class="ui-text-darker px-4 py-2">{title}</small>
 <br class="select-none" />
 
 <PropertyInput value={inputValue} placeholder={inputPlaceholder} {property} />

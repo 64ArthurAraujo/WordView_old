@@ -8,11 +8,11 @@
 </div>
 
 <div class="h-20 items-center content-center justify-start column">
-  <h3 class="text-white-regular select-none">
+  <h3 class="ui-text-darker">
     <b>{$currentWordmap.title}</b>
   </h3>
 
-  <p class="text-white-darker select-none">
+  <p class="ui-text-darker">
     {$currentWordmap.description}
   </p>
 </div>
