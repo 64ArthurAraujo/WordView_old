@@ -114,9 +114,7 @@
         </ContainerRow>
 
         <ContainerRow>
-          {#if $currentPoint.type != undefined}
-            <PointDeleteButton />
-          {/if}
+          <PointDeleteButton />
         </ContainerRow>
       </Container>
     </Sidebar>
