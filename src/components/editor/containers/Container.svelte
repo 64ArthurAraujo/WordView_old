@@ -19,7 +19,7 @@
 </script>
 
 <div class={`${clazz ?? ""}`}>
-  <div class="w-full flex items-center content-center justify-center">
+  <div class="w-full center">
     <div class={`width-98percent bg-black-lightest rounded-sm flex flex-row`}>
       <p class="text-white-regular text-sm p-1 select-none"><b>{header}</b></p>
 
@@ -41,10 +41,7 @@
   </div>
 
   {#if expanded}
-    <div
-      transition:slide={{ duration: 500 }}
-      class="w-full flex items-center content-center justify-center flex-col"
-    >
+    <div transition:slide={{ duration: 500 }} class="w-full center flex-col">
       <slot />
     </div>
   {/if}

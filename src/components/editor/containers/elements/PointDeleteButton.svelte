@@ -31,7 +31,7 @@
     {action}
     width="2.5"
     height="2.5"
-    class="hover:bg-red-regular flex items-center justify-center content-center"
+    class="hover:bg-red-regular center"
   >
     <Trash2Icon size="15" class="invert mr-2" />
     <p class="text-white-darker select-none">Delete Point</p>

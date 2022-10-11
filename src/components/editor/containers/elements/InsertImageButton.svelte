@@ -9,7 +9,7 @@
   {action}
   width="2.5"
   height="2.5"
-  class="hover:bg-black-select flex items-center justify-center content-center"
+  class="hover:bg-black-select center"
 >
   <ImageIcon size="15" class="invert mr-2" />
   <p class="text-white-darker select-none">Image</p>

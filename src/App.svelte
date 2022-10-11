@@ -43,6 +43,15 @@
   @tailwind components;
   @tailwind utilities;
 
+  @layer components {
+    .center {
+      @apply flex;
+      @apply justify-center;
+      @apply content-center;
+      @apply items-center;
+    }
+  }
+
   html,
   body {
     margin: 0;

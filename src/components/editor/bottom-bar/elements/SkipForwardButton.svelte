@@ -8,11 +8,6 @@
   }
 </script>
 
-<CircleButton
-  action={forward}
-  height="9"
-  width="9"
-  class="flex content-center items-center justify-center"
->
+<CircleButton action={forward} height="9" width="9" class="center">
   <SkipForwardIcon size="13" class="invert" />
 </CircleButton>

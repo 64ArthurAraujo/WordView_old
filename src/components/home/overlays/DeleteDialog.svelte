@@ -24,15 +24,13 @@
 
 {#if askDeleteShown}
   <GenericDialog class="h-44 w-1.5/4">
-    <div
-      class="flex content-center items-center justify-center w-full mt-4 px-4"
-    >
+    <div class="center w-full mt-4 px-4">
       <h1 class="text-white-regular select-none">
         <b>Do you want to delete "{mapdata.title}"?</b>
       </h1>
     </div>
 
-    <div class=" mt-20 flex content-center items-center justify-around">
+    <div class="mt-20 flex content-center items-center justify-around">
       <LayoutButton
         action={() => close()}
         width="20"

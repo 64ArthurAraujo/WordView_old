@@ -13,7 +13,7 @@
 <div
   on:click={() => action()}
   on:keydown={() => onKeyDown()}
-  class={`w-${width} h-${height} border-2 px-2 py-2 bg-black-light hover:cursor-pointer flex transition-colors content-center items-center justify-center rounded-md ${
+  class={`w-${width} h-${height} border-2 px-2 py-2 bg-black-light hover:cursor-pointer center transition-colors rounded-md ${
     clazz ?? ""
   }`}
 >

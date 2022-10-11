@@ -8,17 +8,13 @@
   export let onPlay: Function;
 </script>
 
-<div
-  class="h-full w-full fixed flex items-center content-center justify-center flex-row"
->
+<div class="h-full w-full fixed center flex-row">
   <SkipBackButton />
   <PauseButton {onPlay} />
   <SkipForwardButton />
 </div>
 
-<div
-  class="h-full w-1/6 fixed flex items-center content-center right-0 justify-center flex-row mr-4"
->
+<div class="h-full w-1/6 fixed center right-0 flex-row mr-4">
   <Volume2Icon size="20" class="invert mr-4" />
   <VolumeBar />
 </div>

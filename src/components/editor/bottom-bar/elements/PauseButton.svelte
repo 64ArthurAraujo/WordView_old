@@ -21,12 +21,7 @@
   }
 </script>
 
-<CircleButton
-  action={play}
-  height="10"
-  width="10"
-  class="mx-4 flex content-center items-center justify-center"
->
+<CircleButton action={play} height="10" width="10" class="mx-4 center">
   {#if !audio}
     <PlayIcon size="14" class="invert" />
   {:else if $audioPaused}
