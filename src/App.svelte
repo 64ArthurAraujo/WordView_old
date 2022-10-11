@@ -80,6 +80,20 @@
       @apply text-white-darker;
       @apply select-none;
     }
+
+    .ui-element {
+      @apply bg-black-light;
+      @apply hover:bg-black-select;
+      @apply transition-colors;
+    }
+
+    .hover-accent {
+      @apply hover:bg-accent-regular;
+    }
+
+    .hover-warn {
+      @apply hover:bg-red-regular;
+    }
   }
 
   html,

@@ -45,7 +45,7 @@
   {value}
   bind:this={input}
   on:keydown={onEnterPressed}
-  class={`rounded-md ui-text outline-none h-8 w-full text-sm px-4 py-2 border-2 bg-black-light border-black-divborder hover:bg-black-select transition-colors ${
+  class={`rounded-md ui-text outline-none h-8 w-full text-sm px-4 py-2 border-2 ui-element border-black-divborder  ${
     clazz || ""
   }`}
 />

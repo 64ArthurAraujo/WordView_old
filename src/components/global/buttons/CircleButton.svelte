@@ -17,7 +17,7 @@
   {height}
   {action}
   {onKeyDown}
-  class={`hover:bg-accent-regular rounded-full ${clazz ?? ""}`}
+  class={`hover-accent rounded-full ${clazz ?? ""}`}
 >
   <slot />
 </LayoutButton>

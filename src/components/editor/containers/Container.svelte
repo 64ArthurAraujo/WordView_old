@@ -21,7 +21,7 @@
 <div class={`${clazz ?? ""}`}>
   <div class="w-full center">
     <div class={`width-98percent bg-black-lightest rounded-sm flex flex-row`}>
-      <p class="text-white-regular text-sm p-1 select-none"><b>{header}</b></p>
+      <p class="ui-text text-sm p-1"><b>{header}</b></p>
 
       <div class="w-full flex content-center justify-end items-center">
         <LayoutButton

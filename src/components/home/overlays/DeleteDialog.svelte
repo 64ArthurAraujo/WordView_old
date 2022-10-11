@@ -31,22 +31,17 @@
     </div>
 
     <div class="mt-20 flex content-center items-center justify-around">
-      <LayoutButton
-        action={() => close()}
-        width="20"
-        height="10"
-        class="hover:bg-black-lightest"
-      >
-        <p class="text-white-darker select-none">No</p>
+      <LayoutButton action={close} width="20" height="10">
+        <p class="ui-text-darker">No</p>
       </LayoutButton>
 
       <LayoutButton
         action={deleteConfirmed}
         width="20"
         height="10"
-        class="hover:bg-red-regular"
+        class="hover-warn"
       >
-        <p class="text-white-darker select-none">Yes</p>
+        <p class="ui-text-darker">Yes</p>
       </LayoutButton>
     </div>
   </GenericDialog>

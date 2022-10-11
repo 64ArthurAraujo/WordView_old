@@ -26,7 +26,7 @@
 
 <div
   on:click={() => loadImage()}
-  class="h-28 w-28 border-2 bg-black-light mx-3 rounded hover:bg-black-select hover:cursor-pointer transition-colors center overflow-hidden"
+  class="h-28 w-28 border-2 ui-element mx-3 rounded hover:cursor-pointer center overflow-hidden"
 >
   {#if !isImageSelected}
     <p class="text-white-darker absolute">Image...</p>

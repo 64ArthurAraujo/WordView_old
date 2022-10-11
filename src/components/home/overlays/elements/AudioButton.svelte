@@ -57,11 +57,6 @@
   }
 </script>
 
-<LayoutButton
-  height="12"
-  width="1/2"
-  action={setAudio}
-  class="hover:bg-accent-regular"
->
+<LayoutButton height="12" width="1/2" action={setAudio} class="hover-accent">
   <h4 class="text-white-darker">Open Audio File...</h4>
 </LayoutButton>

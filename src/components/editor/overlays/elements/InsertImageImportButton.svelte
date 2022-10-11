@@ -45,7 +45,7 @@
   action={insertImage}
   width="72"
   height="10"
-  class="hover:bg-accent-regular w-72"
+  class="hover-accent w-72"
 >
   <p class="ui-text-darker">Insert</p>
 </LayoutButton>
