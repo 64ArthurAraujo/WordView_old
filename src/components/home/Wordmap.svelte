@@ -16,10 +16,10 @@
 <div
   on:click={() => openToPlay(mapdata.id)}
   transition:scale={{ duration: 750 }}
-  class="h-20 rounded-md w-10/12 mt-4 bg-black-lightest hover:bg-black-select hover:cursor-pointer transition-colors justify-self-auto flex flex-row relative"
+  class="h-20 rounded-md w-10/12 mt-4 bg-black-lightest hover:bg-black-select hover:cursor-pointer transition-colors justify-self-auto row relative"
 >
   <div
-    class=" h-20 w-20 bg-black-lighter rounded-md overflow-hidden border-black-lightest border-2 absolute"
+    class="h-20 w-20 bg-black-lighter rounded-md overflow-hidden border-black-lightest border-2 absolute"
   >
     <WordmapImage {mapdata} />
   </div>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="full">
-    <div class="float-right flex flex-row" on:click|stopPropagation>
+    <div class="float-right row" on:click|stopPropagation>
       <LayoutButton
         action={() => openToEdit(mapdata.id)}
         height="20"

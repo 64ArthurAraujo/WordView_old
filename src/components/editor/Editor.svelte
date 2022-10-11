@@ -123,9 +123,7 @@
 
     <BottomBar>
       <ProgressBar />
-      <div
-        class="bottom-0 full flex items-center content-center justify-start flex-row"
-      >
+      <div class="bottom-0 full row items-center content-center justify-start">
         <WordmapInformation />
         <MediaControlBar onPlay={() => {}} />
       </div>

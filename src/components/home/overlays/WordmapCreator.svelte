@@ -13,7 +13,7 @@
   <PromptDialog title="New Wordmap" leaveAction={closeWordmapCreator}>
     <ImageButton />
 
-    <div class="flex flex-col items-center">
+    <div class="column items-center">
       <Input id="wordmap-title" placeholder="Title" />
       <Input id="wordmap-description" placeholder="Description" class="mt-4" />
     </div>

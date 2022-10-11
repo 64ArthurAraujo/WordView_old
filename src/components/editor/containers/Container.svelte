@@ -41,7 +41,7 @@
   </div>
 
   {#if expanded}
-    <div transition:slide={{ duration: 500 }} class="w-full center flex-col">
+    <div transition:slide={{ duration: 500 }} class="w-full center column">
       <slot />
     </div>
   {/if}

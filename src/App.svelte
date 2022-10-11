@@ -14,7 +14,7 @@
 
 <main>
   <Topbar>
-    <div class="h-full flex items-center justify-centers pl-4 flex-row">
+    <div class="h-full items-center justify-centers pl-4 row">
       <h2 class="text-white-regular text-xl select-none">
         <b>WordView</b>
       </h2>
@@ -59,6 +59,16 @@
     .screen {
       @apply h-screen;
       @apply w-screen;
+    }
+
+    .row {
+      @apply flex;
+      @apply flex-row;
+    }
+
+    .column {
+      @apply flex;
+      @apply flex-col;
     }
   }
 

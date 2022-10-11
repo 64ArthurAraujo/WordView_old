@@ -13,7 +13,7 @@
     <h2 class="flex text-white-regular mt-4">{title}</h2>
   </div>
 
-  <div class="center flex-column w-full mt-8">
+  <div class="center row w-full mt-8">
     <slot />
   </div>
 

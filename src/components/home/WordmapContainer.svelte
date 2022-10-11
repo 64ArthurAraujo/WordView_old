@@ -12,14 +12,14 @@
 
 <div class="full center static pt-12 pb-12">
   {#if $wordmaps.length == 0}
-    <div class="center text-center flex-col pt-72">
+    <div class="center text-center column pt-72">
       <FrownIcon size="48" class="invert mb-2" />
       <h4 class="text-white-regular align-middle select-none">
         <b>You dont have any wordmaps yet...</b>
       </h4>
     </div>
   {:else}
-    <div class="w-full center flex-col">
+    <div class="w-full center column">
       {#each $wordmaps as wordmap}
         <Wordmap mapdata={wordmap} />
       {/each}
