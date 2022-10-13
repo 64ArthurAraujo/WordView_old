@@ -1,7 +1,7 @@
 import { wordmaps } from "../../stores/wordmap";
 import { wordmapsFolder } from "../../util/constants";
 import { createFolderIfDoesntExist, filesOf, isEmpty, noFilesIn, readFile } from "../../util/file";
-import type { WordMap } from "./types/wordmap";
+import type { WordMap } from "../../types/wordmap";
 
 export function fetchWordmaps() {
   createFolderIfDoesntExist(wordmapsFolder);

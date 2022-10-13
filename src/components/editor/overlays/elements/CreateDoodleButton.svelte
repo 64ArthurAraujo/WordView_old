@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { WordMap } from "../../../../actions/wordmap/types/wordmap";
+  import type { WordMap } from "../../../../types/wordmap";
   import { fetchWordmaps } from "../../../../actions/wordmap";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
   import { notify } from "../../../../stores/overlay";

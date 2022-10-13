@@ -1,3 +1,3 @@
 export * from "./read";
 export * from "./write";
-export * from "./types/wordmap";
+export * from "../../types/wordmap";

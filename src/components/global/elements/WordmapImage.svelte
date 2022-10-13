@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { WordMap } from "../../../actions/wordmap/types/wordmap";
+  import type { WordMap } from "../../../types/wordmap";
   import { fileExists } from "../../../util/file";
 
   export let mapdata: WordMap;

@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import type { Point, WordMap } from "../actions/wordmap/types/wordmap";
+import type { Point, WordMap } from "../types/wordmap";
 import { wordmapsFolder } from "../util/constants";
 const fs = require("fs");
 
