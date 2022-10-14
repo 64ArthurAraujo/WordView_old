@@ -13,7 +13,7 @@
     clearStores,
     currentPoint,
     currentWordmap,
-  } from "../../stores/wordmap";
+  } from "../../stores/wordmap/wordmap";
   import ProgressBar from "./bottom-bar/elements/ProgressBar.svelte";
   import LeaveButton from "../global/buttons/LeaveButton.svelte";
   import Playfield from "./elements/Playfield.svelte";
