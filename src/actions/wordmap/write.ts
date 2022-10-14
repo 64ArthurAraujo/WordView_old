@@ -1,7 +1,9 @@
 import { randomUUID } from "crypto";
 import { closeWordmapCreator } from "../../stores/overlay";
+import { updateRecentWordmaps } from "../../stores/wordmap";
 import { wordmapsFolder } from "../../util/constants";
 import { createFolderIfDoesntExist, deleteFile } from "../../util/file";
+import { removeWordmapFromRecents } from "../recent";
 import { fetchWordmaps } from "./read";
 import { audioOf, moveAudioToWordViewFolder, moveThumbToWordViewFolder, save, thumbOf, thumbWasSet, wordmapOf } from "./util";
 
@@ -36,5 +38,8 @@ export function deleteWordmap(uuid: string) {
   deleteFile(audioOf(uuid));
   deleteFile(thumbOf(uuid));
 
+  removeWordmapFromRecents(uuid);
+
   fetchWordmaps();
+  updateRecentWordmaps();
 }
