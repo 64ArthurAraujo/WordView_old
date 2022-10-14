@@ -7,6 +7,16 @@ export function createFolderIfDoesntExist(path: string) {
   }
 }
 
+export function createFileIfDoesntExist(path: string, content: string) {
+  if (!fs.existsSync(path)) {
+    fs.writeFileSync(path, content);
+  }
+}
+
+export function saveFile(path: string, content: string) {
+  fs.writeFileSync(path, content);
+}
+
 export function deleteFile(path: string) {
   try {
     if (fs.existsSync(path)) {

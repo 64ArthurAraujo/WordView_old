@@ -4,3 +4,5 @@ export const appData = process.env.APPDATA || (
 )
 
 export const wordmapsFolder = appData + "/wordview/wordmaps/";
+
+export const wordviewFolder = appData + "/wordview";
