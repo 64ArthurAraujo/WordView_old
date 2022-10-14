@@ -8,7 +8,7 @@
     currentWordmap,
     saveCurrentWordmap,
     currentPoint,
-  } from "../../../../stores/wordmap";
+  } from "../../../../stores/wordmap/wordmap";
   import { audio } from "../../../../util/web";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 

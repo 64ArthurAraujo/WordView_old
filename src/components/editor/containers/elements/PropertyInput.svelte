@@ -5,7 +5,7 @@
     currentPoint,
     currentWordmap,
     currentPointPosition,
-  } from "../../../../stores/wordmap";
+  } from "../../../../stores/wordmap/wordmap";
   import { keyPressedIs } from "../../../../util/event";
   import {
     changePropertyFromCurrentPoint,

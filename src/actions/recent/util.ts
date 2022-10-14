@@ -11,13 +11,15 @@ export function createRecentsFileIfDoesntExist() {
 export function addWordmapToFirstPlace(wordmap: WordMap, array: WordMap[]) {
   const el = array.find(wordmapInArray);
 
-  console.log(el);
-
   if (el == undefined) {
     array.unshift(wordmap);
     return;
   } else {
-    array.splice(array.indexOf(wordmap), 1);
+    if (array.indexOf(el) == 0) {
+      return;
+    }
+
+    array.splice(array.indexOf(el), 1);
     array.unshift(wordmap);
     return;
   }

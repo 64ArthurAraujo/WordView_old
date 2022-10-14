@@ -1,6 +1,6 @@
 <script lang="ts">
   import PropertyInput from "./PropertyInput.svelte";
-  import { currentPoint } from "../../../../stores/wordmap";
+  import { currentPoint } from "../../../../stores/wordmap/wordmap";
   import type { WordMapProperty } from "./util/input";
 
   export let title: string;

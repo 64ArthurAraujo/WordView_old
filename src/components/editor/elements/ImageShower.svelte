@@ -5,7 +5,10 @@
     currentPointImageSource,
     setPointImageSource,
   } from "../../../stores/overlay";
-  import { currentPoint, currentWordmap } from "../../../stores/wordmap";
+  import {
+    currentPoint,
+    currentWordmap,
+  } from "../../../stores/wordmap/wordmap";
   import { audio } from "../../../util/web";
 
   let isShowing = false;

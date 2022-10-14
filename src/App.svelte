@@ -6,9 +6,9 @@
   import { notificationMessage } from "./stores/overlay";
   import PlusButton from "./components/home/elements/PlusButton.svelte";
   import WordmapPlayer from "./components/editor/WordmapPlayer.svelte";
-  import { wordmaps } from "./stores/wordmap";
+  import { wordmaps } from "./stores/wordmap/wordmap";
   import ShinyPlusButton from "./components/home/elements/ShinyPlusButton.svelte";
-  import RecentOpenedWordmaps from "./components/home/elements/RecentOpenedWordmaps.svelte";
+  import RecentWordmaps from "./components/home/RecentWordmaps.svelte";
   import NotificationContainer from "./components/global/overlay/NotificationContainer.svelte";
 </script>
 
@@ -21,7 +21,7 @@
     </div>
   </Topbar>
 
-  <RecentOpenedWordmaps />
+  <RecentWordmaps />
   <WordmapContainer />
 
   {#if $wordmaps.length <= 0}

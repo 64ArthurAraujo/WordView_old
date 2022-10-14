@@ -1,7 +1,7 @@
 <script lang="ts">
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
   import { ChevronDownIcon, ChevronUpIcon } from "svelte-feather-icons";
-  import { slide } from "svelte/transition";
+  import { scale, slide } from "svelte/transition";
 
   let expanded: boolean = true;
 
@@ -18,9 +18,9 @@
   export { clazz as class };
 </script>
 
-<div class={`${clazz ?? ""}`}>
+<div class={`${clazz ?? ""}`} transition:scale={{ delay: 250, duration: 250 }}>
   <div class="w-full center">
-    <div class={`width-98percent bg-black-lightest rounded-sm flex flex-row`}>
+    <div class={`width-99p bg-black-lighter rounded-sm flex flex-row`}>
       <p class="ui-text text-sm p-1 row w-full"><b>{header}</b></p>
 
       <div class="w-full flex content-center justify-end items-center">
@@ -41,14 +41,14 @@
   </div>
 
   {#if expanded}
-    <div transition:slide={{ duration: 500 }} class="w-full center column">
+    <div transition:slide={{ duration: 250 }} class="w-full center column">
       <slot />
     </div>
   {/if}
 </div>
 
 <style>
-  .width-98percent {
-    width: 98%;
+  .width-99p {
+    width: 99%;
   }
 </style>

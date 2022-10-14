@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
-import type { Point, WordMap } from "../types/wordmap";
-import { wordmapsFolder } from "../util/constants";
+import type { Point, WordMap } from "../../types/wordmap";
+import { wordmapsFolder } from "../../util/constants";
 const fs = require("fs");
 
 export const wordmaps = writable([] as WordMap[]);

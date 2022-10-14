@@ -1,4 +1,4 @@
-import { wordmaps } from "../../stores/wordmap";
+import { wordmaps } from "../../stores/wordmap/wordmap";
 import { wordmapsFolder } from "../../util/constants";
 import { createFolderIfDoesntExist, filesOf, isEmpty, noFilesIn, readFile } from "../../util/file";
 import type { WordMap } from "../../types/wordmap";

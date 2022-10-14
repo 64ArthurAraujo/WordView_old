@@ -10,5 +10,9 @@ export function addWordmapToRecents(wordmap: WordMap) {
 
   addWordmapToFirstPlace(wordmap, wordmaps.recent);
 
+  if (wordmaps.recent.length >= 3) {
+    wordmaps.recent.splice(2, 5);
+  }
+
   saveFile(recentWordmapsFilePath, JSON.stringify(wordmaps));
 }

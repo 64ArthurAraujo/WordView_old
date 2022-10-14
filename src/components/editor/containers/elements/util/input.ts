@@ -1,4 +1,4 @@
-import { currentPoint } from "../../../../../stores/wordmap";
+import { currentPoint } from "../../../../../stores/wordmap/wordmap";
 
 export type WordMapProperty =
   | "fadeIn"

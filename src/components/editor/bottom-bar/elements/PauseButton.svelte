@@ -2,7 +2,7 @@
   import { PlayIcon } from "svelte-feather-icons";
   import { PauseIcon } from "svelte-feather-icons";
   import CircleButton from "../../../global/buttons/CircleButton.svelte";
-  import { audioPaused } from "../../../../stores/wordmap";
+  import { audioPaused } from "../../../../stores/wordmap/wordmap";
   import { audio } from "../../../../util/web";
 
   export let onPlay: Function;

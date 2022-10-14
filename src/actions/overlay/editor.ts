@@ -1,5 +1,5 @@
 import { openEditor } from "../../stores/overlay";
-import { currentPoint, setCurrentWordmap } from "../../stores/wordmap";
+import { currentPoint, setCurrentWordmap } from "../../stores/wordmap/wordmap";
 import type { Point } from "../../types/wordmap";
 
 export function openToEdit(uuid: string) {
