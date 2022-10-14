@@ -24,6 +24,16 @@ export function setCurrentWordmap(uuid: string) {
   })
 }
 
+export function getCurrentWordmap() {
+  let result: WordMap;
+
+  currentWordmap.subscribe(wordmap => {
+    result = wordmap;
+  });
+
+  return result;
+}
+
 export function saveCurrentWordmap() {
   currentWordmap.subscribe(async wordmap => {
     if (wordmap.id == undefined) return;
