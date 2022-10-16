@@ -12,6 +12,8 @@
   } from "../../../stores/wordmap/wordmap";
 
   let isShowing = false;
+  let lastSrc = "";
+  let fadeOutCounter = 0;
 
   setInterval(async () => {
     if ($currentWordmap.points == undefined) return;
@@ -33,11 +35,25 @@
       if (point == null) return;
 
       if (audio("editing-audio").currentTime >= point.timelineLocation) {
-        isShowing = true;
         setPointImageSource(point.path);
         currentPoint.set(point);
       }
     }
+  }, 1);
+
+  setInterval(() => {
+    if ($currentPointImageSource != lastSrc) {
+      console.log("Source changed!");
+      fadeOutCounter = 0;
+      isShowing = true;
+    } else {
+      if (fadeOutCounter == 500) {
+        isShowing = false;
+      }
+    }
+
+    lastSrc = $currentPointImageSource;
+    fadeOutCounter++;
   }, 1);
 </script>
 
@@ -47,6 +63,7 @@
     id="img"
     class="h-full w-auto select-none transition-all"
     src={$currentPointImageSource}
-    transition:fly={{ x: 1000, duration: 250 }}
+    in:fly={{ x: 1000, duration: 250 }}
+    out:fly={{ x: -1000, duration: 250 }}
   />
 {/if}
