@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { slide } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import type { Point } from "../../../actions/wordmap";
+  import { audio } from "../../../util/web";
   import {
     currentPointImageSource,
     setPointImageSource,
@@ -9,7 +10,6 @@
     currentPoint,
     currentWordmap,
   } from "../../../stores/wordmap/wordmap";
-  import { audio } from "../../../util/web";
 
   let isShowing = false;
 
@@ -47,6 +47,6 @@
     id="img"
     class="h-full w-auto select-none transition-all"
     src={$currentPointImageSource}
-    transition:slide
+    transition:fly={{ x: 1000, duration: 250 }}
   />
 {/if}
