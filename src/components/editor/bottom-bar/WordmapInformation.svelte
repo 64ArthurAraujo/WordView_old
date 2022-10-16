@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { currentWordmap } from "../../../stores/wordmap";
+  import { currentWordmap } from "../../../stores/wordmap/wordmap";
   import WordmapImage from "../../global/elements/WordmapImage.svelte";
 </script>
 

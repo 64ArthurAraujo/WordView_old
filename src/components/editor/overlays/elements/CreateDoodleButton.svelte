@@ -6,7 +6,7 @@
   import {
     currentWordmap,
     saveCurrentWordmap,
-  } from "../../../../stores/wordmap";
+  } from "../../../../stores/wordmap/wordmap";
   import {
     image,
     imageHasNoSource,
