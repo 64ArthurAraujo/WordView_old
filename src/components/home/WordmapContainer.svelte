@@ -3,7 +3,7 @@
   import { FrownIcon } from "svelte-feather-icons";
   import { fetchWordmaps } from "../../actions/wordmap";
   import { wordmaps } from "../../stores/wordmap/wordmap";
-  import HomeContainer from "./elements/HomeContainer.svelte";
+  import Titlebar from "./elements/Titlebar.svelte";
   import Wordmap from "./elements/Wordmap.svelte";
 
   onMount(() => {
@@ -20,12 +20,12 @@
       </h4>
     </div>
   {:else}
-    <HomeContainer header="Your Wordmaps" class="mt-2 w-full">
+    <Titlebar header="Your Wordmaps" class="mt-2 w-full">
       <div class="w-full center column">
         {#each $wordmaps as wordmap}
           <Wordmap mapdata={wordmap} />
         {/each}
       </div>
-    </HomeContainer>
+    </Titlebar>
   {/if}
 </div>
