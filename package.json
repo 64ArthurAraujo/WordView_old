@@ -24,7 +24,7 @@
     },
     "win": {
       "publisherName": "Arthur Araujo",
-      "requestedExecutionLeve": "asInvoker",
+      "requestedExecutionLevel": "asInvoker",
       "target": [
         "portable"
       ]
