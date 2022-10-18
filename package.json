@@ -23,6 +23,8 @@
       "category": "io.wordview"
     },
     "win": {
+      "publisherName": "Arthur Araujo",
+      "requestedExecutionLeve": "asInvoker",
       "target": [
         "portable"
       ]
