@@ -7,6 +7,7 @@
     setPointImageSource,
   } from "../../../stores/overlay";
   import {
+    audioPaused,
     currentPoint,
     currentWordmap,
   } from "../../../stores/wordmap/wordmap";
@@ -42,12 +43,14 @@
   }, 1);
 
   setInterval(() => {
+    if ($audioPaused) return;
+
     if ($currentPointImageSource != lastSrc) {
       console.log("Source changed!");
       fadeOutCounter = 0;
       isShowing = true;
     } else {
-      if (fadeOutCounter == 500) {
+      if (fadeOutCounter >= 500) {
         isShowing = false;
       }
     }
