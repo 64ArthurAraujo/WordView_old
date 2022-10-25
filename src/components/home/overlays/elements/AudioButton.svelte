@@ -15,12 +15,7 @@
     const title = input("wordmap-title");
     const description = input("wordmap-description");
 
-    if (
-      inputIsEmpty(title) ||
-      inputIsEmpty(description) ||
-      inputValueNotDefined(title) ||
-      inputValueNotDefined(description)
-    ) {
+    if (inputIsEmpty(title) || inputValueNotDefined(title)) {
       notify(1000, "Please fill all the inputs!");
       return false;
     }
@@ -50,9 +45,9 @@
     const thumbInput = image("preview");
 
     if (imageHasNoSource(thumbInput)) {
-      createWordmap(audio.path, title, description, "");
+      createWordmap(audio.path, title, description ?? "", "");
     } else {
-      createWordmap(audio.path, title, description, thumbInput.src);
+      createWordmap(audio.path, title, description ?? "", thumbInput.src);
     }
   }
 </script>
