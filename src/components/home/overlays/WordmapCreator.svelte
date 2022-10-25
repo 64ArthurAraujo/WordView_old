@@ -14,8 +14,13 @@
     <ImageButton />
 
     <div class="column items-center">
-      <Input id="wordmap-title" placeholder="Title" />
-      <Input id="wordmap-description" placeholder="Description" class="mt-4" />
+      <Input id="wordmap-title" placeholder="Title" maxlength={30} />
+      <Input
+        id="wordmap-description"
+        placeholder="Description"
+        maxlength={45}
+        class="mt-4"
+      />
     </div>
 
     <svelte:fragment slot="footer">
