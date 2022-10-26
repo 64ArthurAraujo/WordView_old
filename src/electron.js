@@ -18,7 +18,7 @@ function createWindow() {
   mainWindow.loadURL(`file://${path.join(__dirname, "../public/index.html")}`);
 
   mainWindow.maximize();
-  mainWindow.removeMenu();
+  mainWindow.menuBarVisible = false;
 
   mainWindow.on("closed", () => mainWindow = null);
 }
