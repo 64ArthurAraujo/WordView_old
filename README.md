@@ -4,7 +4,7 @@ Tradução em [português](https://github.com/64ArthurAraujo/WordView/blob/maste
 
 
 
-## How it works ?
+## How it works?
 
 WordView is a application that can help your language learning journey, using audios (mainly music) you can memorize new words by visualizing them as images. The principle is almost the same as of a flashcard, but more interactive.
 
