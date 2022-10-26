@@ -31,6 +31,14 @@
       isShowing = false;
     }
 
+    if (
+      orderedPoints[0].timelineLocation > audio("editing-audio").currentTime
+    ) {
+      currentPoint.set({} as Point);
+      setPointImageSource("");
+      isShowing = false;
+    }
+
     for (const point of orderedPoints) {
       if (!audio("editing-audio")) return;
       if (point == null) return;
