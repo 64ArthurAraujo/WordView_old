@@ -10,7 +10,7 @@
 
 <div class="absolute w-full h-full center">
   <div
-    class={`bg-black-lightest ${proportions} mb-28 rounded-md overflow-hidden center`}
+    class={`bg-black-lightest ${proportions} mb-28 rounded-md overflow-hidden shadow-lg center`}
   >
     <slot />
   </div>

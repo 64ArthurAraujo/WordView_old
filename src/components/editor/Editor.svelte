@@ -119,7 +119,7 @@
       </Container>
     </Sidebar>
 
-    <TimeIndicator class="top-0 mt-4" />
+    <TimeIndicator class="top-0 mt-4 shadow-lg" />
 
     <BottomBar>
       <ProgressBar />
