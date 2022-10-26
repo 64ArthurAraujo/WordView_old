@@ -1,6 +1,6 @@
 <script lang="ts">
   import { AlertTriangleIcon } from "svelte-feather-icons";
-  import { fade } from "svelte/transition";
+  import { fly } from "svelte/transition";
   import { isNotificationShown } from "../../../stores/overlay";
 
   function hide() {
@@ -10,7 +10,8 @@
 
 {#if $isNotificationShown}
   <div
-    transition:fade={{ duration: 250 }}
+    in:fly={{ duration: 500, y: -45 }}
+    out:fly={{ duration: 500, y: -45 }}
     class="z-20 h-max w-full fixed top-0 left-0 center select-none"
     on:click={hide}
   >
