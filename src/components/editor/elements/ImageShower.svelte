@@ -74,7 +74,7 @@
     id="img"
     class="h-full w-auto select-none transition-all"
     src={$currentPointImageSource}
-    in:fly={{ x: 1000, duration: 250 }}
-    out:fly={{ x: -1000, duration: 250 }}
+    in:fly={{ x: 500, duration: 250 }}
+    out:fly={{ x: -500, duration: 500 }}
   />
 {/if}
