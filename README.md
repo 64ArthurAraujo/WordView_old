@@ -1,3 +1,5 @@
+
+![WordView](https://github.com/64ArthurAraujo/WordView/blob/master/assets/cover-slim.png?raw=true)
 # WordView
 
 Tradução em [português](https://github.com/64ArthurAraujo/WordView/blob/master/README_PTBR.md).
