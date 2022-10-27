@@ -20,9 +20,13 @@
 
   let input: HTMLInputElement;
 
-  function onEnterPressed(event: KeyboardEvent) {
+  async function onEnterPressed(event: KeyboardEvent) {
     if (keyPressedIs("Enter", event)) {
+      console.log("Updating input...");
+
       let indexToChange = currentPointPosition();
+
+      console.log("Index to Change : " + indexToChange);
 
       changePropertyFromCurrentPoint(property, input.value);
 

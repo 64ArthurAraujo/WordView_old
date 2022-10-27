@@ -11,7 +11,7 @@ export type WordMapProperty =
 export function changePropertyFromCurrentPoint(property: WordMapProperty, newProperty: string) {
   if (!newProperty) return;
 
-  currentPoint.subscribe(point => {
+  const unsub = currentPoint.subscribe(point => {
     switch (property) {
       case "fadeIn":
         point.fadeIn = Number.parseFloat(newProperty);
@@ -34,4 +34,8 @@ export function changePropertyFromCurrentPoint(property: WordMapProperty, newPro
         break;
     }
   })
+
+  unsub();
+
+  return;
 }
