@@ -10,15 +10,27 @@
   import ShinyPlusButton from "./components/home/elements/ShinyPlusButton.svelte";
   import RecentWordmaps from "./components/home/RecentWordmaps.svelte";
   import NotificationContainer from "./components/global/overlay/NotificationContainer.svelte";
+  import LayoutButton from "./components/global/buttons/LayoutButton.svelte";
+  import { fetchWordmaps } from "./actions/wordmap";
 </script>
 
 <main>
   <Topbar>
-    <div class="h-full items-center justify-centers pl-4 row">
+    <div class="h-full items-center justify-centers pl-4 row float-left">
       <img
         src="../assets/wordview-title.png"
         class="h-2/3 w-auto select-none"
       />
+    </div>
+
+    <div class="h-full items-center justify-centers pr-4 row float-right">
+      <LayoutButton
+        class="float-right"
+        width="32"
+        height="8"
+        action={fetchWordmaps}
+        ><p class="ui-text">Refresh Wordmaps</p></LayoutButton
+      >
     </div>
   </Topbar>
 
