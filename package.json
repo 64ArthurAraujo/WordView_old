@@ -25,11 +25,13 @@
     "win": {
       "publisherName": "Arthur Araujo",
       "requestedExecutionLevel": "asInvoker",
+      "icon": "./assets/256x256.png",
       "target": [
         "portable"
       ]
     },
     "linux": {
+      "icon": "./assets/256x256.png",
       "synopsis": "Learn by visualizing words in their rawest form!",
       "target": "AppImage"
     }

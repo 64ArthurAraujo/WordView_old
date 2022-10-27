@@ -15,9 +15,10 @@
 <main>
   <Topbar>
     <div class="h-full items-center justify-centers pl-4 row">
-      <h2 class="ui-text text-xl">
-        <b>WordView</b>
-      </h2>
+      <img
+        src="../assets/wordview-title.png"
+        class="h-2/3 w-auto select-none"
+      />
     </div>
   </Topbar>
 
