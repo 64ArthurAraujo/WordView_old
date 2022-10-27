@@ -12,18 +12,19 @@
   import NotificationContainer from "./components/global/overlay/NotificationContainer.svelte";
   import LayoutButton from "./components/global/buttons/LayoutButton.svelte";
   import { fetchWordmaps } from "./actions/wordmap";
+  import VerticalCenter from "./components/global/elements/VerticalCenter.svelte";
 </script>
 
 <main>
   <Topbar>
-    <div class="h-full items-center justify-centers pl-4 row float-left">
+    <VerticalCenter class="pl-4 float-left">
       <img
         src="../assets/wordview-title.png"
         class="h-2/3 w-auto select-none"
       />
-    </div>
+    </VerticalCenter>
 
-    <div class="h-full items-center justify-centers pr-4 row float-right">
+    <VerticalCenter class="pr-4 float-right">
       <LayoutButton
         class="float-right"
         width="32"
@@ -31,7 +32,7 @@
         action={fetchWordmaps}
         ><p class="ui-text">Refresh Wordmaps</p></LayoutButton
       >
-    </div>
+    </VerticalCenter>
   </Topbar>
 
   <RecentWordmaps />
