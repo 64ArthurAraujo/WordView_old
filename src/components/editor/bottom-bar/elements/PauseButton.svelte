@@ -4,24 +4,23 @@
   import CircleButton from "../../../global/buttons/CircleButton.svelte";
   import { audioPaused } from "../../../../stores/wordmap/wordmap";
   import { audio } from "../../../../util/web";
+  import { pause, play } from "../../../../stores/overlay";
 
   export let onPlay: Function;
 
-  export function play() {
+  export function hitplay() {
     let _audio = audio("editing-audio");
 
     if (!_audio.paused) {
-      audioPaused.set(true);
-      _audio.pause();
+      pause();
     } else {
-      _audio.play();
-      audioPaused.set(false);
+      play();
       onPlay();
     }
   }
 </script>
 
-<CircleButton action={play} height="10" width="10" class="mx-4 center">
+<CircleButton action={hitplay} height="10" width="10" class="mx-4 center">
   {#if !audio}
     <PlayIcon size="14" class="invert" />
   {:else if $audioPaused}

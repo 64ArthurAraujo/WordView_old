@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { pause } from "../../../../stores/overlay";
   import { numberFromPercentage, percentage } from "../../../../util/math";
   import { audio, windowWidth } from "../../../../util/web";
 
@@ -10,6 +11,8 @@
     if (!_audio || !_audio.currentTime) return;
 
     progressPercentage = percentage(_audio.currentTime, _audio.duration);
+
+    if (progressPercentage == 100) pause();
   }, 250);
 
   function handleMouseClick(event: MouseEvent) {
