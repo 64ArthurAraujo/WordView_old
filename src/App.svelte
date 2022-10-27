@@ -40,6 +40,8 @@
 </main>
 
 <style lang="postcss" global>
+  @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap");
+
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
@@ -95,6 +97,10 @@
     .hover-warn {
       @apply hover:bg-red-regular;
     }
+  }
+
+  * {
+    font-family: "Red Hat Text", sans-serif;
   }
 
   html,
