@@ -9,6 +9,7 @@
   import Playfield from "./elements/Playfield.svelte";
   import ImageShower from "./elements/ImageShower.svelte";
   import FullScreenOverlayContainer from "../global/overlay/FullScreenOverlayContainer.svelte";
+  import LyricsShower from "./elements/LyricsShower.svelte";
 
   function exit() {
     closePlayer();
@@ -36,6 +37,7 @@
 
     <Playfield isPlayer={true}>
       <ImageShower />
+      <LyricsShower />
     </Playfield>
 
     <LeaveButton action={exit} />

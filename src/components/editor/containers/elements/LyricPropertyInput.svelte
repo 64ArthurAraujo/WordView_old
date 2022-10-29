@@ -2,23 +2,25 @@
   import { CornerUpRightIcon } from "svelte-feather-icons";
   import { fetchWordmaps } from "../../../../actions/wordmap";
   import {
+    currentLyricPoint,
+    currentLyricPosition,
+  } from "../../../../stores/overlay";
+  import {
     saveCurrentWordmap,
-    currentPoint,
     currentWordmap,
-    currentPointPosition,
   } from "../../../../stores/wordmap/wordmap";
   import { keyPressedIs } from "../../../../util/event";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
   import {
-    changePropertyFromCurrentPoint,
-    WordMapProperty,
+    changePropertyFromCurrentLyricPoint,
+    LyricProperty,
   } from "./util/input";
 
   export let type: string = "text";
   export let placeholder: string;
   export let value: string = "";
   export let id: string = "";
-  export let property: WordMapProperty;
+  export let property: LyricProperty;
   export let disabled: boolean = false;
 
   let input: HTMLInputElement;
@@ -30,15 +32,15 @@
   }
 
   function trigger() {
-    console.log("Updating input...");
+    console.log("Updating lyric...");
 
-    let indexToChange = currentPointPosition();
+    let indexToChange = currentLyricPosition();
 
     console.log("Index to Change : " + indexToChange);
 
-    changePropertyFromCurrentPoint(property, input.value);
+    changePropertyFromCurrentLyricPoint(property, input.value);
 
-    $currentWordmap.points[indexToChange] = $currentPoint;
+    $currentWordmap.lyrics[indexToChange] = $currentLyricPoint;
 
     saveCurrentWordmap();
     fetchWordmaps();

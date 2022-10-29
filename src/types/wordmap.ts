@@ -8,6 +8,7 @@ export interface WordMap {
   thumbPath: string;
   audioPath: string;
   points: Point[];
+  lyrics: LyricPoint[];
 }
 
 export interface Point {
@@ -16,4 +17,9 @@ export interface Point {
   fadeOut: number;
   type: PointType;
   path: string;
+}
+
+export interface LyricPoint {
+  timelineLocation: number;
+  text: string;
 }

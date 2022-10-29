@@ -25,7 +25,8 @@ export function createWordmap(audio: string, title: string, description: string,
     durationInMiliseconds: 0,
     thumbPath: `${wordmapsFolder}thumb/${wordmapId}` ?? "",
     audioPath: `${wordmapsFolder}audio/${wordmapId}`,
-    points: []
+    points: [],
+    lyrics: [],
   });
 
   closeWordmapCreator();

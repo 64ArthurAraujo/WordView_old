@@ -7,9 +7,8 @@
   import MediaControlBar from "./bottom-bar/MediaControlBar.svelte";
   import Sidebar from "../global/elements/Sidebar.svelte";
   import BottomBar from "./bottom-bar/BottomBar.svelte";
-  import { closeEditor, isEditorOpen } from "../../stores/overlay";
+  import { closeEditor, isEditorOpen, pause } from "../../stores/overlay";
   import {
-    audioPaused,
     clearStores,
     currentPoint,
     currentWordmap,
@@ -25,9 +24,16 @@
   import TimeIndicator from "./elements/TimeIndicator.svelte";
   import { audio } from "../../util/web";
   import PointDeleteButton from "./containers/elements/PointDeleteButton.svelte";
+  import InsertLyricsButton from "./containers/elements/InsertLyricsButton.svelte";
+  import CreateLyricsOverlay from "./overlays/CreateLyricsOverlay.svelte";
+  import LyricsShower from "./elements/LyricsShower.svelte";
+  import { currentLyricPoint, setLyricPoint } from "../../stores/overlay";
+  import LyricsDeleteButton from "./containers/elements/LyricsDeleteButton.svelte";
+  import LyricPropertyRow from "./containers/elements/LyricPropertyRow.svelte";
 
   let showingImportImage: boolean;
   let showingCreateDoodle: boolean;
+  let showingCreateLyrics: boolean;
   let currentAudioTime: number;
 
   function exit() {
@@ -38,8 +44,7 @@
   function showImportImage() {
     showingImportImage = true;
 
-    audio("editing-audio").pause();
-    audioPaused.set(true);
+    pause();
 
     currentAudioTime = audio("editing-audio").currentTime;
   }
@@ -48,14 +53,26 @@
     showingImportImage = false;
   }
 
-  function showCreateDoodle() {
-    showingCreateDoodle = true;
+  function showCreateLyrics() {
+    showingCreateLyrics = true;
 
-    audio("editing-audio").pause();
-    audioPaused.set(true);
+    pause();
 
     currentAudioTime = audio("editing-audio").currentTime;
   }
+
+  function hideCreateLyrics() {
+    showingCreateLyrics = false;
+  }
+
+  // function showCreateDoodle() {
+  //   showingCreateDoodle = true;
+
+  //   audio("editing-audio").pause();
+  //   audioPaused.set(true);
+
+  //   currentAudioTime = audio("editing-audio").currentTime;
+  // }
 
   function hideCreateDoodle() {
     showingCreateDoodle = false;
@@ -73,6 +90,7 @@
     <div class="screen bg-black-light" />
     <Playfield>
       <ImageShower />
+      <LyricsShower />
     </Playfield>
 
     <Sidebar>
@@ -82,6 +100,11 @@
         <ContainerRow>
           <InsertImageButton action={showImportImage} />
         </ContainerRow>
+
+        <ContainerRow>
+          <InsertLyricsButton action={showCreateLyrics} />
+        </ContainerRow>
+
         <!-- 
         <ContainerRow>
           <InsertDoodleButton action={showCreateDoodle} />
@@ -90,7 +113,7 @@
     </Sidebar>
 
     <Sidebar direction="right">
-      <Container header="Properties" class="mt-1">
+      <Container header="Image Properties" class="mt-1">
         <ContainerRow>
           {#if $currentPoint.timelineLocation != undefined}
             <PropertyRow
@@ -109,12 +132,41 @@
               inputValue={$currentPoint?.type}
               inputPlaceholder="Type..."
               property="type"
+              disabled={true}
             />
           {/if}
         </ContainerRow>
 
         <ContainerRow>
           <PointDeleteButton />
+        </ContainerRow>
+      </Container>
+
+      <Container header="Lyrics Properties" class="mt-1">
+        <ContainerRow>
+          {#if $currentLyricPoint.text != undefined}
+            <LyricPropertyRow
+              title="Text"
+              inputValue={$currentLyricPoint?.text}
+              inputPlaceholder="Text..."
+              property="text"
+            />
+          {/if}
+        </ContainerRow>
+
+        <ContainerRow>
+          {#if $currentLyricPoint.timelineLocation != undefined}
+            <LyricPropertyRow
+              title="Timeline Location"
+              inputValue={$currentLyricPoint?.timelineLocation.toString()}
+              inputPlaceholder="Location..."
+              property="timelineLocation"
+            />
+          {/if}
+        </ContainerRow>
+
+        <ContainerRow>
+          <LyricsDeleteButton />
         </ContainerRow>
       </Container>
     </Sidebar>
@@ -136,4 +188,9 @@
   {showingCreateDoodle}
   {currentAudioTime}
   {hideCreateDoodle}
+/>
+<CreateLyricsOverlay
+  {showingCreateLyrics}
+  {currentAudioTime}
+  {hideCreateLyrics}
 />

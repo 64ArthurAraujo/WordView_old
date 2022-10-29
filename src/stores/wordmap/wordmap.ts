@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 import type { Point, WordMap } from "../../types/wordmap";
 import { wordmapsFolder } from "../../util/constants";
+import { clearEditorStores } from "../overlay";
 const fs = require("fs");
 
 export const wordmaps = writable([] as WordMap[]);
@@ -12,6 +13,7 @@ export function clearStores() {
   currentWordmap.set({} as WordMap);
   currentPoint.set({} as Point);
   audioPaused.set(true);
+  clearEditorStores();
 }
 
 export function setCurrentWordmap(uuid: string) {

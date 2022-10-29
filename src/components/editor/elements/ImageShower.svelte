@@ -29,6 +29,8 @@
       currentPoint.set({} as Point);
       setPointImageSource("");
       isShowing = false;
+
+      return;
     }
 
     if (
@@ -72,7 +74,7 @@
   <!-- svelte-ignore a11y-missing-attribute -->
   <img
     id="img"
-    class="h-full w-auto select-none transition-all"
+    class="h-full w-auto select-none transition-all absolute"
     src={$currentPointImageSource}
     in:fly={{ x: 500, duration: 250 }}
     out:fly={{ x: -500, duration: 500 }}
