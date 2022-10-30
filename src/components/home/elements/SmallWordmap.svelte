@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { Edit2Icon, Trash2Icon } from "svelte-feather-icons";
+  import { Edit2Icon, ShareIcon, Trash2Icon } from "svelte-feather-icons";
   import { scale } from "svelte/transition";
   import { openToEdit, openToPlay } from "../../../actions/overlay";
   import type { WordMap } from "../../../types/wordmap";
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
   import WordmapImage from "../../global/elements/WordmapImage.svelte";
+  import { shareWordmap } from "./action/wordmap";
 
   export let mapdata: WordMap;
 </script>
@@ -36,6 +37,15 @@
         class="hover-accent"
       >
         <Edit2Icon size="14" class="invert" />
+      </LayoutButton>
+
+      <LayoutButton
+        action={() => shareWordmap(mapdata.id)}
+        height="20"
+        width="10"
+        class="hover-accent"
+      >
+        <ShareIcon size="14" class="invert" />
       </LayoutButton>
     </div>
   </div>

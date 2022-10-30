@@ -6,7 +6,7 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({
     resizable: true,
-    minWidth: 720,
+    minWidth: 820,
     minHeight: 640,
 
     icon: "../assets/256x256.png",
