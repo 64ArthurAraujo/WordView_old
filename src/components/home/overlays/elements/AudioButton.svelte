@@ -3,6 +3,7 @@
   import { createWordmap } from "../../../../actions/wordmap";
   import { notify } from "../../../../stores/overlay";
   import {
+    audio,
     image,
     imageHasNoSource,
     input,
@@ -11,47 +12,29 @@
   } from "../../../../util/web";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 
-  function checkInfoComplete() {
-    const title = input("wordmap-title");
-    const description = input("wordmap-description");
-
-    if (inputIsEmpty(title) || inputValueNotDefined(title)) {
-      notify(1000, "Please fill all the inputs!");
-      return false;
-    }
-
-    return true;
-  }
-
-  function wordmapInfo() {
-    const title = input("wordmap-title");
-    const description = input("wordmap-description");
-
-    return { title: title.value, description: description.value };
-  }
+  let selectedSource: string = undefined;
+  let audioFile: File;
+  let audioType: string;
 
   async function setAudio() {
-    if (!checkInfoComplete()) return;
-
-    const { title, description } = wordmapInfo();
-
     const audio = await openFilePrompt();
-
-    if (audio.type !== "audio/mpeg") {
-      notify(1000, `Invalid audio type: ${audio.type}`);
-      return;
-    }
-
-    const thumbInput = image("preview");
-
-    if (imageHasNoSource(thumbInput)) {
-      createWordmap(audio.path, title, description ?? "", "");
-    } else {
-      createWordmap(audio.path, title, description ?? "", thumbInput.src);
-    }
+    audioFile = audio;
+    audioType = audio.type;
+    selectedSource = audio.path;
   }
 </script>
 
-<LayoutButton height="12" width="1/2" action={setAudio} class="hover-accent">
-  <h4 class="text-white-darker">Open Audio File...</h4>
+<!-- svelte-ignore component-name-lowercase -->
+<input type="hidden" value={selectedSource} id="wordmap-audio-pick" />
+
+<!-- svelte-ignore component-name-lowercase -->
+<input type="hidden" value={audioType} id="wordmap-audio-type" />
+
+<LayoutButton
+  height="12"
+  width="full"
+  action={setAudio}
+  class="mt-4 overflow-hidden"
+>
+  <h4 class="text-white-darker">{selectedSource ?? "Open Audio File..."}</h4>
 </LayoutButton>

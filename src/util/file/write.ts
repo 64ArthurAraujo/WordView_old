@@ -13,8 +13,20 @@ export function createFileIfDoesntExist(path: string, content: string) {
   }
 }
 
-export function saveFile(path: string, content: string) {
+export function saveFile(path: string, content: string | Buffer) {
   fs.writeFileSync(path, content);
+}
+
+export async function saveBuffer(path: string, content: Buffer) {
+  fs.writeFile(path, content, 'binary', (err) => {
+    if (err) {
+      console.log("There was an error writing the file")
+      console.error(err);
+    }
+    else {
+      console.log(`Saved ${path.split("/")[path.length - 1]} on wordmaps folder!`);
+    }
+  });
 }
 
 export function deleteFile(path: string) {

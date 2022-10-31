@@ -7,13 +7,19 @@
   import ImageButton from "./elements/ImageButton.svelte";
   import AudioButton from "./elements/AudioButton.svelte";
   import PromptDialog from "../../global/elements/PromptDialog.svelte";
+  import CreateButton from "./elements/CreateButton.svelte";
+  import ImportWordmapButton from "./elements/ImportWordmapButton.svelte";
 </script>
 
 {#if $isWordmapCreatorOpen}
-  <PromptDialog title="New Wordmap" leaveAction={closeWordmapCreator}>
+  <PromptDialog
+    title="New Wordmap"
+    leaveAction={closeWordmapCreator}
+    class="h-1/2 w-2/5"
+  >
     <ImageButton />
 
-    <div class="column items-center">
+    <div class="column items-center max-w-min">
       <Input id="wordmap-title" placeholder="Title" maxlength={30} />
       <Input
         id="wordmap-description"
@@ -21,10 +27,12 @@
         maxlength={45}
         class="mt-4"
       />
+      <AudioButton />
     </div>
 
     <svelte:fragment slot="footer">
-      <AudioButton />
+      <ImportWordmapButton />
+      <CreateButton />
     </svelte:fragment>
   </PromptDialog>
 {/if}

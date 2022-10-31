@@ -4,9 +4,13 @@
 
   export let leaveAction: Function;
   export let title: string;
+
+  let clazz = "h-2/5 w-2/5";
+
+  export { clazz as class };
 </script>
 
-<GenericDialog>
+<GenericDialog class={clazz ?? ""}>
   <div class="center w-full h-fit top-4">
     <LeaveButton action={leaveAction} />
 

@@ -25,3 +25,7 @@ export function isEmpty(array: any[]) {
 export function readFile(path: string) {
   return fs.readFileSync(path, 'utf8');
 }
+
+export function readFileAsBuffer(path: string) {
+  return fs.readFileSync(path);
+}
