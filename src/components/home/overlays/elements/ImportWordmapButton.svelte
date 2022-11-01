@@ -12,22 +12,13 @@
     const wzFile = await openFilePrompt();
     let zip = await JSZip.loadAsync(readFileAsBuffer(wzFile.path));
 
-    let fetchCounter = 0;
-
     for (const [key] of Object.entries(zip.files)) {
       if (!key.endsWith("/")) {
         zip
           .file(key)
           .async("nodebuffer")
           .then(async (contentBuffer) => {
-            saveBuffer(wordmapsFolder + key, contentBuffer);
-
-            if (fetchCounter == 2) {
-              fetchWordmaps();
-              fetchCounter = 0;
-            } else {
-              fetchCounter++;
-            }
+            saveBuffer(wordmapsFolder + key, contentBuffer).then(fetchWordmaps);
           });
       }
     }
