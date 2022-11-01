@@ -26,6 +26,10 @@ module.exports = {
         "darker": "#6d40c9",
       },
 
+      'blue': {
+        "regular": "#5199ff"
+      },
+
       'red': {
         "regular": "#ff5151",
         "darker": "#c94040",

@@ -48,7 +48,7 @@
         action={() => shareWordmap(mapdata.id)}
         height="20"
         width="10"
-        class="hover-accent"
+        class="hover:bg-blue-regular"
       >
         <ShareIcon size="14" class="invert" />
       </LayoutButton>
