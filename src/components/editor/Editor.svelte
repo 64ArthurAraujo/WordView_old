@@ -166,7 +166,9 @@
         </ContainerRow>
 
         <ContainerRow>
-          <LyricsDeleteButton />
+          {#if $currentLyricPoint.timelineLocation != undefined}
+            <LyricsDeleteButton />
+          {/if}
         </ContainerRow>
       </Container>
     </Sidebar>
