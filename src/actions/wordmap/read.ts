@@ -4,6 +4,8 @@ import { createFolderIfDoesntExist, filesOf, isEmpty, noFilesIn, readFile } from
 import type { WordMap } from "../../types/wordmap";
 
 export function fetchWordmaps() {
+  console.log("Fetching wordmaps...")
+
   createFolderIfDoesntExist(wordmapsFolder);
 
   if (noFilesIn(wordmapsFolder))

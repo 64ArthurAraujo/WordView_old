@@ -1,25 +1,38 @@
 <script lang="ts">
   import JSZip from "jszip";
+  import { tick } from "svelte";
   import { openFilePrompt } from "../../../../actions/open-file-prompt";
+  import { fetchWordmaps } from "../../../../actions/wordmap";
+  import { closeWordmapCreator } from "../../../../stores/overlay";
   import { wordmapsFolder } from "../../../../util/constants";
   import { readFileAsBuffer, saveBuffer } from "../../../../util/file";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 
   async function importWZFile() {
     const wzFile = await openFilePrompt();
-
     let zip = await JSZip.loadAsync(readFileAsBuffer(wzFile.path));
+
+    let fetchCounter = 0;
 
     for (const [key] of Object.entries(zip.files)) {
       if (!key.endsWith("/")) {
         zip
           .file(key)
           .async("nodebuffer")
-          .then((contentBuffer) => {
+          .then(async (contentBuffer) => {
             saveBuffer(wordmapsFolder + key, contentBuffer);
+
+            if (fetchCounter == 2) {
+              fetchWordmaps();
+              fetchCounter = 0;
+            } else {
+              fetchCounter++;
+            }
           });
       }
     }
+
+    closeWordmapCreator();
   }
 </script>
 

@@ -18,15 +18,7 @@ export function saveFile(path: string, content: string | Buffer) {
 }
 
 export async function saveBuffer(path: string, content: Buffer) {
-  fs.writeFile(path, content, 'binary', (err) => {
-    if (err) {
-      console.log("There was an error writing the file")
-      console.error(err);
-    }
-    else {
-      console.log(`Saved ${path.split("/")[path.length - 1]} on wordmaps folder!`);
-    }
-  });
+  await fs.writeFileSync(path, content, 'binary');
 }
 
 export function deleteFile(path: string) {
