@@ -61,7 +61,7 @@
       in:fly={{ y: -10, duration: 250 }}
       out:fly={{ y: 10, duration: 500 }}
     >
-      <p class="ui-text p-4">
+      <p class="ui-text p-3">
         {$currentLyricPoint.text}
       </p>
     </div>
