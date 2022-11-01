@@ -54,16 +54,16 @@
   }, 1);
 </script>
 
-{#if isShowing}
-  <div
-    class="bg-black-focus opacity-75 bottom-0 mb-4 absolute z-20 rounded-md overflow-hidden"
-    in:fly={{ y: -10, duration: 250 }}
-    out:fly={{ y: 10, duration: 500 }}
-  >
-    <p class="ui-text p-4">
-      {#if $currentLyricPoint.text != undefined}
+{#if $currentLyricPoint.text != undefined}
+  {#if isShowing}
+    <div
+      class="bg-black-focus opacity-75 bottom-0 mb-4 absolute z-20 rounded-md overflow-hidden"
+      in:fly={{ y: -10, duration: 250 }}
+      out:fly={{ y: 10, duration: 500 }}
+    >
+      <p class="ui-text p-4">
         {$currentLyricPoint.text}
-      {/if}
-    </p>
-  </div>
+      </p>
+    </div>
+  {/if}
 {/if}
