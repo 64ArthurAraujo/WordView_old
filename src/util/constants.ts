@@ -3,9 +3,16 @@ export const appData = process.env.APPDATA || (
     process.env.HOME + "/.local/share"
 )
 
-export const wordmapsFolder = appData + "/wordview/wordmaps";
-export const wordviewFolder = appData + "/wordview";
+/** 
+ * Directory Separator 
+ * 
+ * Different depending on the host system.
+ * */
+export const dir = (process.platform == "win32") ? "\\" : "/";
 
-export const audiosFolder = wordmapsFolder + "/audio";
-export const thumbsFolder = wordmapsFolder + "/thumb";
-export const imagesFolder = wordmapsFolder + "/image";
+export const wordmapsFolder = appData + `${dir}wordview${dir}wordmaps`;
+export const wordviewFolder = appData + `${dir}wordview`;
+
+export const audiosFolder = wordmapsFolder + `${dir}audio`;
+export const thumbsFolder = wordmapsFolder + `${dir}thumb`;
+export const imagesFolder = wordmapsFolder + `${dir}image`;

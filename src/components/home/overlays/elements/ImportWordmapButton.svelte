@@ -1,10 +1,9 @@
 <script lang="ts">
   import JSZip from "jszip";
-  import { tick } from "svelte";
   import { openFilePrompt } from "../../../../actions/open-file-prompt";
   import { fetchWordmaps } from "../../../../actions/wordmap";
   import { closeWordmapCreator } from "../../../../stores/overlay";
-  import { wordmapsFolder } from "../../../../util/constants";
+  import { dir, wordmapsFolder } from "../../../../util/constants";
   import { readFileAsBuffer, saveBuffer } from "../../../../util/file";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 
@@ -18,7 +17,7 @@
           .file(key)
           .async("nodebuffer")
           .then(async (contentBuffer) => {
-            saveBuffer(`${wordmapsFolder}/${key}`, contentBuffer).then(
+            saveBuffer(`${wordmapsFolder}${dir}${key}`, contentBuffer).then(
               fetchWordmaps
             );
           });
