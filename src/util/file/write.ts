@@ -21,6 +21,10 @@ export async function saveBuffer(path: string, content: Buffer) {
   await fs.writeFileSync(path, content, 'binary');
 }
 
+export function copyFile(src: string, dest: string) {
+  fs.copyFileSync(src.replace("file://", ""), dest);
+}
+
 export function deleteFile(path: string) {
   try {
     if (fs.existsSync(path)) {

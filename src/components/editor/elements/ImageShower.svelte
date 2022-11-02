@@ -11,6 +11,7 @@
     currentPoint,
     currentWordmap,
   } from "../../../stores/wordmap/wordmap";
+  import { imagesFolder } from "../../../util/constants";
 
   let isShowing = false;
   let lastSrc = "";
@@ -46,7 +47,7 @@
       if (point == null) return;
 
       if (audio("editing-audio").currentTime >= point.timelineLocation) {
-        setPointImageSource(point.path);
+        setPointImageSource(`${imagesFolder}/${point.uuid}`);
         currentPoint.set(point);
       }
     }

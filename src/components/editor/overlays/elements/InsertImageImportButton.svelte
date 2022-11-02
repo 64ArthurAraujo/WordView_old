@@ -13,6 +13,9 @@
     input,
     inputIsEmpty,
   } from "../../../../util/web";
+  import { copyFile, createFolderIfDoesntExist } from "../../../../util/file";
+  import { imagesFolder, wordmapsFolder } from "../../../../util/constants";
+  import { randomUUID } from "crypto";
 
   let wordmap: WordMap = $currentWordmap;
 
@@ -27,12 +30,17 @@
       return;
     }
 
+    let imageUUID = randomUUID();
+
+    createFolderIfDoesntExist(imagesFolder);
+    copyFile(imageImport.src, `${imagesFolder}/${imageUUID}`);
+
     wordmap.points.push({
       timelineLocation: Number.parseFloat(locationInput.value),
       fadeIn: 100,
       fadeOut: 100,
       type: "image",
-      path: imageImport.src,
+      uuid: imageUUID,
     });
 
     saveCurrentWordmap();

@@ -16,7 +16,7 @@ export interface Point {
   fadeIn: number;
   fadeOut: number;
   type: PointType;
-  path: string;
+  uuid: string;
 }
 
 export interface LyricPoint {

@@ -27,7 +27,7 @@
   import InsertLyricsButton from "./containers/elements/InsertLyricsButton.svelte";
   import CreateLyricsOverlay from "./overlays/CreateLyricsOverlay.svelte";
   import LyricsShower from "./elements/LyricsShower.svelte";
-  import { currentLyricPoint, setLyricPoint } from "../../stores/overlay";
+  import { currentLyricPoint } from "../../stores/overlay";
   import LyricsDeleteButton from "./containers/elements/LyricsDeleteButton.svelte";
   import LyricPropertyRow from "./containers/elements/LyricPropertyRow.svelte";
 
@@ -43,9 +43,7 @@
 
   function showImportImage() {
     showingImportImage = true;
-
     pause();
-
     currentAudioTime = audio("editing-audio").currentTime;
   }
 
@@ -55,9 +53,7 @@
 
   function showCreateLyrics() {
     showingCreateLyrics = true;
-
     pause();
-
     currentAudioTime = audio("editing-audio").currentTime;
   }
 
