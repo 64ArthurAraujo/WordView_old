@@ -30,6 +30,7 @@
   import { currentLyricPoint } from "../../stores/overlay";
   import LyricsDeleteButton from "./containers/elements/LyricsDeleteButton.svelte";
   import LyricPropertyRow from "./containers/elements/LyricPropertyRow.svelte";
+  import { audiosFolder, dir } from "../../util/constants";
 
   let showingImportImage: boolean;
   let showingCreateDoodle: boolean;
@@ -80,7 +81,7 @@
     <!-- svelte-ignore component-name-lowercase -->
     <audio
       id="editing-audio"
-      src={`${$currentWordmap.audioPath}`}
+      src={`${audiosFolder}${dir}${$currentWordmap.id}`}
       type="audio/mpeg"
     />
     <div class="screen bg-black-light" />

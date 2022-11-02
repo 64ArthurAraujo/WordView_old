@@ -3,13 +3,28 @@
   import { openFilePrompt } from "../../../../actions/open-file-prompt";
   import { fetchWordmaps } from "../../../../actions/wordmap";
   import { closeWordmapCreator } from "../../../../stores/overlay";
-  import { dir, wordmapsFolder } from "../../../../util/constants";
-  import { readFileAsBuffer, saveBuffer } from "../../../../util/file";
+  import {
+    audiosFolder,
+    dir,
+    imagesFolder,
+    system,
+    thumbsFolder,
+    wordmapsFolder,
+  } from "../../../../util/constants";
+  import {
+    createFolderIfDoesntExist,
+    readFileAsBuffer,
+    saveBuffer,
+  } from "../../../../util/file";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 
   async function importWZFile() {
     const wzFile = await openFilePrompt();
     let zip = await JSZip.loadAsync(readFileAsBuffer(wzFile.path));
+
+    createFolderIfDoesntExist(audiosFolder);
+    createFolderIfDoesntExist(imagesFolder);
+    createFolderIfDoesntExist(thumbsFolder);
 
     for (const [key] of Object.entries(zip.files)) {
       if (!key.endsWith("/")) {
@@ -17,7 +32,13 @@
           .file(key)
           .async("nodebuffer")
           .then(async (contentBuffer) => {
-            saveBuffer(`${wordmapsFolder}${dir}${key}`, contentBuffer).then(
+            let folder = key;
+
+            if (system == "win32") {
+              folder = folder.replace("/", "\\");
+            }
+
+            saveBuffer(`${wordmapsFolder}${dir}${folder}`, contentBuffer).then(
               fetchWordmaps
             );
           });

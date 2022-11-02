@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import { closeWordmapCreator } from "../../stores/overlay";
 import { updateRecentWordmaps } from "../../stores/wordmap";
-import { audiosFolder, thumbsFolder } from "../../util/constants";
+import { audiosFolder, dir, thumbsFolder } from "../../util/constants";
 import { createFolderIfDoesntExist, deleteFile } from "../../util/file";
 import { removeWordmapFromRecents } from "../recent";
 import { fetchWordmaps } from "./read";
@@ -23,8 +23,8 @@ export function createWordmap(audio: string, title: string, description: string,
     title: title,
     description: description,
     durationInMiliseconds: 0,
-    thumbPath: `${thumbsFolder}/${wordmapId}` ?? "",
-    audioPath: `${audiosFolder}/${wordmapId}`,
+    thumbPath: `${thumbsFolder}${dir}${wordmapId}` ?? "",
+    audioPath: `${audiosFolder}${dir}${wordmapId}`,
     points: [],
     lyrics: [],
   });
