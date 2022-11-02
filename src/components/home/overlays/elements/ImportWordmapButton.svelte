@@ -18,7 +18,9 @@
           .file(key)
           .async("nodebuffer")
           .then(async (contentBuffer) => {
-            saveBuffer(wordmapsFolder + key, contentBuffer).then(fetchWordmaps);
+            saveBuffer(`${wordmapsFolder}/${key}`, contentBuffer).then(
+              fetchWordmaps
+            );
           });
       }
     }
