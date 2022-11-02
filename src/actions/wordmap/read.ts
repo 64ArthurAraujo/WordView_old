@@ -31,7 +31,7 @@ function processWordmaps(files: string[]) {
   let wordmaps = [];
 
   for (const file of files) {
-    let wordmap = readFile(wordmapsFolder + file);
+    let wordmap = readFile(`${wordmapsFolder}/${file}`);
     wordmaps.push(JSON.parse(wordmap) as WordMap);
   }
 

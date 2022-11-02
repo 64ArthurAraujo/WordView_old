@@ -40,7 +40,7 @@ export function saveCurrentWordmap() {
   currentWordmap.subscribe(async wordmap => {
     if (wordmap.id == undefined) return;
 
-    await fs.writeFileSync(wordmapsFolder + `${wordmap.id}.wordmap.json`, JSON.stringify(wordmap));
+    await fs.writeFileSync(`${wordmapsFolder}/${wordmap.id}.wordmap.json`, JSON.stringify(wordmap));
   })
 }
 
