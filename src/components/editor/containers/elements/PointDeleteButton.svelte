@@ -2,6 +2,7 @@
   import { tick } from "svelte";
   import { Trash2Icon } from "svelte-feather-icons";
   import { fetchWordmaps } from "../../../../actions/wordmap";
+  import { imageFor } from "../../../../actions/wordmap/util";
   import { notify } from "../../../../stores/overlay";
   import {
     currentPointPosition,
@@ -9,12 +10,17 @@
     saveCurrentWordmap,
     currentPoint,
   } from "../../../../stores/wordmap/wordmap";
+  import { imagesFolder } from "../../../../util/constants";
+  import { deleteFile } from "../../../../util/file";
   import { audio } from "../../../../util/web";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 
   async function action() {
-    let currentPointIndexLocation = currentPointPosition();
-    $currentWordmap.points.splice(currentPointIndexLocation, 1);
+    let currentPointIndex = currentPointPosition();
+
+    deleteFile(imageFor($currentWordmap.points[currentPointIndex].uuid));
+
+    $currentWordmap.points.splice(currentPointIndex, 1);
 
     saveCurrentWordmap();
     fetchWordmaps();
