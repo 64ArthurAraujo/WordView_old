@@ -14,7 +14,7 @@
     inputIsEmpty,
   } from "../../../../util/web";
   import { copyFile, createFolderIfDoesntExist } from "../../../../util/file";
-  import { imagesFolder, wordmapsFolder } from "../../../../util/constants";
+  import { imagesFolder } from "../../../../util/constants";
   import { randomUUID } from "crypto";
 
   let wordmap: WordMap = $currentWordmap;

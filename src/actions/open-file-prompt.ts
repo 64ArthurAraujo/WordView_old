@@ -1,5 +1,5 @@
 export function openFilePrompt(): Promise<File> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve,) => {
     let fileInput: HTMLInputElement = document.createElement("input");
 
     fileInput.type = "file";

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Edit2Icon, ShareIcon, Trash2Icon } from "svelte-feather-icons";
+  import { Edit2Icon, ShareIcon } from "svelte-feather-icons";
   import { scale } from "svelte/transition";
   import { openToEdit, openToPlay } from "../../../actions/overlay";
   import type { WordMap } from "../../../types/wordmap";

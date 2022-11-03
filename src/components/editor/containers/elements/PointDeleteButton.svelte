@@ -10,7 +10,6 @@
     saveCurrentWordmap,
     currentPoint,
   } from "../../../../stores/wordmap/wordmap";
-  import { imagesFolder } from "../../../../util/constants";
   import { deleteFile } from "../../../../util/file";
   import { audio } from "../../../../util/web";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";

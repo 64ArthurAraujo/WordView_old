@@ -8,8 +8,6 @@
   import WordmapImage from "../../global/elements/WordmapImage.svelte";
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
   import { shareWordmap } from "./action/wordmap";
-  import { identity } from "svelte/internal";
-
   export let mapdata: WordMap;
 
   let deleteDialog: DeleteDialog;
