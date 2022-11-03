@@ -1,8 +1,8 @@
-import { dir, wordviewFolder } from "../../util/constants";
+import { path, wordviewFolder } from "../../util/constants";
 import { createFileIfDoesntExist } from "../../util/file";
 import type { WordMap } from "../wordmap";
 
-export const recentWordmapsFilePath = `${wordviewFolder}${dir}recent-wordmaps.json`;
+export const recentWordmapsFilePath = path(`${wordviewFolder}/recent-wordmaps.json`);
 
 export function createRecentsFileIfDoesntExist() {
   createFileIfDoesntExist(recentWordmapsFilePath, '{"recent": []}');

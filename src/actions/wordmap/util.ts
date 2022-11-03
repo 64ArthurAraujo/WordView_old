@@ -1,19 +1,19 @@
-import { audiosFolder, dir, imagesFolder, thumbsFolder, wordmapsFolder } from "../../util/constants";
+import { audiosFolder, imagesFolder, path, thumbsFolder, wordmapsFolder } from "../../util/constants";
 import type { WordMap } from "../../types/wordmap";
 import { wordmaps } from "../../stores/wordmap";
 
 const fs = require("fs");
 
 export function save(wordmap: WordMap) {
-  fs.writeFileSync(`${wordmapsFolder}${dir}${wordmap.id}.wordmap.json`, JSON.stringify(wordmap));
+  fs.writeFileSync(path(`${wordmapsFolder}/${wordmap.id}.wordmap.json`,), JSON.stringify(wordmap));
 }
 
 export function moveAudioToWordViewFolder(audioPath: string, wordmapId: string) {
-  fs.copyFileSync(audioPath, `${audiosFolder}${dir}${wordmapId}`);
+  fs.copyFileSync(audioPath, path(`${audiosFolder}/${wordmapId}`));
 }
 
 export function moveThumbToWordViewFolder(thumbPath: string, wordmapId: string) {
-  fs.copyFileSync(thumbPath.replace("file://", ""), `${thumbsFolder}${dir}${wordmapId}`);
+  fs.copyFileSync(thumbPath.replace("file://", ""), path(`${thumbsFolder}/${wordmapId}`));
 }
 
 export function thumbWasSet(thumb: string) {
@@ -38,7 +38,7 @@ export function allImagePointsOf(uuid: string) {
   return result;
 }
 
-export function wordmapOf(uuid: string) { return (`${wordmapsFolder}${dir}${uuid}.wordmap.json`); }
-export function audioOf(uuid: string) { return (`${audiosFolder}${dir}${uuid}`); }
-export function thumbOf(uuid: string) { return (`${thumbsFolder}${dir}${uuid}`); }
-export function imageFor(uuid: string) { return (`${imagesFolder}${dir}${uuid}`); }
+export function wordmapOf(uuid: string) { return path(`${wordmapsFolder}/${uuid}.wordmap.json`); }
+export function audioOf(uuid: string) { return path(`${audiosFolder}/${uuid}`); }
+export function thumbOf(uuid: string) { return path(`${thumbsFolder}/${uuid}`); }
+export function imageFor(uuid: string) { return path(`${imagesFolder}/${uuid}`); }

@@ -5,8 +5,8 @@
   import { closeWordmapCreator } from "../../../../stores/overlay";
   import {
     audiosFolder,
-    dir,
     imagesFolder,
+    path,
     system,
     thumbsFolder,
     wordmapsFolder,
@@ -38,7 +38,7 @@
               folder = folder.replace("/", "\\");
             }
 
-            saveBuffer(`${wordmapsFolder}${dir}${folder}`, contentBuffer).then(
+            saveBuffer(path(`${wordmapsFolder}/${folder}`), contentBuffer).then(
               fetchWordmaps
             );
           });
