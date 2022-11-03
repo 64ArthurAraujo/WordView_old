@@ -3,7 +3,7 @@
   import WordmapCreator from "./components/home/overlays/WordmapCreator.svelte";
   import Topbar from "./components/home/elements/Topbar.svelte";
   import WordmapContainer from "./components/home/WordmapContainer.svelte";
-  import { notificationMessage } from "./stores/overlay";
+  import { notificationMessage, updateSuccessfull } from "./stores/overlay";
   import PlusButton from "./components/home/elements/PlusButton.svelte";
   import WordmapPlayer from "./components/editor/WordmapPlayer.svelte";
   import { wordmaps } from "./stores/wordmap/wordmap";
@@ -13,6 +13,15 @@
   import LayoutButton from "./components/global/buttons/LayoutButton.svelte";
   import { fetchWordmaps } from "./actions/wordmap";
   import VerticalCenter from "./components/global/elements/VerticalCenter.svelte";
+  import { checkForUpdate } from "./update";
+  import { onMount } from "svelte";
+  import WordViewUpdater from "./components/home/overlays/WordViewUpdater.svelte";
+  import UpdateProgress from "./components/home/overlays/UpdateProgress.svelte";
+  import ShowUpdateDone from "./components/home/overlays/ShowUpdateDone.svelte";
+
+  onMount(() => {
+    checkForUpdate();
+  });
 </script>
 
 <main>
@@ -47,6 +56,11 @@
   <WordmapCreator />
   <WordmapPlayer />
   <Editor />
+
+  <WordViewUpdater />
+  <UpdateProgress />
+  <ShowUpdateDone />
+
   <NotificationContainer>
     {$notificationMessage}
   </NotificationContainer>

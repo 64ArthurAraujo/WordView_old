@@ -5,7 +5,7 @@
   export let leaveAction: Function;
   export let title: string;
 
-  let clazz = "h-2/5 w-2/5";
+  let clazz = "p-4";
 
   export { clazz as class };
 </script>
@@ -14,7 +14,7 @@
   <div class="center w-full h-fit top-4">
     <LeaveButton action={leaveAction} />
 
-    <h2 class="flex ui-text mt-4">{title}</h2>
+    <h2 class="flex ui-text mt-1">{title}</h2>
   </div>
 
   <div class="center row w-full mt-8">
