@@ -14,7 +14,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-    }
+    },
   });
 
   mainWindow.loadURL(`file://${path.join(__dirname, "../public/index.html")}`);
@@ -22,7 +22,10 @@ function createWindow() {
   mainWindow.maximize();
   mainWindow.menuBarVisible = false;
 
+  mainWindow.setAutoHideMenuBar(true);
+
   mainWindow.on("closed", () => mainWindow = null);
+
 }
 
 app.on("ready", createWindow);
