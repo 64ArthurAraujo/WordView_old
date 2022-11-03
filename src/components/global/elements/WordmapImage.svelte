@@ -4,7 +4,7 @@
 
   export let mapdata: WordMap;
 
-  let fileDoExist;
+  let fileDoExist: boolean;
 
   if (mapdata.thumbPath != "") {
     fileDoExist = fileExists(mapdata.thumbPath);

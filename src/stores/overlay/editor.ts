@@ -31,7 +31,7 @@ export function setLyricPoint(point: LyricPoint) {
 }
 
 export function currentLyricPosition() {
-  let result;
+  let result: number;
 
   let unsubPoint = currentLyricPoint.subscribe(lyricPoint => {
     let unsubWordmap = currentWordmap.subscribe(wordmap => {
