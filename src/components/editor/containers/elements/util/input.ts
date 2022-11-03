@@ -24,10 +24,6 @@ export function changePropertyFromCurrentPoint(property: WordMapProperty, newPro
         point.fadeOut = Number.parseFloat(newProperty);
         break;
 
-      case "path":
-        point.path = newProperty;
-        break;
-
       case "timelineLocation":
         point.timelineLocation = Number.parseFloat(newProperty);
         break;
