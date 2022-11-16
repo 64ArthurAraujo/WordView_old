@@ -9,7 +9,7 @@
   let isShowing = false;
   let fadeOutCounter = 0;
 
-  let lastText = "";
+  let lastTime = -1;
 
   setInterval(() => {
     if (isUndefined($currentWordmap.lyrics)) return;
@@ -39,7 +39,7 @@
   setInterval(() => {
     if ($audioPaused) return;
 
-    if ($currentLyricPoint.text != lastText) {
+    if ($currentLyricPoint.timelineLocation != lastTime) {
       console.log("Lyric changed!");
       fadeOutCounter = 0;
       isShowing = true;
@@ -49,7 +49,7 @@
       }
     }
 
-    lastText = $currentLyricPoint.text;
+    lastTime = $currentLyricPoint.timelineLocation;
     fadeOutCounter++;
   }, 1);
 </script>
