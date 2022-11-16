@@ -40,7 +40,7 @@
     if ($audioPaused) return;
 
     if ($currentLyricPoint.timelineLocation != lastTime) {
-      console.log("Lyric changed!");
+      console.log("Caption changed!");
       fadeOutCounter = 0;
       isShowing = true;
     } else {

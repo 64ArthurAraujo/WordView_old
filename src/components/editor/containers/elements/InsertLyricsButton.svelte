@@ -7,5 +7,5 @@
 
 <LayoutButton {action} width="2.5" height="2.5" class="center">
   <TypeIcon size="15" class="invert mr-2" />
-  <p class="ui-text-darker">Lyrics</p>
+  <p class="ui-text-darker">Captions</p>
 </LayoutButton>

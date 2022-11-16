@@ -139,7 +139,7 @@
         </ContainerRow>
       </Container>
 
-      <Container header="Lyrics Properties" class="mt-1">
+      <Container header="Caption Properties" class="mt-1">
         <ContainerRow>
           {#if $currentLyricPoint.text != undefined}
             <LyricPropertyRow

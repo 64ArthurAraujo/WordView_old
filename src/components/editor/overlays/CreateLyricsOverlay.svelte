@@ -41,9 +41,9 @@
 </script>
 
 {#if showingCreateLyrics}
-  <PromptDialog title="New Lyrics Text" leaveAction={hideCreateLyrics}>
+  <PromptDialog title="New Caption Text" leaveAction={hideCreateLyrics}>
     <div class="column">
-      <Input type="text" placeholder="Lyrics..." id="lyrics" class="mb-4" />
+      <Input type="text" placeholder="Caption..." id="lyrics" class="mb-4" />
       <Input
         type="text"
         placeholder="Location..."
@@ -59,7 +59,7 @@
         height="10"
         class="hover-accent w-72"
       >
-        <p class="ui-text-darker">Insert lyrics</p>
+        <p class="ui-text-darker">Insert caption</p>
       </LayoutButton>
     </svelte:fragment>
   </PromptDialog>

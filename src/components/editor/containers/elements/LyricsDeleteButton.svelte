@@ -27,13 +27,13 @@
     audio("editing-audio").currentTime =
       $currentLyricPoint.timelineLocation ?? 0;
 
-    notify(2500, "Lyric deleted!");
+    notify(2500, "Caption deleted!");
   }
 </script>
 
 {#if $currentPoint.type != undefined}
   <LayoutButton {action} width="2.5" height="2.5" class="hover-warn center">
     <Trash2Icon size="15" class="invert mr-2" />
-    <p class="ui-text-darker">Delete Lyric</p>
+    <p class="ui-text-darker">Delete Caption</p>
   </LayoutButton>
 {/if}
