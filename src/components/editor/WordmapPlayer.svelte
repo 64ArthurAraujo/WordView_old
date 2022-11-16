@@ -17,7 +17,7 @@
   }
 
   function checkImagePointsExist() {
-    if ($currentWordmap.points.length <= 0) {
+    if ($currentWordmap.points.length <= 0 && $currentWordmap.lyrics.length <= 0) {
       notify(
         10000,
         "This wordmap does not have any image points, you can add one by clicking in the pen icon on the start menu."
