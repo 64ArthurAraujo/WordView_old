@@ -4,7 +4,7 @@
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
   import { input, inputIsEmpty } from "../../../util/web";
   import { notify } from "../../../stores/overlay";
-  import { currentWordmap, saveCurrentWordmap } from "../../../stores/wordmap";
+  import { currentWordmap, isThereLyricsAt, saveCurrentWordmap } from "../../../stores/wordmap";
   import type { LyricPoint } from "../../../types/wordmap";
 
   export let showingCreateLyrics: boolean;
@@ -18,6 +18,11 @@
 
     if (inputIsEmpty(lyrics) || inputIsEmpty(location)) {
       notify(1000, "Please fill all the inputs!");
+      return;
+    }
+
+    if (isThereLyricsAt(Number.parseFloat(location.value))) {
+      notify(2500, `There is already a lyric at '${location.value}'`)
       return;
     }
 

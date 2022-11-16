@@ -5,6 +5,7 @@
   import { notify } from "../../../../stores/overlay";
   import {
     currentWordmap,
+    isThereAImageAt,
     saveCurrentWordmap,
   } from "../../../../stores/wordmap/wordmap";
   import {
@@ -13,6 +14,7 @@
     input,
     inputIsEmpty,
   } from "../../../../util/web";
+  import { randomUUID } from "crypto";
 
   let wordmap: WordMap = $currentWordmap;
 
@@ -27,12 +29,19 @@
       return;
     }
 
+    if (isThereAImageAt(Number.parseFloat(locationInput.value))) {
+      notify(2500, `There is already a image at '${locationInput.value}'`)
+      return;
+    }
+
+    let imageUUID = randomUUID();
+
     wordmap.points.push({
       timelineLocation: Number.parseFloat(locationInput.value),
       fadeIn: 100,
       fadeOut: 100,
       type: "image",
-      path: imageImport.src,
+      uuid: imageUUID,
     });
 
     saveCurrentWordmap();

@@ -5,6 +5,7 @@
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
   import {
     currentWordmap,
+    isThereAImageAt,
     saveCurrentWordmap,
   } from "../../../../stores/wordmap/wordmap";
   import {
@@ -27,6 +28,11 @@
 
     if (imageHasNoSource(imageImport) || inputIsEmpty(locationInput)) {
       notify(1000, "Please fill all the inputs!");
+      return;
+    }
+
+    if (isThereAImageAt(Number.parseFloat(locationInput.value))) {
+      notify(2500, `There is already a image at '${locationInput.value}'`)
       return;
     }
 

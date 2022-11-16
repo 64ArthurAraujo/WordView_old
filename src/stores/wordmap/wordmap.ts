@@ -63,3 +63,35 @@ export function currentPointPosition() {
 
   return result;
 }
+
+export function isThereAImageAt(location: number) {
+  let result = false;
+
+  let unsub = currentWordmap.subscribe(wordmap => {
+    for (const point of wordmap.points) {
+      if (point.timelineLocation == location) {
+        result = true;
+      }
+    }
+  })
+
+  unsub();
+
+  return result;
+}
+
+export function isThereLyricsAt(location: number) {
+  let result = false;
+
+  let unsub = currentWordmap.subscribe(wordmap => {
+    for (const lyric of wordmap.lyrics) {
+      if (lyric.timelineLocation == location) {
+        result = true;
+      }
+    }
+  })
+  
+  unsub();
+
+  return result;
+}
