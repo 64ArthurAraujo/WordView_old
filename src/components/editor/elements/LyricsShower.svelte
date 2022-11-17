@@ -2,9 +2,9 @@
   import { fly } from "svelte/transition";
   import { currentLyricPoint, setLyricPoint } from "../../../stores/overlay";
   import { currentWordmap, audioPaused } from "../../../stores/wordmap";
-  import type { LyricPoint } from "../../../types/wordmap";
   import { isArrayEmpty, isUndefined } from "../../../util/ts";
   import { audio } from "../../../util/web";
+  import { clearLyric, sortLyricBasedOnTimelineLocation } from "./function";
 
   let isShowing = false;
   let fadeOutCounter = 0;
@@ -15,14 +15,10 @@
     if (isUndefined($currentWordmap.lyrics)) return;
     if (isArrayEmpty($currentWordmap.lyrics)) return;
 
-    let orderLyrics = $currentWordmap.lyrics.sort((a, b) =>
-      a.timelineLocation > b.timelineLocation ? -1 : 1
-    );
-
-    orderLyrics.reverse();
+    let orderLyrics = sortLyricBasedOnTimelineLocation($currentWordmap.lyrics).reverse();
 
     if (orderLyrics[0].timelineLocation > audio("editing-audio").currentTime) {
-      setLyricPoint({} as LyricPoint);
+      clearLyric();
       isShowing = false;
     }
 

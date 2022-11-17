@@ -3,7 +3,7 @@
   import WordmapCreator from "./components/home/overlays/WordmapCreator.svelte";
   import Topbar from "./components/home/elements/Topbar.svelte";
   import WordmapContainer from "./components/home/WordmapContainer.svelte";
-  import { notificationMessage, updateSuccessfull } from "./stores/overlay";
+  import { notificationMessage } from "./stores/overlay";
   import PlusButton from "./components/home/elements/PlusButton.svelte";
   import WordmapPlayer from "./components/editor/WordmapPlayer.svelte";
   import { wordmaps } from "./stores/wordmap/wordmap";

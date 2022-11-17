@@ -1,44 +1,34 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
-  import type { Point } from "../../../actions/wordmap";
   import { audio } from "../../../util/web";
   import {
     currentPointImageSource,
-    setPointImageSource,
   } from "../../../stores/overlay";
   import {
     audioPaused,
-    currentPoint,
     currentWordmap,
   } from "../../../stores/wordmap/wordmap";
-  import { imagesFolder } from "../../../util/constants";
+  import { clearImage, setPoint, sortBasedOnTimelineLocation } from "./function";
 
   let isShowing = false;
   let lastSrc = "";
   let fadeOutCounter = 0;
 
-  setInterval(async () => {
+  setInterval(() => {
     if ($currentWordmap.points == undefined) return;
 
-    let orderedPoints = $currentWordmap.points.sort((a, b) =>
-      a.timelineLocation > b.timelineLocation ? -1 : 1
-    );
-
-    orderedPoints.reverse();
+    let orderedPoints = sortBasedOnTimelineLocation($currentWordmap.points).reverse();
 
     if (orderedPoints.length <= 0) {
-      currentPoint.set({} as Point);
-      setPointImageSource("");
+      clearImage();
       isShowing = false;
-
       return;
     }
 
     if (
       orderedPoints[0].timelineLocation > audio("editing-audio").currentTime
     ) {
-      currentPoint.set({} as Point);
-      setPointImageSource("");
+      clearImage();
       isShowing = false;
     }
 
@@ -47,8 +37,7 @@
       if (point == null) return;
 
       if (audio("editing-audio").currentTime >= point.timelineLocation) {
-        setPointImageSource(`${imagesFolder}/${point.uuid}`);
-        currentPoint.set(point);
+        setPoint(point);
       }
     }
   }, 1);
