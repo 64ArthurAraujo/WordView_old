@@ -12,7 +12,7 @@
 </script>
 
 {#if $isWordmapCreatorOpen}
-  <PromptDialog title="New Wordmap" leaveAction={closeWordmapCreator}>
+  <PromptDialog title="New Song" leaveAction={closeWordmapCreator}>
     <ImageButton />
 
     <div class="column items-center max-w-min">

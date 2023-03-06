@@ -21,11 +21,11 @@
     >
       <FrownIcon size="48" class="invert mb-2" />
       <h4 class="ui-text align-middle">
-        <b>You dont have any wordmaps yet...</b>
+        <b>You dont have any songs yet...</b>
       </h4>
     </div>
   {:else}
-    <Titlebar header="Your Wordmaps" class="mt-2 w-full">
+    <Titlebar header="Your Songs" class="mt-2 w-full">
       <div class="w-full center column">
         {#each $wordmaps as wordmap}
           <Wordmap mapdata={wordmap} />

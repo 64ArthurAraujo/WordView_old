@@ -39,7 +39,7 @@
         width="32"
         height="8"
         action={fetchWordmaps}
-        ><p class="ui-text">Refresh Wordmaps</p></LayoutButton
+        ><p class="ui-text">Refresh Songs</p></LayoutButton
       >
     </VerticalCenter>
   </Topbar>

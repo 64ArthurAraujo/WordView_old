@@ -11,7 +11,7 @@
 </script>
 
 {#if showingImportImage}
-  <PromptDialog title="New Image Point" leaveAction={hideImportImage}>
+  <PromptDialog title="New Image" leaveAction={hideImportImage}>
     <ImageButton />
     <div>
       <h2 class="ui-text mb-2">Location</h2>

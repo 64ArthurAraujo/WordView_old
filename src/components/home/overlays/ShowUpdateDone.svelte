@@ -5,6 +5,8 @@
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
 
   let dir = require("os").homedir();
+
+  // todo: improve this update
 </script>
 
 {#if $updateSuccessfull}
