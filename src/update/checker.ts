@@ -8,8 +8,6 @@ const client = axios.create({ baseURL: "https://api.github.com/repos/64ArthurAra
 export async function checkForUpdate() {
   let latest = await latestVersion();
 
-  console.log(latest);
-
   if (latest.tag_name != appinfo.version) {
     showNewVersion(latest.tag_name, latest.body);
   }
