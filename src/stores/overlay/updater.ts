@@ -14,14 +14,6 @@ export function closeUpdateOverlay() {
   updateOverlayIsOpen.set(false);
 }
 
-
-
-
-
-
-
-
-
 export const updateProgressIsOpen = writable(false);
 
 export const updateSuccessfull = writable(false);

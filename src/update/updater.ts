@@ -54,5 +54,6 @@ function ext() {
 }
 
 function message(msg: string) {
+  console.log(msg);
   updateProgressCurrentState.set(LocaleString(msg));
 }

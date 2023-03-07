@@ -31,6 +31,6 @@ export function deleteFile(path: string) {
       fs.unlinkSync(path);
     }
   } catch (err) {
-    notify(5000, err);
+    console.error(err)
   }
 }

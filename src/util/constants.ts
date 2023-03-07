@@ -15,7 +15,8 @@ export const thumbsFolder = path(`${wordmapsFolder}/thumb`);
 export const imagesFolder = path(`${wordmapsFolder}/image`);
 
 /**
- * Translates the path to the current operating system.
+ * Translates the path to match the host's system.
+ * @param path 
  */
 export function path(path: string) {
   if (system == "win32") {
