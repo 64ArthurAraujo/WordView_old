@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createWordmap } from "../../../../actions/wordmap";
+  import { LocaleString } from "../../../../localization";
   import { notify } from "../../../../stores/overlay";
   import {
     image,
@@ -49,7 +50,7 @@
     const { title, description, audio, audioType } = wordmapInfo();
 
     if (audioType !== "audio/mpeg") {
-      notify(1000, `Invalid audio type: ${audioType}`);
+      notify(1000, "Invalid audio type: {placeholder}", audioType);
       return;
     }
 
@@ -64,5 +65,5 @@
 </script>
 
 <LayoutButton height="12" width="2/5" action={makeWordmap} class="hover-accent">
-  <h4 class="text-white-darker">Create</h4>
+  <h4 class="text-white-darker">{LocaleString("Create")}</h4>
 </LayoutButton>

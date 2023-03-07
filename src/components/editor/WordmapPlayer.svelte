@@ -20,7 +20,7 @@
     if ($currentWordmap.points.length <= 0 && $currentWordmap.lyrics.length <= 0) {
       notify(
         10000,
-        "This song does not have any image points, you can add one by clicking in the pen icon on the start menu."
+        "This song was not edited yet, you can start editing by clicking in the pen icon in the main menu."
       );
     }
   }
@@ -31,7 +31,6 @@
     <audio
       id="editing-audio"
       src={`${$currentWordmap.audioPath}`}
-      type="audio/mpeg"
     />
     <div class="screen bg-black-light" />
 

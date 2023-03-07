@@ -17,6 +17,7 @@
   import { copyFile, createFolderIfDoesntExist } from "../../../../util/file";
   import { imagesFolder } from "../../../../util/constants";
   import { randomUUID } from "crypto";
+  import { LocaleString } from "../../../../localization";
 
   let wordmap: WordMap = $currentWordmap;
 
@@ -32,7 +33,7 @@
     }
 
     if (isThereAImageAt(Number.parseFloat(locationInput.value))) {
-      notify(2500, `There is already a image at '${locationInput.value}'`)
+      notify(2500, "There is already a image at '{placeholder}'", locationInput.value)
       return;
     }
 
@@ -61,5 +62,5 @@
   height="10"
   class="hover-accent w-72"
 >
-  <p class="ui-text-darker">Insert</p>
+  <p class="ui-text-darker">{LocaleString("Insert")}</p>
 </LayoutButton>

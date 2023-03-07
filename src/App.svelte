@@ -18,6 +18,7 @@
   import WordViewUpdater from "./components/home/overlays/WordViewUpdater.svelte";
   import UpdateProgress from "./components/home/overlays/UpdateProgress.svelte";
   import ShowUpdateDone from "./components/home/overlays/ShowUpdateDone.svelte";
+  import { LocaleString } from "./localization";
 
   onMount(() => {
     checkForUpdate();
@@ -39,7 +40,7 @@
         width="32"
         height="8"
         action={fetchWordmaps}
-        ><p class="ui-text">Refresh Songs</p></LayoutButton
+        ><p class="ui-text">{LocaleString("Refresh songs")}</p></LayoutButton
       >
     </VerticalCenter>
   </Topbar>

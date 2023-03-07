@@ -2,6 +2,7 @@
   import JSZip from "jszip";
   import { openFilePrompt } from "../../../../actions/open-file-prompt";
   import { fetchWordmaps } from "../../../../actions/wordmap";
+  import { LocaleString } from "../../../../localization";
   import { closeWordmapCreator } from "../../../../stores/overlay";
   import {
     audiosFolder,
@@ -50,5 +51,5 @@
 </script>
 
 <LayoutButton height="12" width="2/5" action={importWZFile} class="mr-4">
-  <h4 class="text-white-darker">Import...</h4>
+  <h4 class="text-white-darker">{LocaleString("Import...")}</h4>
 </LayoutButton>

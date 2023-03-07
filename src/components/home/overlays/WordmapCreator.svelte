@@ -9,17 +9,18 @@
   import PromptDialog from "../../global/elements/PromptDialog.svelte";
   import CreateButton from "./elements/CreateButton.svelte";
   import ImportWordmapButton from "./elements/ImportWordmapButton.svelte";
+  import { LocaleString } from "../../../localization";
 </script>
 
 {#if $isWordmapCreatorOpen}
-  <PromptDialog title="New Song" leaveAction={closeWordmapCreator}>
+  <PromptDialog title={LocaleString("New Song")} leaveAction={closeWordmapCreator}>
     <ImageButton />
 
     <div class="column items-center max-w-min">
-      <Input id="wordmap-title" placeholder="Title" maxlength={30} />
+      <Input id="wordmap-title" placeholder={LocaleString("Title")} maxlength={30} />
       <Input
         id="wordmap-description"
-        placeholder="Description"
+        placeholder={LocaleString("Description")}
         maxlength={45}
         class="mt-4"
       />

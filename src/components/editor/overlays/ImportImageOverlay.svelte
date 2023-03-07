@@ -3,6 +3,7 @@
   import InsertImageImportButton from "./elements/InsertImageImportButton.svelte";
   import ImageButton from "../../home/overlays/elements/ImageButton.svelte";
   import PromptDialog from "../../global/elements/PromptDialog.svelte";
+  import { LocaleString } from "../../../localization";
 
   export let showingImportImage: boolean;
   export let currentAudioTime: number;
@@ -11,13 +12,13 @@
 </script>
 
 {#if showingImportImage}
-  <PromptDialog title="New Image" leaveAction={hideImportImage}>
+  <PromptDialog title={LocaleString("New Image")} leaveAction={hideImportImage}>
     <ImageButton />
     <div>
-      <h2 class="ui-text mb-2">Location</h2>
+      <h2 class="ui-text mb-2">{LocaleString("Location")}</h2>
       <Input
         type="text"
-        placeholder="Location..."
+        placeholder={LocaleString("Location...")}
         id="location"
         value={currentAudioTime.toString()}
       />

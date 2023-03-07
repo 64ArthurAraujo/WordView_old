@@ -27,7 +27,7 @@
     await tick();
 
     audio("editing-audio").currentTime = $currentPoint.timelineLocation ?? 0;
-    notify(2500, "Point deleted!");
+    notify(2500, "Image Deleted!");
   }
 </script>
 

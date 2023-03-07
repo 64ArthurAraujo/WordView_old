@@ -6,6 +6,7 @@
   import { notify } from "../../../stores/overlay";
   import { currentWordmap, isThereLyricsAt, saveCurrentWordmap } from "../../../stores/wordmap";
   import type { LyricPoint } from "../../../types/wordmap";
+  import { LocaleString } from "../../../localization";
 
   export let showingCreateLyrics: boolean;
   export let currentAudioTime: number;
@@ -22,7 +23,7 @@
     }
 
     if (isThereLyricsAt(Number.parseFloat(location.value))) {
-      notify(2500, `There is already a lyric at '${location.value}'`)
+      notify(2500, "There is already a lyric at '{placeholder}'", location.value)
       return;
     }
 
@@ -41,12 +42,12 @@
 </script>
 
 {#if showingCreateLyrics}
-  <PromptDialog title="New Caption Text" leaveAction={hideCreateLyrics}>
+  <PromptDialog title={LocaleString("New Caption Text")} leaveAction={hideCreateLyrics}>
     <div class="column">
-      <Input type="text" placeholder="Caption..." id="lyrics" class="mb-4" />
+      <Input type="text" placeholder={LocaleString("Caption...")} id="lyrics" class="mb-4" />
       <Input
         type="text"
-        placeholder="Location..."
+        placeholder={LocaleString("Location...")}
         id="location"
         value={currentAudioTime.toString()}
       />
@@ -59,7 +60,7 @@
         height="10"
         class="hover-accent w-72"
       >
-        <p class="ui-text-darker">Insert caption</p>
+        <p class="ui-text-darker">{LocaleString("Insert caption")}</p>
       </LayoutButton>
     </svelte:fragment>
   </PromptDialog>

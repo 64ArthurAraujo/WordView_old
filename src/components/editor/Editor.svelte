@@ -31,6 +31,7 @@
   import LyricsDeleteButton from "./containers/elements/LyricsDeleteButton.svelte";
   import LyricPropertyRow from "./containers/elements/LyricPropertyRow.svelte";
   import { audiosFolder, path } from "../../util/constants";
+  import { LocaleString } from "../../localization";
 
   let showingImportImage: boolean;
   let showingCreateDoodle: boolean;
@@ -82,7 +83,6 @@
     <audio
       id="editing-audio"
       src={path(`${audiosFolder}/${$currentWordmap.id}`)}
-      type="audio/mpeg"
     />
     <div class="screen bg-black-light" />
     <Playfield>
@@ -93,7 +93,7 @@
     <Sidebar>
       <LeaveButton action={exit} />
 
-      <Container header="Elements" class="mt-16">
+      <Container header={LocaleString("Elements")} class="mt-16">
         <ContainerRow>
           <InsertImageButton action={showImportImage} />
         </ContainerRow>
@@ -110,13 +110,13 @@
     </Sidebar>
 
     <Sidebar direction="right">
-      <Container header="Image Properties" class="mt-1">
+      <Container header={LocaleString("Image Properties")} class="mt-1">
         <ContainerRow>
           {#if $currentPoint.timelineLocation != undefined}
             <PropertyRow
-              title="Timeline Location"
+              title={LocaleString("Timeline Location")}
               inputValue={$currentPoint?.timelineLocation.toString()}
-              inputPlaceholder="Location..."
+              inputPlaceholder={LocaleString("Location...")}
               property="timelineLocation"
             />
           {/if}
@@ -125,9 +125,9 @@
         <ContainerRow>
           {#if $currentPoint.type != undefined}
             <PropertyRow
-              title="Element Type"
+              title={LocaleString("Element Type")}
               inputValue={$currentPoint?.type}
-              inputPlaceholder="Type..."
+              inputPlaceholder={LocaleString("Type...")}
               property="type"
               disabled={true}
             />
@@ -139,13 +139,13 @@
         </ContainerRow>
       </Container>
 
-      <Container header="Caption Properties" class="mt-1">
+      <Container header={LocaleString("Caption Properties")} class="mt-1">
         <ContainerRow>
           {#if $currentLyricPoint.text != undefined}
             <LyricPropertyRow
-              title="Text"
+              title={LocaleString("Text")}
               inputValue={$currentLyricPoint?.text}
-              inputPlaceholder="Text..."
+              inputPlaceholder={LocaleString("Text...")}
               property="text"
             />
           {/if}
@@ -154,9 +154,9 @@
         <ContainerRow>
           {#if $currentLyricPoint.timelineLocation != undefined}
             <LyricPropertyRow
-              title="Timeline Location"
+              title={LocaleString("Timeline Location")}
               inputValue={$currentLyricPoint?.timelineLocation.toString()}
-              inputPlaceholder="Location..."
+              inputPlaceholder={LocaleString("Location...")}
               property="timelineLocation"
             />
           {/if}

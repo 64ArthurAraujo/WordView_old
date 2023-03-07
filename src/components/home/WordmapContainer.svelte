@@ -3,6 +3,7 @@
   import { FrownIcon } from "svelte-feather-icons";
   import { fly } from "svelte/transition";
   import { fetchWordmaps } from "../../actions/wordmap";
+  import { LocaleString } from "../../localization";
   import { wordmaps } from "../../stores/wordmap/wordmap";
   import Titlebar from "./elements/Titlebar.svelte";
   import Wordmap from "./elements/Wordmap.svelte";
@@ -25,7 +26,7 @@
       </h4>
     </div>
   {:else}
-    <Titlebar header="Your Songs" class="mt-2 w-full">
+    <Titlebar header={LocaleString("Your songs")} class="mt-2 w-full">
       <div class="w-full center column">
         {#each $wordmaps as wordmap}
           <Wordmap mapdata={wordmap} />

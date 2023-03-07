@@ -4,6 +4,7 @@
   import { recentWordmaps, updateRecentWordmaps } from "../../stores/wordmap";
   import Titlebar from "./elements/Titlebar.svelte";
   import SmallWordmap from "./elements/SmallWordmap.svelte";
+  import { LocaleString } from "../../localization";
 
   onMount(() => {
     updateRecentWordmaps();
@@ -15,7 +16,7 @@
     class="w-full max-h-max column center static pt-12"
     transition:scale={{ duration: 250 }}
   >
-    <Titlebar header="Recent Songs" class="mt-2 w-full">
+    <Titlebar header={LocaleString("Recent songs")} class="mt-2 w-full">
       <div class="w-full row center static">
         {#each $recentWordmaps as mapdata}
           <SmallWordmap {mapdata} />

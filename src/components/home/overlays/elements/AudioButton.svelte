@@ -1,5 +1,6 @@
 <script lang="ts">
   import { openFilePrompt } from "../../../../actions/open-file-prompt";
+  import { LocaleString } from "../../../../localization";
   import LayoutButton from "../../../global/buttons/LayoutButton.svelte";
 
   let selectedSource: string = undefined;
@@ -24,5 +25,5 @@
   action={setAudio}
   class="mt-4 overflow-hidden"
 >
-  <h4 class="text-white-darker">{selectedSource ?? "Open Audio File..."}</h4>
+  <h4 class="text-white-darker">{selectedSource ?? LocaleString("Open Audio File...")}</h4>
 </LayoutButton>

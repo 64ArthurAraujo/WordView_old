@@ -1,4 +1,5 @@
 import { writable } from "svelte/store";
+import { LocaleString } from "../../localization";
 
 export const updateVersion = writable("");
 export const updateDescription = writable("");
@@ -25,7 +26,7 @@ export const updateProgressIsOpen = writable(false);
 
 export const updateSuccessfull = writable(false);
 
-export const updateProgressCurrentState = writable("Starting update process...");
+export const updateProgressCurrentState = writable(LocaleString("Starting update process..."));
 
 export function openUpdateProgress() {
   updateProgressIsOpen.set(true);

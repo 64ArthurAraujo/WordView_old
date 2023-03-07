@@ -1,4 +1,5 @@
 import axios from "axios";
+import { LocaleString } from "../localization";
 import { closeUpdateOverlay, closeUpdateProgress, openUpdateProgress, updateProgressCurrentState, updateSuccessfull } from "../stores/overlay";
 import type { GithubRelease } from "../types/update";
 import { path, system } from "../util/constants";
@@ -53,5 +54,5 @@ function ext() {
 }
 
 function message(msg: string) {
-  updateProgressCurrentState.set(msg);
+  updateProgressCurrentState.set(LocaleString(msg));
 }

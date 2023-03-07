@@ -9,11 +9,12 @@
   import appinfo from "../../../../package.json";
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
   import { update } from "../../../update";
+  import { LocaleString } from "../../../localization";
 </script>
 
 {#if $updateOverlayIsOpen}
   <PromptDialog
-    title="A new update is available"
+    title={LocaleString("A new update is available")}
     leaveAction={closeUpdateOverlay}
   >
     <div class="column center p-4 mb-4">
@@ -26,7 +27,7 @@
 
     <svelte:fragment slot="footer">
       <LayoutButton width="1/2" height="12" action={update} class="hover-accent"
-        ><p class="ui-text">Update</p></LayoutButton
+        ><p class="ui-text">{LocaleString("Update")}</p></LayoutButton
       >
     </svelte:fragment>
   </PromptDialog>
