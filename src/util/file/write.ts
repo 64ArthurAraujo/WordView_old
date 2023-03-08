@@ -1,4 +1,3 @@
-import { notify } from "../../stores/overlay";
 const fs = require("fs");
 
 export function createFolderIfDoesntExist(path: string) {

@@ -22,8 +22,8 @@ export async function update() {
 
   let file = await axios.get(binaryUrl, { responseType: 'blob' });
 
-  message("Saving the file in the home directory...")
-  await saveBuffer(path(`${require('os').homedir()}/WordView.${ext()}`), Buffer.from(await file.data.arrayBuffer()));
+  message(`Saving the file in '${process.cwd()}'...`)
+  await saveBuffer(path(`${process.cwd()}/WordView.${ext()}`), Buffer.from(await file.data.arrayBuffer()));
 
   closeUpdateProgress();
   updateSuccessfull.set(true);

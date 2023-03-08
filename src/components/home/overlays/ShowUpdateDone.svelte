@@ -3,10 +3,6 @@
   import GenericDialog from "../../global/elements/GenericDialog.svelte";
   import { CheckIcon } from "svelte-feather-icons";
   import LayoutButton from "../../global/buttons/LayoutButton.svelte";
-
-  let dir = require("os").homedir();
-
-  // todo: improve this update
 </script>
 
 {#if $updateSuccessfull}
@@ -16,7 +12,7 @@
       <h1 class="ui-text mt-4 text-center">
         Download Completed! <br />
         Your new executable is located at <br />
-        <b>{dir}</b>
+        <b>{process.cwd()}</b>
       </h1>
 
       <LayoutButton
